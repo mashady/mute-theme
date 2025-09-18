@@ -1,0 +1,206 @@
+/*
+ Theme Name:   Razzi Child
+ Text Domain: mute
+ Domain Path: /languages
+ Theme URI:    https://razziwp.com/
+ Description:  Child theme for Razzi
+ Author:       Samir
+ Author URI:   https://razziwp.com/
+ Template:     razzi
+ Version:      1.0.0
+*/
+
+/* Import parent theme styles */
+@import url("../razzi/style.css");
+
+html {
+  margin: 0 !important;
+  padding-top: 20px !important;
+  padding-right: 20px !important;
+  padding-left: 20px !important;
+}
+.hero .cards-container {
+  /* margin-top: 50px !important; */
+  margin-bottom: 50px !important;
+}
+p {
+  margin: 0 !important;
+  padding: 0 !important;
+}
+.wp-block-image img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+/** header styles */
+/* General Header Styles */
+.main-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 20;
+  padding: 6px 1rem;
+  margin-top: 50px;
+}
+
+.header-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.header-logo {
+  display: flex;
+  gap: 0.75rem;
+}
+
+.logo-link {
+  padding: 10px 1rem;
+  color: white;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.nav-menu,
+.contact-btn-container {
+  display: none;
+}
+
+.nav-link {
+  padding: 10px 1rem;
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+  color: #d1d5db;
+}
+
+.contact-btn {
+  padding: 10px 1rem;
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.contact-btn:hover {
+  color: #d1d5db;
+}
+
+/* Mobile Menu Button (Hamburger) */
+.menu-toggle {
+  display: block;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  z-index: 30;
+}
+
+.hamburger {
+  display: block;
+  width: 25px;
+  height: 3px;
+  background-color: white;
+}
+
+/* Mobile Menu Container */
+.mobile-menu {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  width: 96%;
+  margin-top: 1rem;
+  margin: 5px;
+  background-color: rgba(9, 12, 19, 0.8);
+  border-radius: 0.375rem;
+  padding: 1rem 0;
+  transition: all 0.3s ease-in-out;
+}
+
+.mobile-menu.open {
+  display: flex;
+}
+
+.mobile-link {
+  padding: 10px 1rem;
+  color: white;
+  font-size: 1.125rem;
+  font-weight: 600;
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.mobile-link:hover {
+  background-color: rgba(55, 65, 81, 0.7);
+}
+
+.mobile-contact-btn {
+  margin-top: 0.5rem;
+  border-top: 1px solid rgba(75, 85, 99, 0.5);
+  padding-top: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .main-header {
+    padding: 6px 4rem;
+  }
+
+  .nav-menu,
+  .contact-btn-container {
+    display: flex;
+  }
+
+  .nav-menu {
+    gap: 0.75rem;
+  }
+
+  .menu-toggle,
+  .mobile-menu {
+    display: none;
+  }
+}
+.hamburger-icon {
+  width: 30px;
+  height: 30px;
+  color: white !important;
+}
+
+/** archive pages pagination */
+.custom-pagination {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.custom-pagination a,
+.custom-pagination span {
+  padding: 6px 12px;
+  border: 1px solid #ddd;
+  text-decoration: none;
+  color: #333;
+  border-radius: 4px;
+}
+
+.custom-pagination span.active {
+  background: #0073aa;
+  color: #fff;
+  border-color: #0073aa;
+}
+
+.custom-pagination a:hover {
+  background: #f0f0f0;
+}

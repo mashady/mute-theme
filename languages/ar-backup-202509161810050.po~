@@ -1,0 +1,86 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Razzi Child\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-14 14:11+0000\n"
+"PO-Revision-Date: 2025-09-16 17:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: Arabic\n"
+"Language: ar\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100 >= 3 "
+"&& n%100<=10 ? 3 : n%100 >= 11 && n%100<=99 ? 4 : 5;\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Loco https://localise.biz/\n"
+"X-Loco-Version: 2.8.0; wp-6.8.2; php-8.2.27\n"
+"X-Domain: mute"
+
+#. Name of the template
+#: page-blog.php:2
+msgid "Blog Page"
+msgstr "المقالات"
+
+#. Description of the theme
+msgid "Child theme for Razzi"
+msgstr ""
+
+#. Name of the template
+#: page-contact-us.php:2
+msgid "Contact Us"
+msgstr "تواصل معنا "
+
+#: templates/partials/hero.php:14
+msgid ""
+"Experience premium sound isolation solutions designed to transform your "
+"spaces into havens of calm, focus, and productivity."
+msgstr ""
+"استمتع بحلول عزل الصوت المتميزة المصممة لتحويل مساحاتك إلى ملاذات من الهدوء "
+"والتركيز والإنتاجية."
+
+#. Name of the template
+#: page-home.php:2
+msgid "Home Page"
+msgstr "الصفحة الرئيسية"
+
+#. URI of the theme
+#. Author URI of the theme
+msgid "https://razziwp.com/"
+msgstr ""
+
+#: archive-service.php:98
+msgid "Next »"
+msgstr "التالي"
+
+#: archive-service.php:55
+msgid "No image"
+msgstr "لا توجد صور"
+
+#: archive-service.php:108
+msgid "No services found."
+msgstr "لا توجد خدمات"
+
+#: archive-service.php:15
+msgid "Our Services"
+msgstr "خدماتنا"
+
+#. Name of the template
+#: archive-project.php:2
+msgid "Projects Page"
+msgstr "المشاريع"
+
+#. Name of the theme
+msgid "Razzi Child"
+msgstr ""
+
+#. Author of the theme
+msgid "Samir"
+msgstr ""
+
+#: templates/partials/hero.php:9
+msgid "Silence is a Form of Luxury"
+msgstr "الصمت هو شكل من أشكال الترف"
+
+#: archive-service.php:97
+msgid "« Prev"
+msgstr "السابق"
