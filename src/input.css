@@ -2,23 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-/** PUBLIC CONFIGURATION */
-@layer base {
-  body {
-    font-family: Poppins, sans-serif !important;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    @apply font-inter;
-  }
-}
-/** PUBLIC CONFIGURATION */
-
 /* Add your custom styles below */
 @layer components {
   .btn-primary {
@@ -28,4 +11,9 @@
   .wp-block-group {
     @apply my-8;
   }
+}
+
+.section-container {
+  @apply mx-auto p-4;
+  max-width: 1440px;
 }
