@@ -19,13 +19,19 @@ html {
   padding-right: 20px !important;
   padding-left: 20px !important;
 }
+
+@media screen and (max-width: 768px) {
+  html {
+    font-size: 25px;
+  }
+}
+
 .hero .cards-container {
   /* margin-top: 50px !important; */
   margin-bottom: 50px !important;
 }
 p {
   margin: 0 !important;
-  padding: 0 !important;
 }
 .wp-block-image img {
   height: 100%;

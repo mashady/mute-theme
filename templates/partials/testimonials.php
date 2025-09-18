@@ -1,4 +1,4 @@
-<section class="p-4 mb-[219px] relative">
+<section class="p-4 mb-[219px] relative section-container">
     <h2 class="text-black font-[Inter] text-[40px] font-normal leading-normal text-left md:text-left mb-6">
         <?php echo esc_html__('What Our Clients Say', 'mute'); ?>
     </h2>

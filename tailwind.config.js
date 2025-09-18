@@ -8,7 +8,6 @@ module.exports = {
     "./**/*.html", // All HTML files
     "./**/*.js", // All JS files
     "./*.php", // Root PHP files
-    "./blocks/**/*.js",
     // Add specific template files if needed:
     // './header.php',
     // './footer.php',
@@ -19,12 +18,20 @@ module.exports = {
     extend: {
       // Add custom colors, fonts, etc. here
       colors: {
-        primary: "#0073aa",
+        primary: "#34413A",
         secondary: "#d54e21",
-      },
-      fontFamily: {
-        inter: ["Inter", "sans-serif"],
-        poppins: ["Poppins", "sans-serif"],
+        "Primary-Green": {
+          50: "#F7F8F7",
+          100: "#D5DAD8",
+          200: "#B7C0BB",
+          300: "#97A49D",
+          400: "#77887F",
+          500: "#576C61",
+          600: "#46564E",
+          700: "#34413A",
+          800: "#232B27",
+          900: "#111613",
+        },
       },
     },
   },

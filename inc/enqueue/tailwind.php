@@ -11,4 +11,4 @@ function enqueue_tailwind_css() {
         filemtime(get_stylesheet_directory() . '/dist/output.css') 
     );
 }
-add_action('wp_enqueue_scripts', 'enqueue_tailwind_css');   
+add_action('wp_enqueue_scripts', 'enqueue_tailwind_css');
