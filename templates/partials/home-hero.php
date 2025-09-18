@@ -1,9 +1,9 @@
 <section class=" relative flex flex-col justify-center items-start min-h-[90vh] bg-cover bg-center overflow-hidden "
     id="home-hero-container">
-
+    <!-- poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Hero.png" -->
     <!-- Background video: autoplay, muted, loop, playsinline -->
     <video class="absolute inset-0 w-full h-full object-cover -z-10" autoplay muted loop playsinline
-        poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Hero.png">
+        >
         <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/videos/heroVid.mp4" type="video/mp4">
         <!-- Fallback image for browsers that don't support video -->
         Your browser does not support the video tag.
@@ -59,11 +59,9 @@ html {
 }
 </style>
 <!-- GSAP animation: animate container then title and subtitle -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
-    integrity="sha512-pvQYx1n8g+1V9p0bHq2a1Q2rE7wz1oG7xv8aC6Zxq9Qe1Q2rE7wz1oG7xv8aC6Zxq9Q==" crossorigin="anonymous"
-    referrerpolicy="no-referrer"></script>
+
 <script>
-(function() {
+document.addEventListener("DOMContentLoaded", function() {
     // Wait for DOM ready
     function ready(fn) {
         if (document.readyState !== 'loading') fn();
@@ -136,7 +134,6 @@ html {
         }
 
         // expand book-appointment-box to fill hero on hover and show centered CTA
-        var box = document.getElementById('book-appointment-box');
         if (box) {
             var isExpanded = false;
             var placeholder = null;
@@ -155,7 +152,10 @@ html {
                 ov.style.textAlign = 'center';
                 ov.style.padding = '1.5rem';
                 ov.style.boxSizing = 'border-box';
-
+                ov.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
+                ov.style.height = '100%';
+                ov.style.width = '100%';
+                ov.style.cursor = 'pointer';
                 var title = document.createElement('div');
                 title.textContent = 'Book your appointment now';
                 title.style.color = '#ffffff';
@@ -319,5 +319,5 @@ html {
             });
         }
     });
-})();
+});
 </script>

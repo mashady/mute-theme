@@ -54,7 +54,7 @@
         <p
             class="text-white font-[400] font-inter text-[80px] sm:text-[120px] md:text-[160px] lg:text-[200px] xl:text-[230px] leading-none">
             Mute
-        </p> -->
+        </p> 
     </div>
 </footer>
 
@@ -67,13 +67,14 @@
 
 .overlay {
     z-index: 1;
+    opacity: 1;
 }
 </style>
 <script>
 // ✅ Updated initCardAnimation to hide ALL .card-content blocks
 function initCardAnimation(card, options = {}) {
     const {
-        clipOrigin = "10px 10px",
+        clipOrigin = "85% 10px",
             overlayColor = "#ff4757",
             zIndex = "10"
     } = options;
@@ -235,7 +236,6 @@ document.addEventListener("DOMContentLoaded", function() {
     document.querySelectorAll(".card").forEach((card, i) => {
         // Determine color from data-color attribute or fall back to defaults
         const cardColor = card.getAttribute('data-color') || (i === 0 ? '#4B5D53' : '#34413A');
-
         // Add arrow button if not already present
         if (!card.querySelector('.card-arrow')) {
             const arrowWrapper = document.createElement('p');
