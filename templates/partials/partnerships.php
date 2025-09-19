@@ -14,7 +14,10 @@
     <div class="flex flex-col md:flex-row gap-5 w-full min-h-[350px]">
 
         <div
-            class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 bg-[#576C61] min-h-[256px] relative overflow-hidden">
+            class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 bg-[#576C61] min-h-[256px] relative overflow-hidden"
+            data-title="Start With a Free Consultation"
+            data-description="Custom acoustic and isolation strategies designed around your space — expert planning that reduces noise and saves time."
+            data-link="/shop/consultation/">
             <div class="overlay absolute inset-0 rounded-[24px]"></div>
 
             <div class="card-content flex flex-row justify-between items-center gap-2 w-full relative z-10">
@@ -36,17 +39,14 @@
                 </p>
             </div>
 
-            <div class="expanded-content relative z-10 mt-4">
-                <p class="text-sm text-gray-200">
-                    Consultation & Design
-                </p>
-                <button style="line-height:40px" class="w-[150px] h-[40px] bg-white text-black rounded-lg mt-3">Book
-                    now</button>
-            </div>
+
         </div>
 
         <div
-            class="card flex flex-col justify-between flex-1 h-[400px] rounded-[24px] text-white p-6 bg-[#46564E] min-h-[256px] relative overflow-hidden">
+            class="card flex flex-col justify-between flex-1 h-[400px] rounded-[24px] text-white p-6 bg-[#46564E] min-h-[256px] relative overflow-hidden"
+            data-title="Keep Systems Performing"
+            data-description="Scheduled maintenance and upgrades to ensure your acoustic investment keeps delivering top performance."
+            data-link="/shop/support/">
             <div class="overlay absolute inset-0 rounded-[24px]"></div>
 
             <div class="card-content flex flex-row justify-between items-center gap-2 w-full relative z-10">
@@ -69,17 +69,14 @@
                 </p>
             </div>
 
-            <div class="expanded-content relative z-10 mt-4">
-                <p class="text-sm text-gray-200">
-                    Support & Maintenance
-                </p>
-                <button style="line-height:40px" class="w-[150px] h-[40px] bg-white text-black rounded-lg mt-3">Get
-                    support</button>
-            </div>
+
         </div>
 
         <div
-            class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 bg-[#34413A] min-h-[256px] relative overflow-hidden">
+            class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 bg-[#34413A] min-h-[256px] relative overflow-hidden"
+            data-title="Professional Installation & Build"
+            data-description="End-to-end installation by certified teams — from panels to full-room buildouts, we handle every detail."
+            data-link="/shop/installation/">
             <div class="overlay absolute inset-0 rounded-[24px]"></div>
 
             <div class="card-content flex flex-row justify-between items-center gap-2 w-full relative z-10">
@@ -102,13 +99,6 @@
                 </p>
             </div>
 
-            <div class="expanded-content relative z-10 mt-4">
-                <p class="text-sm text-gray-200">
-                    Installation & Build
-                </p>
-                <button style="line-height:40px" class="w-[150px] h-[40px] bg-white text-black rounded-lg mt-3">Learn
-                    more</button>
-            </div>
         </div>
 
     </div>

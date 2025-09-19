@@ -1,4 +1,4 @@
-<section class="p-4 mb-[219px] sound-studios-section section-container">
+<section class=" sound-studios-section section-container">
 
 
     <?php
@@ -13,15 +13,18 @@
     ?>
 
     <div class="flex flex-col gap-4 min-h-[536px] ">
-        <div class="relative flex-1 flex flex-col justify-end items-start text-white rounded-[24px] p-6 min-h-[536px]  bg-cover bg-center bg-no-repeat opacity-0 main-card"
+            <div class="relative flex-1 flex flex-col justify-end items-start text-white rounded-[24px] p-6 min-h-[536px]  bg-cover bg-center bg-no-repeat opacity-0 main-card"
+            data-title="Build Your Signature Studio"
+            data-description="Turn any space into a pro-grade studio with turnkey isolation and acoustic design that performs beautifully and looks great."
+            data-link="/shop/studio-solutions/"
             style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/fom.png');">
             <div class="absolute inset-0 rounded-[24px] bg-gradient-to-b from-transparent via-black/60 to-[#0C0101]">
             </div>
             <div class="relative z-10 lg:max-w-[800px]">
-                <h1 class="text-white  text-6xl font-normal leading-[120%] mb-2">
+                <h2 class="text-white  text-4xl font-normal leading-[120%] mb-2">
                     Your Studio Your Story
-                </h1>
-                <p class="text-white font-inter text-2xl font-light leading-[120%]">
+                </h2>
+                <p class="text-white font-inter text-lg font-light leading-[120%]">
                     Experience premium sound isolation solutions designed to transform your spaces into havens of calm,
                     focus, and productivity.
                 </p>
@@ -29,12 +32,15 @@
         </div>
 
         <div class="flex md:flex-row flex-col  gap-5 w-full">
-            <div class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 min-h-[256px] relative  bg-cover  bg-[#232B27] bg-right-bottom bg-no-repeat "
+            <div class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 min-h-[350px] relative  bg-cover  bg-[#232B27] bg-right-bottom bg-no-repeat "
+                data-title="Pro-Grade Microphones — RØDE"
+                data-description="Discover RØDE microphones selected for clarity and character — the perfect mic for recording, streaming, or live work."
+                data-link="/shop/microphones/"
                 style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/rode-micro.png'); background-size: 500px;">
 
                 <div class="overlay absolute inset-0 bg-black/40 rounded-[24px]"></div>
 
-                <div class="card-content flex flex-row justify-between items-center gap-2 w-full relative z-10">
+                <div class="card-content ">
 
                     <svg width="84" height="50" viewBox="0 0 84 50" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_2418_1897)">
@@ -62,32 +68,29 @@
                     </svg>
 
 
+                    <div class="w-full relative z-10 mt-auto">
+    
+                            <h2 class="card-title">
+                                All the RØDE Mics You Need
+                            </h2>
+                            <p class="card-description">
+                                Dynamic, USB, wireless find the right mic for every setup in our shop
+                            </p>
+                    </div>
                 </div>
 
-                <div class="card-content w-full relative z-10 mt-auto">
-                    <h2 class="text-white font-[Poppins] text-[24px] font-normal leading-[120%]">
-                        All the RØDE Mics You Need
-                    </h2>
-                    <p class="text-white font-inter text-[16px] font-light leading-[120%] max-w-[500px]">
-                        Dynamic, USB, wireless find the right mic for every setup in our shop
-                    </p>
-                </div>
 
-                <div class="expanded-content z-10 mt-4 h-full  flex-col justify-end ">
-                    <p class="text-sm text-gray-200">
-                        Shop Acoustic Products
-                    </p>
-                    <button style="line-height:40px" class="w-[150px] h-[40px] bg-white text-black rounded-lg mt-3">Shop
-                        now</button>
-                </div>
             </div>
 
-            <div class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 min-h-[256px] relative  bg-cover  bg-[#232B27] bg-right bg-no-repeat "
+            <div class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 min-h-[350px] relative  bg-cover  bg-[#232B27] bg-right-bottom bg-no-repeat "
+                data-title="Capture Every Moment — Nikon"
+                data-description="Shop curated Nikon cameras and lenses for creators at every level — crisp results, reliable gear."
+                data-link="/shop/cameras/"
                 style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/camera.png'); background-size: 400px;">
 
                 <div class="overlay absolute inset-0 bg-black/40 rounded-[24px]"></div>
 
-                <div class="card-content flex flex-row justify-between items-center gap-2 w-full relative z-10 ">
+                <div class="card-content  ">
                     <svg width="84" height="18" viewBox="0 0 84 18" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <g clip-path="url(#clip0_2421_1936)">
                             <path
@@ -113,27 +116,18 @@
                         </defs>
                     </svg>
 
-                </div>
-                <div class="card-content w-full relative z-10 mt-auto">
-                    <div class="w-full flex flex-col gap-3 ">
-                        <h2 class="text-white font-[Poppins] text-[24px] font-normal leading-[120%]">
-                            Shop the Best Nikon Cameras
-                        </h2>
-                        <p class="text-white font-inter text-[16px] font-light leading-[120%] max-w-[500px]">
-                            Discover our complete collection designed for every skill level and style.
-                        </p>
+                    <div class="w-full relative z-10 mt-auto">
+                            <h2 class="card-title">
+                                Shop the Best Nikon Cameras
+                            </h2>
+                            <p class="card-description">
+                                Discover our complete collection designed for every skill level and style.
+                            </p>
                     </div>
                 </div>
 
 
-                <div class="expanded-content relative z-10 mt-4">
-                    <p class="text-sm text-gray-200">
-                        Shop
-                        Isolation Products
-                    </p>
-                    <button style="line-height:40px" class="w-[150px] h-[40px] bg-white text-black rounded-lg mt-3">Shop
-                        now</button>
-                </div>
+   
             </div>
 
         </div>

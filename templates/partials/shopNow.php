@@ -14,66 +14,52 @@ Available Here',
 
     <div class="flex flex-col md:flex-row gap-5 w-full">
         <div class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 min-h-[256px] relative  bg-cover bg-center"
+            data-title="Transform Your Room’s Sound"
+            data-description="Shop premium acoustic panels & treatments to sharpen audio clarity and warmth—fast shipping."
+            data-link="/shop/acoustic-products/"
             style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/shop1.png');">
 
             <div class="overlay absolute inset-0 bg-black/40 rounded-[24px]"></div>
 
-            <div class="card-content flex flex-row justify-between items-center gap-2 w-full relative z-10">
+            <div class="card-content ">
 
                 <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#34413A] text-sm">
                     See our projects
                 </p>
-
-            </div>
-
-            <div class="card-content w-full relative z-10 mt-auto">
-                <h2 class="text-white font-[Poppins] text-[24px] font-normal leading-[120%]">
-                    Shop Acoustic Products
-                </h2>
-                <p class="text-white font-inter text-[16px] font-light leading-[120%]">
-                    Enhance sound clarity and balance inside your room
-                </p>
-            </div>
-
-            <div class="expanded-content z-10 mt-4 h-full  flex-col justify-end ">
-                <p class="text-sm text-gray-200">
-                    Shop Acoustic Products
-                </p>
-                <button style="line-height:40px" class="w-[150px] h-[40px] bg-white text-black rounded-lg mt-3">Shop
-                    now</button>
-            </div>
-        </div>
-
-        <div class="card flex flex-col  flex-1 h-[400px] rounded-[24px] text-white p-6 min-h-[256px] relative  bg-cover bg-center"
-            style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/shop2.png');">
-
-            <div class="overlay absolute inset-0 bg-black/40 rounded-[24px]"></div>
-
-            <div class="card-content flex flex-row justify-between items-center gap-2 w-full relative z-10 ">
-                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#34413A] text-sm">
-                    See our projects
-                </p>
-            </div>
-            <div class="card-content w-full relative z-10 mt-auto">
-                <div class="w-full flex flex-col gap-3 ">
-                    <h2 class="text-white font-[Poppins] text-[24px] font-normal leading-[120%]">
-                        Shop
-                        Isolation Products
-                    </h2>
-                    <p class="text-white font-inter text-[16px] font-light leading-[120%]">
-                        Block unwanted noise and build a perfectly isolated space.
+                <div class="w-full relative z-10 mt-auto">
+                    <p class="card-title ">
+                        Shop Acoustic Products
+                    </p>
+                    <p class="card-description ">
+                        Enhance sound clarity and balance inside your room
                     </p>
                 </div>
             </div>
 
 
-            <div class="expanded-content relative z-10 mt-4">
-                <p class="text-sm text-gray-200">
-                    Shop
-                    Isolation Products
+
+        </div>
+
+        <div class="card flex flex-col  flex-1 h-[400px] rounded-[24px] text-white p-6 min-h-[256px] relative  bg-cover bg-center"
+            data-title="Silence, Engineered"
+            data-description="Create distraction-free spaces with proven isolation systems — quieter rooms, happier teams."
+            data-link="/shop/isolation-products/"
+            style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/shop2.png');">
+
+            <div class="overlay absolute inset-0 bg-black/40 rounded-[24px]"></div>
+
+            <div class="card-content ">
+                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#34413A] text-sm">
+                    See our projects
                 </p>
-                <button style="line-height:40px" class="w-[150px] h-[40px] bg-white text-black rounded-lg mt-3">Shop
-                    now</button>
+                <div class="w-full relative z-10 mt-auto">
+                        <h2 class="card-title">
+                            Shop Isolation Products
+                        </h2>
+                        <p class="card-description">
+                            Block unwanted noise and build a perfectly isolated space.
+                        </p>
+                </div>
             </div>
         </div>
 

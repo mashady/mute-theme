@@ -14,6 +14,18 @@
 }
 
 .section-container {
-  @apply mx-auto p-4;
+  @apply mx-auto p-4 mb-16 min-h-screen flex flex-col justify-center ;
   max-width: 1440px;
+}
+
+.card-content{
+  @apply flex flex-col justify-between items-start gap-2 w-full relative z-10 h-full;
+}
+
+.card-content .card-title {
+  @apply text-white font-[Poppins] text-2xl font-normal;
+}
+
+.card-content .card-description {
+  /* @apply text-white font-[inter] text-md font-light; */
 }

@@ -13,16 +13,6 @@
             </ul>
         </div>
 
-        <!-- Column 2 -->
-        <div>
-            <h3 class="text-lg font-semibold text-gray-300 mb-4">Solutions</h3>
-            <ul class="space-y-2">
-                <li><a href="#" class="text-white hover:text-blue-400 transition">Isolation</a></li>
-                <li><a href="#" class="text-white hover:text-blue-400 transition">External apps</a></li>
-                <li><a href="#" class="text-white hover:text-blue-400 transition">Integration</a></li>
-                <li><a href="#" class="text-white hover:text-blue-400 transition">Self-hosting</a></li>
-            </ul>
-        </div>
 
         <!-- Column 3 -->
         <div>
@@ -33,15 +23,7 @@
             </ul>
         </div>
 
-        <!-- Column 4 -->
-        <div>
-            <h3 class="text-lg font-semibold text-gray-300 mb-4">Company</h3>
-            <ul class="space-y-2">
-                <li><a href="#" class="text-white hover:text-blue-400 transition">About</a></li>
-                <li><a href="#" class="text-white hover:text-blue-400 transition">Careers</a></li>
-                <li><a href="#" class="text-white hover:text-blue-400 transition">Partners</a></li>
-            </ul>
-        </div>
+
     </div>
 
     <!-- Bottom Logo + Text -->
@@ -81,7 +63,21 @@ function initCardAnimation(card, options = {}) {
 
     const overlay = card.querySelector('.overlay');
     const cardContents = card.querySelectorAll('.card-content'); // ⬅ all content blocks
-    const expandedContent = card.querySelector('.expanded-content');
+    let expandedContent = card.querySelector('.expanded-content');
+    if (card.dataset.link){
+        card.style.cursor = 'pointer';
+        card.addEventListener('click', () => {
+            window.location.href = card.dataset.link;
+        });
+    }
+    if (!expandedContent){
+        expandedContent = document.createElement('div');
+        expandedContent.className = 'expanded-content relative z-10 mt-4';
+        const titleText = card.dataset.title || "More details here";
+        const descriptionText = card.dataset.description || "More details here";
+        expandedContent.innerHTML = `<p class="text-5xl text-gray-200">${titleText}</p><p class="text-2xl text-gray-200">${descriptionText}</p>`;
+        card.appendChild(expandedContent);
+    }
 
     if (overlay) overlay.style.background = overlayColor;
 
@@ -176,13 +172,14 @@ function initCardAnimation(card, options = {}) {
             card.__shouldReverse = false;
         }
     });
-
+    // alert(isMobile ? "Mobile View" : "Desktop View");
     // Integrate arrow grow into hoverIn timeline (delayed by 0.2s)
     if (arrowEl) {
+        console.log(isMobile ? "Mobile View" : "Desktop View");
         hoverInTl.to(arrowEl, {
             duration: 0.4,
-            width: 300,
-            height: 300,
+            width: (isMobile ? 100 : 300),
+            height: (isMobile ? 100 : 300),
             ease: 'power2.out'
         }, '-=0.9');
     }
