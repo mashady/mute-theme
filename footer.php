@@ -70,6 +70,7 @@ function initCardAnimation(card, options = {}) {
             window.location.href = card.dataset.link;
         });
     }
+
     if (!expandedContent){
         expandedContent = document.createElement('div');
         expandedContent.className = 'expanded-content relative z-10 mt-4';
@@ -396,3 +397,148 @@ document.addEventListener("DOMContentLoaded", function () {
 </script> -->
 
 </html>
+
+<!-- Inline custom card cursor (pointer-aware) -->
+<style>
+/* only hide native cursor when JS enables the custom cursor on fine-pointer devices */
+.has-custom-cursor .card { cursor: none !important; }
+.cursor-icon {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    pointer-events: none;
+    border-radius: 50px;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    transition: opacity 0.18s ease, transform 0.08s linear;
+    z-index: 9999;
+    will-change: transform, opacity;
+    background: rgba(255,255,255,0.9);
+    backdrop-filter: blur(10px);
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+.card-icon{
+    display: none ;
+    /* position:  fixed; */
+    top:0;
+}
+
+
+
+.cursor-icon-svg {
+    width: 40px;
+    height: 40px;
+    display: block;
+
+    /* ensure it scales nicely */
+    /* object-fit: contain; */
+}
+
+</style>
+
+<script>
+(function(){
+    // Only enable on devices with a fine pointer (desktop mouse)
+    if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
+
+    document.documentElement.classList.add('has-custom-cursor');
+
+    const cards = Array.from(document.querySelectorAll('.card'));
+    if (!cards.length) return;
+
+        cards.forEach(card => {
+        // create icon if not present
+        let icon = card.querySelector('.cursor-icon');
+        if (!icon) {
+            icon = document.createElement('div');
+            icon.className = 'cursor-icon';
+            card.appendChild(icon);
+            // If the card has a `.card-icon` SVG, clone the actual <svg> into the cursor so it fits nicely
+            const cardIconEl = card.querySelector('.card-icon');
+            if (cardIconEl) {
+                // prefer the inner svg node if wrapper exists
+                const svgNode = (cardIconEl.tagName && cardIconEl.tagName.toLowerCase() === 'svg') ? cardIconEl : cardIconEl.querySelector('svg');
+                if (svgNode) {
+                    // deep clone the SVG element itself
+                    const clonedSvg = svgNode.cloneNode(true);
+                    // remove any id attributes inside the cloned SVG to avoid collisions
+                    clonedSvg.querySelectorAll('[id]').forEach(n => n.removeAttribute('id'));
+                    // normalize sizing so CSS can scale it to the cursor container
+                    clonedSvg.setAttribute('width', '100%');
+                    clonedSvg.setAttribute('height', '100%');
+                    clonedSvg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+                    // Add a helper class and ensure it doesn't capture pointer events
+                    clonedSvg.classList.add('cursor-icon-svg');
+                    clonedSvg.style.pointerEvents = 'none';
+                    // Clear previous contents and append the cloned svg
+                    icon.innerHTML = '';
+                    icon.appendChild(clonedSvg);
+                    // Make the cursor background transparent when SVG present
+                    icon.style.background = 'transparent';
+                }
+            }
+            // ensure the card is positioned for absolute children
+            const pos = window.getComputedStyle(card).position;
+            if (pos === 'static' || !pos) card.style.position = 'relative';
+        }
+
+        let rafId = null;
+        let lastX = 0, lastY = 0;
+        let visible = false;
+
+        function update() {
+            // use translate3d for GPU acceleration; keep centering offset
+            icon.style.transform = `translate3d(${lastX}px, ${lastY}px, 0) translate(-50%,-50%)`;
+            rafId = null;
+        }
+
+        function show() {
+            if (!visible) {
+                visible = true;
+                icon.style.opacity = '1';
+            }
+        }
+
+        function hide() {
+            if (visible) {
+                visible = false;
+                icon.style.opacity = '0';
+            }
+        }
+
+        function onPointerMove(e){
+            const rect = card.getBoundingClientRect();
+            lastX = e.clientX - rect.left;
+            lastY = e.clientY - rect.top;
+            if (!rafId) rafId = requestAnimationFrame(update);
+        }
+
+        function onPointerEnter(e){
+            onPointerMove(e);
+            show();
+        }
+
+        function onPointerLeave(){
+            hide();
+            if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        }
+
+        // pointer events unify mouse/stylus; we early-return on touch devices above
+        card.addEventListener('pointermove', onPointerMove);
+        card.addEventListener('pointerenter', onPointerEnter);
+        card.addEventListener('pointerleave', onPointerLeave);
+
+        // Keep keyboard focus accessible: hide custom cursor while focusing interactive elements
+        card.addEventListener('focusin', hide);
+        card.addEventListener('focusout', () => {
+            // no-op; pointer events will show again when pointer enters
+        });
+
+    });
+})();
+</script>

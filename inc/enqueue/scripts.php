@@ -18,7 +18,6 @@ function enqueue_theme_scripts() {
         ver:"3.12.5",
     );
 
-    wp_enqueue_script('gsap-scrolltrigger', 'https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js', array('gsap'), '3.12.5', true);
 
 
 }
