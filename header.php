@@ -1,11 +1,18 @@
 <?php
 /**
- * Header template for Razzi Child Theme
+ * The header for our theme
+ *
+ * This is the template that displays all of the <head> section and everything up until <div id="content">
+ *
+ * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
+ *
+ * @package Razzi
  */
-?>
 
-<!DOCTYPE html>
+?>
+<!doctype html>
 <html <?php language_attributes(); ?>>
+
 <head>
     <meta charset="<?php bloginfo( 'charset' ); ?>">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,32 +40,26 @@
     });
 </script>
 <body <?php body_class(); ?>>
+    <?php wp_body_open(); ?>
+    <?php do_action( 'razzi_before_site' ) ?>
 
-<!-- <header class="bg-white shadow-md top-0 z-50"style="margin-top:35px">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center py-4">
-            
-            <div class="flex-shrink-0">
-                <a href="<?php echo esc_url( home_url( '/' ) ); ?>" class="text-2xl font-bold text-black">
-                    <?php bloginfo('name'); ?>
-                </a>
-            </div>
+    <div id="page" class="site">
+        <?php do_action('razzi_before_open_site_header'); ?>
+        <?php if ( ! function_exists( 'elementor_theme_do_location' ) || ! elementor_theme_do_location( 'header' ) ) {?>
+        <header id="site-header" class="<?php \Razzi\Header::classes('site-header'); ?>">
+            <?php do_action('razzi_after_open_site_header'); ?>
+            <?php do_action('razzi_before_close_site_header'); ?>
+        </header>
+        <?php } ?>
+        <?php do_action('razzi_after_close_site_header'); ?>
 
-            <nav class="flex space-x-6">
-                <?php
-                wp_nav_menu( array(
-                    'theme_location' => 'primary',
-                    'container'      => false,
-                    'menu_class'     => 'flex space-x-6',
-                    'items_wrap'     => '%3$s',
-                    'fallback_cb'    => false,
-                ) );
-                ?>
-            </nav>
-
-          
-        </div>
-    </div>
-
-   
-</header> -->
+        <?php
+	\Razzi\Markup::instance()->open( 'site_content', [
+		'tag'     => 'div',
+		'attr'    => [
+			// 'id'    => 'content',
+			// 'class' => 'site-content'
+		],
+		'actions' => true,
+	] );
+	?>

@@ -7,7 +7,7 @@ get_header();
 
 <main class="min-h-screen ">
     <div>
-        <?php get_template_part('templates/partials/navbar'); ?>
+
         <?php get_template_part('templates/partials/home-hero'); ?>
     </div>
     <?php get_template_part('templates/partials/companies'); ?>
