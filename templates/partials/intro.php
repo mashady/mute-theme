@@ -1,6 +1,6 @@
-<section style="" class="h-[60vh] lg:h-[120vh] lg:py-16 flex items-center flex-col justify-top">
+<section style="" class="h-[60vh] lg:h-[120vh] px-4 lg:py-16 flex items-center flex-col justify-top">
     <div class="max-w-5xl text-center h-fit sticky top-1/2 my-[25vh]">
-        <h2 class="text-[#dadada8a] text-4xl md:text-5xl font-medium font-inter " id="intro-heading">
+        <h2 class="text-[#dadada8a] text-2xl md:text-5xl font-medium font-inter " id="intro-heading">
             At Sound Mute, we deliver expert acoustic solutions that eliminate noise,  enhance privacy, and create growth ready environments.
         </h2>
     </div>
@@ -26,17 +26,27 @@ document.addEventListener("DOMContentLoaded", function() {
         split.words.forEach(function(c) {
             c.style.display = 'inline-block';
         });
-
-        var tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: heading,
-                start: 'top center',
-                end: '+=70%',
-                scrub: 0.3,
-                markers: false
-            }
-        });
-
+        if (!isMobile) {
+            var tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: heading,
+                    start: 'top center',
+                    end: '+=50%',
+                    scrub: 0.3,
+                    markers: false
+                }
+            });
+        }else{
+            var tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: heading,
+                    start: 'top center',
+                    end: 'center+=20%',
+                    scrub: 0.3,
+                    markers: false
+                }
+            });
+        }
         tl.to(split.words, {
             color: '#000000',
             stagger: 0.02,

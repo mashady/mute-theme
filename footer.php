@@ -42,6 +42,8 @@
     <style>
     .expanded-content {
         flex-direction: column;
+        justify-content: end;
+        height: 100%;
     }
     
     .overlay {
@@ -70,10 +72,10 @@
     
         if (!expandedContent){
             expandedContent = document.createElement('div');
-            expandedContent.className = 'expanded-content relative z-10 mt-4';
+            expandedContent.className = 'expanded-content relative z-30 ';
             const titleText = card.dataset.title || "More details here";
             const descriptionText = card.dataset.description || "More details here";
-            expandedContent.innerHTML = `<p class="text-5xl text-gray-200">${titleText}</p><p class="text-2xl text-gray-200">${descriptionText}</p>`;
+            expandedContent.innerHTML = `<p class="text-2xl text-gray-200">${titleText}</p><p class="text-lg text-gray-200">${descriptionText}</p>`;
             card.appendChild(expandedContent);
         }
     
@@ -99,6 +101,7 @@
             .to(cardContents, {
                 duration: 0.01,
                 opacity: 0,
+                display: "none",
                 y: -10,
                 ease: "power2.out",
                 stagger: 0.1
@@ -108,16 +111,14 @@
                 clipPath: `circle(150% at ${clipOrigin})`,
                 ease: "ease.out"
             })
-    
+
             .to(expandedContent, {
                 duration: 0.4,
                 opacity: 1,
                 display: 'flex',
                 y: 0,
                 ease: "power2.out"
-            }, "-=0.2");
-    
-        // Hover Out
+            }, "-=0.4"); // Start expanded content earlier to sync with arrow        // Hover Out
         const hoverOutTl = gsap.timeline({
             paused: true
         });
@@ -139,6 +140,7 @@
                 duration: 0.3,
                 opacity: 1,
                 y: 0,
+                display: "flex",
                 ease: "power2.out",
                 stagger: 0.1
             }, "-=0.3")
@@ -171,15 +173,16 @@
             }
         });
         // alert(isMobile ? "Mobile View" : "Desktop View");
-        // Integrate arrow grow into hoverIn timeline (delayed by 0.2s)
+        // Integrate arrow grow into hoverIn timeline (synchronized with expanded content)
         if (arrowEl) {
             console.log(isMobile ? "Mobile View" : "Desktop View");
             hoverInTl.to(arrowEl, {
                 duration: 0.4,
                 width: (isMobile ? 100 : 300),
                 height: (isMobile ? 100 : 300),
+                opacity: 0.7,
                 ease: 'power2.out'
-            }, '-=0.9');
+            }, '-=0.4'); // Sync with expanded content timing
         }
     
         // Add running-flag callbacks to hoverOut timeline
@@ -196,6 +199,7 @@
                 duration: 0.3,
                 width: 40,
                 height: 40,
+                opacity: 1,
                 ease: 'power2.in'
             }, '-=0.6');
         }
@@ -263,7 +267,7 @@
                 if (currentPos === 'static' || !currentPos) card.style.position = 'relative';
     
                 const svgWrapper = document.createElement('div');
-                svgWrapper.className = 'card-deco-svg absolute z-5 pointer-events-none';
+                svgWrapper.className = 'card-deco-svg absolute z-0 pointer-events-none';
                 svgWrapper.style.position = 'absolute';
                 svgWrapper.style.top = '-2px';
                 svgWrapper.style.right = '-1px';
@@ -292,23 +296,7 @@
         });
     });
     
-    const isMobile = () => window.matchMedia("only screen and (max-width: 768px)").matches;
-    let _wasMobile = isMobile();
-    window.addEventListener('resize', () => {
-        const currentlyMobile = isMobile();
-        if (currentlyMobile !== _wasMobile) {
-            // Instead of a full reload, trigger a safe refresh hook; if unavailable, fallback to reload
-            if (typeof ScrollTrigger !== 'undefined' && ScrollTrigger.refresh) {
-                ScrollTrigger.refresh();
-            } else {
-                location.reload();
-            }
-            _wasMobile = currentlyMobile;
-        }
-    
-    
-    });
-    // alert(isMobile ? "Mobile View" : "Desktop View");
+
     </script>
     
     <!-- Inline custom card cursor (pointer-aware) -->

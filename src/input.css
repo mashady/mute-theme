@@ -13,11 +13,19 @@
   }
 }
 
+body{
+  @apply max-w-full w-screen overflow-x-hidden;
+}
+
 .section-container {
   @apply mx-auto p-4 mb-16 min-h-screen flex flex-col justify-center ;
   max-width: 1440px;
 }
 
+.card {
+
+  @apply  flex flex-col justify-start;
+}
 .card-content{
   @apply flex flex-col justify-between items-start gap-2 w-full relative z-10 h-full;
 }
@@ -27,5 +35,5 @@
 }
 
 .card-content .card-description {
-  /* @apply text-white font-[inter] text-md font-light; */
+  /* @apply text-white  text-md font-light; */
 }
