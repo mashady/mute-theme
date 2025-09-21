@@ -4,7 +4,6 @@
  * File: archive-testimonial.php
  */
 get_header();
-get_template_part('templates/partials/navbar');
 get_template_part('templates/partials/hero');
 ?>
 

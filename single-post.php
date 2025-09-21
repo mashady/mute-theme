@@ -4,7 +4,6 @@
  * File: single.php
  */
 get_header();
-get_template_part('templates/partials/navbar');
 
 /**
  * Helper: detect current language

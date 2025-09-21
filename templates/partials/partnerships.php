@@ -13,8 +13,7 @@
 
     <div class="flex flex-col md:flex-row gap-5 w-full min-h-[350px]">
 
-        <div
-            class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 bg-[#576C61] min-h-[256px] relative overflow-hidden"
+        <div class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 bg-[#576C61] min-h-[256px] relative overflow-hidden"
             data-title="Start With a Free Consultation"
             data-description="Custom acoustic and isolation strategies designed around your space — expert planning that reduces noise and saves time."
             data-link="/shop/consultation/">
@@ -42,8 +41,7 @@
 
         </div>
 
-        <div
-            class="card flex flex-col justify-between flex-1 h-[400px] rounded-[24px] text-white p-6 bg-[#46564E] min-h-[256px] relative overflow-hidden"
+        <div class="card flex flex-col justify-between flex-1 h-[400px] rounded-[24px] text-white p-6 bg-[#46564E] min-h-[256px] relative overflow-hidden"
             data-title="Keep Systems Performing"
             data-description="Scheduled maintenance and upgrades to ensure your acoustic investment keeps delivering top performance."
             data-link="/shop/support/">
@@ -72,8 +70,7 @@
 
         </div>
 
-        <div
-            class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 bg-[#34413A] min-h-[256px] relative overflow-hidden"
+        <div class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 bg-[#34413A] min-h-[256px] relative overflow-hidden"
             data-title="Professional Installation & Build"
             data-description="End-to-end installation by certified teams — from panels to full-room buildouts, we handle every detail."
             data-link="/shop/installation/">

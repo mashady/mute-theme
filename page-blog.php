@@ -4,7 +4,6 @@
  */
 get_header();
 ?>
-<?php get_template_part('templates/partials/navbar'); ?>
 <?php get_template_part('templates/partials/hero'); ?>
 
 <?php

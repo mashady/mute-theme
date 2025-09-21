@@ -108,55 +108,55 @@
 </section>
 
 <script>
-    document.addEventListener("DOMContentLoaded", () => {
-        if (typeof gsap === "undefined") return;
+document.addEventListener("DOMContentLoaded", () => {
+    if (typeof gsap === "undefined") return;
 
-        gsap.registerPlugin(ScrollTrigger);
+    gsap.registerPlugin(ScrollTrigger);
 
-        const tl = gsap.timeline({
-            scrollTrigger: {
-                trigger: ".sound-experts-section",
-                start: "25% 80%",
-            },
-        });
+    const tl = gsap.timeline({
+        scrollTrigger: {
+            trigger: ".sound-experts-section",
+            start: "25% 80%",
+        },
+    });
 
-        tl
-            .fromTo(".sound-experts-section .section-header", {
-                opacity: 0,
-                y: 12
-            }, {
-                opacity: 1,
-                y: 0,
-                duration: 0.6,
-                ease: "power3.out",
-            })
-            .to(
-                ".sound-experts-section .main-card", {
+    tl
+        .fromTo(".sound-experts-section .section-header", {
+            opacity: 0,
+            y: 12
+        }, {
+            opacity: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power3.out",
+        })
+        .to(
+            ".sound-experts-section .main-card", {
                 opacity: 1,
                 scale: 1,
                 duration: 0.8,
                 ease: "power3.out",
             },
-                "-=0.3"
-            )
-            .to(
-                ".small-card", {
+            "-=0.3"
+        )
+        .to(
+            ".small-card", {
                 opacity: 1,
                 y: 0,
                 duration: 0.6,
                 stagger: 0.2,
                 ease: "power3.out",
             },
-                "-=0.4"
-            )
-            .to(
-                ".stats-row", {
+            "-=0.4"
+        )
+        .to(
+            ".stats-row", {
                 opacity: 1,
                 y: 0,
                 duration: 0.6,
                 ease: "power3.out",
             },
-                "-=0.6"
-            );
-    });
+            "-=0.6"
+        );
+});
 </script>

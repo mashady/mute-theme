@@ -7,6 +7,16 @@
  Template:     razzi
  Version:      1.0.0
 */
+.leaflet-popup-content-wrapper {
+  background: #ffffff;
+  color: #222;
+  border-left: 5px solid red; /* your primary green */
+  font-weight: bold;
+}
+.leaflet-popup-tip {
+  background: #ffffff;
+}
+
 /** fix merging two themes issues */
 .container.clearfix {
   max-width: 100% !important;
@@ -222,4 +232,59 @@ p {
 /** customize razzi header style */
 .page-header {
   display: none !important;
+}
+/** =============================== */
+/*** custom header in some pages  */
+/** =============================== */
+
+/*** Custom header in selected pages ***/
+body.page-id-9 .header-contents,
+body.post-type-archive-project .header-contents,
+body.page-template-page-blog .header-contents,
+body.post-type-archive-service .header-contents,
+body.post-type-archive-video .header-contents,
+body.page-template-page-contact-us .header-contents,
+body.single-project .header-contents,
+body.single-post .header-contents,
+body.single-service .header-contents {
+  background-color: transparent;
+  margin-top: 15px;
+  position: absolute;
+  width: 100%;
+}
+
+body.page-id-9 .header-contents a,
+body.post-type-archive-project .header-contents a,
+body.page-template-page-blog .header-contents a,
+body.post-type-archive-service .header-contents a,
+body.post-type-archive-video .header-contents a,
+body.page-template-page-contact-us .header-contents a,
+body.single-project .header-contents a,
+body.single-post .header-contents a,
+body.single-service .header-contents a {
+  color: white !important;
+}
+
+body.page-id-9 .header-contents .search-icon,
+body.post-type-archive-project .header-contents .search-icon,
+body.page-template-page-blog .header-contents .search-icon,
+body.post-type-archive-service .header-contents .search-icon,
+body.post-type-archive-video .header-contents .search-icon,
+body.page-template-page-contact-us .header-contents .search-icon,
+body.single-project .header-contents .search-icon,
+body.single-post .header-contents .search-icon,
+body.single-service .header-contents .search-icon {
+  color: white !important;
+}
+
+body.page-id-9 .site-header,
+body.post-type-archive-project .site-header,
+body.page-template-page-blog .site-header,
+body.post-type-archive-service .site-header,
+body.post-type-archive-video .site-header,
+body.page-template-page-contact-us .site-header,
+body.single-project .site-header,
+body.single-post .site-header,
+body.single-service .site-header {
+  border: 0 !important;
 }

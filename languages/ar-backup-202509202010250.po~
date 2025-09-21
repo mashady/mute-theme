@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Razzi Child\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-14 14:11+0000\n"
-"PO-Revision-Date: 2025-09-16 17:58+0000\n"
+"PO-Revision-Date: 2025-09-16 18:47+0000\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar\n"
@@ -15,6 +15,18 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.8.0; wp-6.8.2; php-8.2.27\n"
 "X-Domain: mute"
+
+#: inc/cpt/services.php:8
+msgid "Add New"
+msgstr "اضف جديد"
+
+#: inc/cpt/services.php:9
+msgid "Add New Service"
+msgstr "اضف خدمة جديدة"
+
+#: inc/cpt/services.php:13
+msgid "All Services"
+msgstr "كل الخدمات"
 
 #. Name of the template
 #: page-blog.php:2
@@ -30,7 +42,11 @@ msgstr ""
 msgid "Contact Us"
 msgstr "تواصل معنا "
 
-#: templates/partials/hero.php:14
+#: inc/cpt/services.php:11
+msgid "Edit Service"
+msgstr "تعديل خدمه "
+
+#: templates/partials/hero.php:13
 msgid ""
 "Experience premium sound isolation solutions designed to transform your "
 "spaces into havens of calm, focus, and productivity."
@@ -48,21 +64,57 @@ msgstr "الصفحة الرئيسية"
 msgid "https://razziwp.com/"
 msgstr ""
 
-#: archive-service.php:98
+#: page-blog.php:14
+msgid "Most Popular"
+msgstr "الاكثر شهرة"
+
+#: archive-project.php:16
+msgid "Most Popular Projects"
+msgstr "المشاريع الاكثر شعبية"
+
+#: inc/cpt/services.php:10
+msgid "New Service"
+msgstr "خدمه جديدة"
+
+#: archive-video.php:83 page-blog.php:88
 msgid "Next »"
 msgstr "التالي"
 
-#: archive-service.php:55
+#: page-blog.php:113
+msgid "No blog posts found."
+msgstr "لا توجد مقالات"
+
+#: archive-project.php:59 page-blog.php:50 archive-service.php:41
 msgid "No image"
 msgstr "لا توجد صور"
 
-#: archive-service.php:108
+#: archive-project.php:120
+msgid "No projects found."
+msgstr "لا توجد مشاريع"
+
+#: inc/cpt/services.php:16
+msgid "No services found in Trash."
+msgstr "لا توجد خدمات في المحذوفات"
+
+#: archive-service.php:70 inc/cpt/services.php:15
 msgid "No services found."
 msgstr "لا توجد خدمات"
+
+#: archive-video.php:51
+msgid "No thumbnail"
+msgstr "لا توجد صور مصغرة"
+
+#: archive-video.php:107
+msgid "No videos found."
+msgstr "لا توجد فيديوهات"
 
 #: archive-service.php:15
 msgid "Our Services"
 msgstr "خدماتنا"
+
+#: archive-video.php:14
+msgid "Our Videos"
+msgstr "فيديوهاتنا"
 
 #. Name of the template
 #: archive-project.php:2
@@ -77,10 +129,26 @@ msgstr ""
 msgid "Samir"
 msgstr ""
 
+#: inc/cpt/services.php:14
+msgid "Search Services"
+msgstr "ابحث عن الخدمات"
+
+#: inc/cpt/services.php:5 inc/cpt/services.php:7
+msgid "Service"
+msgstr "خدمة"
+
+#: inc/cpt/services.php:4 inc/cpt/services.php:6 inc/cpt/services.php:20
+msgid "Services"
+msgstr "خدمات"
+
 #: templates/partials/hero.php:9
 msgid "Silence is a Form of Luxury"
 msgstr "الصمت هو شكل من أشكال الترف"
 
-#: archive-service.php:97
+#: inc/cpt/services.php:12
+msgid "View Service"
+msgstr "عرض خدمه"
+
+#: archive-video.php:82 page-blog.php:87
 msgid "« Prev"
 msgstr "السابق"

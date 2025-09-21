@@ -36,7 +36,7 @@
         <p
             class="text-white font-[400] font-inter text-[80px] sm:text-[120px] md:text-[160px] lg:text-[200px] xl:text-[230px] leading-none">
             Mute
-        </p> 
+        </p>
     </div>
     <?php wp_footer(); ?>
     <style>
@@ -45,7 +45,7 @@
         justify-content: end;
         height: 100%;
     }
-    
+
     .overlay {
         z-index: 1;
         opacity: 1;
@@ -59,31 +59,32 @@
                 overlayColor = "#ff4757",
                 zIndex = "10"
         } = options;
-    
+
         const overlay = card.querySelector('.overlay');
         const cardContents = card.querySelectorAll('.card-content'); // ⬅ all content blocks
         let expandedContent = card.querySelector('.expanded-content');
-        if (card.dataset.link){
+        if (card.dataset.link) {
             card.style.cursor = 'pointer';
             card.addEventListener('click', () => {
                 window.location.href = card.dataset.link;
             });
         }
-    
-        if (!expandedContent){
+
+        if (!expandedContent) {
             expandedContent = document.createElement('div');
             expandedContent.className = 'expanded-content relative z-30 ';
             const titleText = card.dataset.title || "More details here";
             const descriptionText = card.dataset.description || "More details here";
-            expandedContent.innerHTML = `<p class="text-2xl text-gray-200">${titleText}</p><p class="text-lg text-gray-200">${descriptionText}</p>`;
+            expandedContent.innerHTML =
+                `<p class="text-2xl text-gray-200">${titleText}</p><p class="text-lg text-gray-200">${descriptionText}</p>`;
             card.appendChild(expandedContent);
         }
-    
+
         if (overlay) overlay.style.background = overlayColor;
-    
+
         // animate when card enter the view
         // gsap.fromTo(card,{opacity:0,y:12},{opacity:1,y:0,duration:0.6,ease:'power3.out',scrollTrigger:{trigger:card,start:'center 80%'}});
-    
+
         gsap.set(overlay, {
             clipPath: `circle(0% at ${clipOrigin})`
         });
@@ -92,7 +93,7 @@
             y: 20,
             display: "none"
         });
-    
+
         // Hover In
         const hoverInTl = gsap.timeline({
             paused: true
@@ -144,8 +145,8 @@
                 ease: "power2.out",
                 stagger: 0.1
             }, "-=0.3")
-    
-    
+
+
         // Synchronize arrow animation into the same timeline and add running-flag queueing
         // Arrow element (if exists) - we'll animate using transform:scale for better performance
         const arrowEl = card.querySelector('.card-arrow img');
@@ -158,7 +159,7 @@
                 scale: 1
             });
         }
-    
+
         // Add running flag callbacks to hoverIn timeline
         hoverInTl.eventCallback('onStart', () => {
             card.dataset.animationRunning = 'true';
@@ -184,7 +185,7 @@
                 ease: 'power2.out'
             }, '-=0.4'); // Sync with expanded content timing
         }
-    
+
         // Add running-flag callbacks to hoverOut timeline
         hoverOutTl.eventCallback('onStart', () => {
             card.dataset.animationRunning = 'true';
@@ -192,7 +193,7 @@
         hoverOutTl.eventCallback('onComplete', () => {
             card.dataset.animationRunning = 'false';
         });
-    
+
         // Integrate arrow shrink into hoverOut timeline (shrink early so overlay collapse looks natural)
         if (arrowEl) {
             hoverOutTl.to(arrowEl, {
@@ -203,7 +204,7 @@
                 ease: 'power2.in'
             }, '-=0.6');
         }
-    
+
         // Mouse handlers now respect the running flag and queue reverses when necessary
         card.addEventListener('mouseenter', () => {
             hoverOutTl.pause();
@@ -214,7 +215,7 @@
                 ease: 'power2.out'
             });
         });
-    
+
         card.addEventListener('mouseleave', () => {
             // If the forward animation is still running, mark for reverse and return
             if (card.dataset.animationRunning === 'true') {
@@ -230,7 +231,7 @@
             });
         });
     }
-    
+
     document.addEventListener("DOMContentLoaded", function() {
         document.querySelectorAll(".card").forEach((card, i) => {
             // Determine color from data-color attribute or fall back to defaults
@@ -251,21 +252,22 @@
                     targetParent.appendChild(arrowWrapper);
                 } else card.appendChild(arrowWrapper);
             }
-    
-    
-    
+
+
+
             // Pass the resolved color to the animation init
             initCardAnimation(card, {
-                overlayColor: card.getAttribute('data-color') || (i === 0 ? "#4B5D53" : "#34413A"),
+                overlayColor: card.getAttribute('data-color') || (i === 0 ? "#4B5D53" :
+                    "#34413A"),
                 clipOrigin: "95.2% 25px"
             });
-    
+
             // Inject decorative SVG if missing
             if (!card.querySelector('.card-deco-svg')) {
                 // ensure card is positioned for absolute children
                 const currentPos = window.getComputedStyle(card).position;
                 if (currentPos === 'static' || !currentPos) card.style.position = 'relative';
-    
+
                 const svgWrapper = document.createElement('div');
                 svgWrapper.className = 'card-deco-svg absolute z-0 pointer-events-none';
                 svgWrapper.style.position = 'absolute';
@@ -282,7 +284,7 @@
           `;
                 card.appendChild(svgWrapper);
             }
-    
+
             // NOTE: arrow grow/shrink animations moved into the main hover timelines above.
             // We still ensure the arrow wrapper exists and has sensible positioning if present.
             const arrow = card.querySelector('.card-arrow img');
@@ -295,14 +297,15 @@
             }
         });
     });
-    
-
     </script>
-    
+
     <!-- Inline custom card cursor (pointer-aware) -->
     <style>
     /* only hide native cursor when JS enables the custom cursor on fine-pointer devices */
-    .has-custom-cursor .card { cursor: none !important; }
+    .has-custom-cursor .card {
+        cursor: none !important;
+    }
+
     .cursor-icon {
         position: absolute;
         width: 80px;
@@ -314,45 +317,44 @@
         transition: opacity 0.18s ease, transform 0.08s linear;
         z-index: 9999;
         will-change: transform, opacity;
-        background: rgba(255,255,255,0.05);
+        background: rgba(255, 255, 255, 0.05);
         backdrop-filter: blur(10px);
         padding: 10px;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     }
-    
-    .card-icon{
-        display: none ;
+
+    .card-icon {
+        display: none;
         /* position:  fixed; */
-        top:0;
+        top: 0;
     }
-    
-    
-    
+
+
+
     .cursor-icon-svg {
         width: 40px;
         height: 40px;
         display: block;
-    
+
         /* ensure it scales nicely */
         /* object-fit: contain; */
     }
-    
     </style>
-    
+
     <script>
-    (function(){
+    (function() {
         // Only enable on devices with a fine pointer (desktop mouse)
         if (!window.matchMedia || !window.matchMedia('(pointer: fine)').matches) return;
-    
+
         document.documentElement.classList.add('has-custom-cursor');
-    
+
         const cards = Array.from(document.querySelectorAll('.card'));
         if (!cards.length) return;
-    
-            cards.forEach(card => {
+
+        cards.forEach(card => {
             // create icon if not present
             let icon = card.querySelector('.cursor-icon');
             if (!icon) {
@@ -363,7 +365,8 @@
                 const cardIconEl = card.querySelector('.card-icon');
                 if (cardIconEl) {
                     // prefer the inner svg node if wrapper exists
-                    const svgNode = (cardIconEl.tagName && cardIconEl.tagName.toLowerCase() === 'svg') ? cardIconEl : cardIconEl.querySelector('svg');
+                    const svgNode = (cardIconEl.tagName && cardIconEl.tagName.toLowerCase() === 'svg') ?
+                        cardIconEl : cardIconEl.querySelector('svg');
                     if (svgNode) {
                         // deep clone the SVG element itself
                         const clonedSvg = svgNode.cloneNode(true);
@@ -387,59 +390,63 @@
                 const pos = window.getComputedStyle(card).position;
                 if (pos === 'static' || !pos) card.style.position = 'relative';
             }
-    
+
             let rafId = null;
-            let lastX = 0, lastY = 0;
+            let lastX = 0,
+                lastY = 0;
             let visible = false;
-    
+
             function update() {
                 // use translate3d for GPU acceleration; keep centering offset
                 icon.style.transform = `translate3d(${lastX}px, ${lastY}px, 0) translate(-50%,-50%)`;
                 rafId = null;
             }
-    
+
             function show() {
                 if (!visible) {
                     visible = true;
                     icon.style.opacity = '1';
                 }
             }
-    
+
             function hide() {
                 if (visible) {
                     visible = false;
                     icon.style.opacity = '0';
                 }
             }
-    
-            function onPointerMove(e){
+
+            function onPointerMove(e) {
                 const rect = card.getBoundingClientRect();
                 lastX = e.clientX - rect.left;
                 lastY = e.clientY - rect.top;
                 if (!rafId) rafId = requestAnimationFrame(update);
             }
-    
-            function onPointerEnter(e){
+
+            function onPointerEnter(e) {
                 onPointerMove(e);
                 show();
             }
-    
-            function onPointerLeave(){
+
+            function onPointerLeave() {
                 hide();
-                if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+                if (rafId) {
+                    cancelAnimationFrame(rafId);
+                    rafId = null;
+                }
             }
-    
+
             // pointer events unify mouse/stylus; we early-return on touch devices above
             card.addEventListener('pointermove', onPointerMove);
             card.addEventListener('pointerenter', onPointerEnter);
             card.addEventListener('pointerleave', onPointerLeave);
-    
+
             // Keep keyboard focus accessible: hide custom cursor while focusing interactive elements
             card.addEventListener('focusin', hide);
             card.addEventListener('focusout', () => {
                 // no-op; pointer events will show again when pointer enters
             });
-    
+
         });
     })();
     </script>

@@ -4,7 +4,6 @@
  * File: single-testimonial.php
  */
 get_header();
-get_template_part('templates/partials/navbar');
 ?>
 
 <main id="primary" class="site-main">

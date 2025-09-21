@@ -5,7 +5,6 @@
  * Shows project custom post type entries in the same card/grid style as your Blog Page.
  */
 get_header();
-get_template_part('templates/partials/navbar');
 get_template_part('templates/partials/hero');
 ?>
 

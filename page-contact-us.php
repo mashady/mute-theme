@@ -1,7 +1,6 @@
 <?php
 /* Template Name: Contact Us */
 get_header();
-get_template_part('templates/partials/navbar');
 get_template_part('templates/partials/hero');
 
 // Handle form submission
@@ -43,44 +42,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
         </div>
     </section>
 
-    <section class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
-        <div>
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/3.png" alt="Contact"
-                class="w-full h-full object-cover rounded-xl shadow-lg">
-        </div>
 
-        <div class="bg-white shadow-lg rounded-xl p-8">
-            <h2 class="text-2xl font-bold mb-6">Send us a Message</h2>
-            <form method="post" class="space-y-4">
-                <input type="hidden" name="contact_form" value="1">
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Name</label>
-                    <input type="text" name="name" required
-                        class="w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Email</label>
-                    <input type="email" name="email" required
-                        class="w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500">
-                </div>
-
-                <div>
-                    <label class="block text-sm font-medium text-gray-700">Message</label>
-                    <textarea name="message" rows="4" required
-                        class="w-full rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500"></textarea>
-                </div>
-
-                <div>
-                    <button type="submit"
-                        class="w-full bg-black hover:bg-gray-800 text-white font-semibold py-2 px-4 rounded-lg">
-                        Send Message
-                    </button>
-                </div>
-            </form>
-        </div>
-    </section>
 
 </div>
 
