@@ -61,7 +61,7 @@ $current_lang = isset($_COOKIE['site_lang']) ? $_COOKIE['site_lang'] : 'en_US';
                 <?php endif; ?>
             </a>
 
-            <div class="flex flex-col justify-between flex-1 px-4 py-3">
+            <div class="flex flex-col justify-between  px-4 py-3">
                 <div class="flex flex-col gap-3">
                     <h3 class="font-normal mt-[10px] text-xl">
                         <a href="<?php echo esc_url($permalink); ?>"><?php echo esc_html($title); ?></a>

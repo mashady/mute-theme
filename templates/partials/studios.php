@@ -13,7 +13,7 @@
     ?>
 
     <div class="flex flex-col gap-4 min-h-[536px] ">
-        <div class="relative flex-1 flex flex-col justify-end items-start text-white rounded-[24px] p-6 min-h-[536px]  bg-cover bg-center bg-no-repeat opacity-0 main-card"
+        <div class="relative  flex flex-col justify-end items-start text-white rounded-[24px] p-6 min-h-[536px]  bg-cover bg-center bg-no-repeat opacity-0 main-card"
             data-title="Build Your Signature Studio"
             data-description="Turn any space into a pro-grade studio with turnkey isolation and acoustic design that performs beautifully and looks great."
             data-link="/shop/studio-solutions/"
@@ -32,7 +32,7 @@
         </div>
 
         <div class="flex md:flex-row flex-col  gap-5 w-full">
-            <div class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 min-h-[350px] relative  bg-cover  bg-[#232B27] bg-right-bottom bg-no-repeat "
+            <div class="card flex flex-col  h-[400px] rounded-[24px] text-white p-6 min-h-[350px] relative  bg-cover  bg-[#232B27] bg-right-bottom bg-no-repeat "
                 data-title="Pro-Grade Microphones — RØDE"
                 data-description="Discover RØDE microphones selected for clarity and character — the perfect mic for recording, streaming, or live work."
                 data-link="/shop/microphones/"
@@ -157,7 +157,7 @@
 
             </div>
 
-            <div class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 min-h-[350px] relative  bg-cover  bg-[#232B27] bg-right-bottom bg-no-repeat "
+            <div class="card flex flex-col  h-[400px] rounded-[24px] text-white p-6 min-h-[350px] relative  bg-cover  bg-[#232B27] bg-right-bottom bg-no-repeat "
                 data-title="Capture Every Moment — Nikon"
                 data-description="Shop curated Nikon cameras and lenses for creators at every level — crisp results, reliable gear."
                 data-link="/shop/cameras/"
@@ -233,39 +233,83 @@
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    gsap.registerPlugin(ScrollTrigger);
+    if (typeof gsap === 'undefined') return;
 
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".sound-studios-section",
-            start: "25% 80%",
+    // register ScrollTrigger exactly once to avoid duplicate registrations on hot reloads
+    if (!gsap.__registeredScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.__registeredScrollTrigger = true;
+    }
+
+    // Use matchMedia to create desktop vs mobile behavior
+    ScrollTrigger.matchMedia({
+        // Desktop / Tablet
+        "(min-width: 768px)": function() {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".sound-studios-section",
+                    start: "top 80%",
+                },
+            });
+
+            tl.fromTo(".sound-studios-section .section-header", {
+                    opacity: 0,
+                    y: 12
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power3.out",
+                })
+                .to(".sound-studios-section .main-card", {
+                    opacity: 1
+                })
+                .fromTo('.sound-studios-section .card', {
+                    opacity: 0,
+                    y: 12
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: 'power3.out',
+                    stagger: 0.12
+                });
         },
+
+        // Mobile: simpler, non-scrub animations triggered when section enters
+        "(max-width: 767px)": function() {
+            gsap.fromTo(".sound-studios-section .section-header", {
+                opacity: 0,
+                y: 12
+            }, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".sound-studios-section",
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                }
+            });
+
+            gsap.fromTo('.sound-studios-section .card', {
+                opacity: 0,
+                y: 12
+            }, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: 'power3.out',
+                stagger: 0.12,
+                scrollTrigger: {
+                    trigger: '.sound-studios-section',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        }
     });
 
-    tl
-        .fromTo(".sound-studios-section .section-header", {
-            opacity: 0,
-            y: 12
-        }, {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power3.out",
-        })
-        .to(".sound-studios-section .main-card", {
-            opacity: 1
-        });
-
-    // Animate cards as part of the main timeline with a stagger so they run in sync
-    tl.fromTo('.sound-studios-section .card', {
-        opacity: 0,
-        y: 12
-    }, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: 'power3.out',
-        stagger: 0.12
-    });
-})
+});
 </script>

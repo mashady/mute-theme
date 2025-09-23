@@ -13,7 +13,7 @@ Available Here',
     ?>
 
     <div class="flex flex-col md:flex-row gap-5 w-full">
-        <div class="card flex flex-col flex-1 h-[400px] rounded-[24px] text-white p-6 min-h-[256px] relative  bg-cover bg-center"
+        <div class="card flex flex-col  h-[400px] rounded-[24px] text-white p-6 min-h-[256px] relative  bg-cover bg-center"
             data-title="Transform Your Room’s Sound"
             data-description="Shop premium acoustic panels & treatments to sharpen audio clarity and warmth—fast shipping."
             data-link="/shop/acoustic-products/"
@@ -47,7 +47,7 @@ Available Here',
 
         </div>
 
-        <div class="card flex flex-col  flex-1 h-[400px] rounded-[24px] text-white p-6 min-h-[256px] relative  bg-cover bg-center"
+        <div class="card flex flex-col   h-[400px] rounded-[24px] text-white p-6 min-h-[256px] relative  bg-cover bg-center"
             data-title="Silence, Engineered"
             data-description="Create distraction-free spaces with proven isolation systems — quieter rooms, happier teams."
             data-link="/shop/isolation-products/"
@@ -81,36 +81,76 @@ Available Here',
 
 <script>
 document.addEventListener("DOMContentLoaded", () => {
-    gsap.registerPlugin(ScrollTrigger);
+    if (typeof gsap === 'undefined') return;
 
-    const tl = gsap.timeline({
-        scrollTrigger: {
-            trigger: ".shop-now-section",
-            start: "20% 80%",
+    if (!gsap.__registeredScrollTrigger) {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.__registeredScrollTrigger = true;
+    }
+
+    ScrollTrigger.matchMedia({
+        "(min-width: 768px)": function() {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: ".shop-now-section",
+                    start: "top 80%",
+                },
+            });
+
+            tl.fromTo(".shop-now-section .section-header", {
+                    opacity: 0,
+                    y: 12
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: "power3.out",
+                })
+                .fromTo('.shop-now-section .card', {
+                    opacity: 0,
+                    y: 12
+                }, {
+                    opacity: 1,
+                    y: 0,
+                    duration: 0.6,
+                    ease: 'power3.out',
+                    stagger: 0.12
+                });
         },
+
+        "(max-width: 767px)": function() {
+            gsap.fromTo(".shop-now-section .section-header", {
+                opacity: 0,
+                y: 12
+            }, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: "power3.out",
+                scrollTrigger: {
+                    trigger: ".shop-now-section",
+                    start: "top 90%",
+                    toggleActions: "play none none none"
+                }
+            });
+
+            gsap.fromTo('.shop-now-section .card', {
+                opacity: 0,
+                y: 12
+            }, {
+                opacity: 1,
+                y: 0,
+                duration: 0.6,
+                ease: 'power3.out',
+                stagger: 0.12,
+                scrollTrigger: {
+                    trigger: '.shop-now-section',
+                    start: 'top 90%',
+                    toggleActions: 'play none none none'
+                }
+            });
+        }
     });
 
-    tl
-        .fromTo(".shop-now-section .section-header", {
-            opacity: 0,
-            y: 12
-        }, {
-            opacity: 1,
-            y: 0,
-            duration: 0.6,
-            ease: "power3.out",
-        })
-
-    // Animate cards as part of the main timeline with a stagger so they run in sync
-    tl.fromTo('.shop-now-section .card', {
-        opacity: 0,
-        y: 12
-    }, {
-        opacity: 1,
-        y: 0,
-        duration: 0.6,
-        ease: 'power3.out',
-        stagger: 0.12
-    });
-})
+});
 </script>

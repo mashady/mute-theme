@@ -11,9 +11,9 @@
         );
     ?>
 
-    <div class="flex flex-col md:flex-row gap-5 w-full min-h-[350px]">
+    <div class="grid grid-cols-1 gap-5 w-full min-h-[350px] md:grid-cols-2 lg:grid-cols-3">
         <div
-            class="card flex flex-col  h-[400px] rounded-[24px] text-white p-6 bg-[#576C61] min-h-[256px] relative " data-title="Start With a Free Consultation"
+            class="card flex flex-col  h-[25vh] md:h-[400px] rounded-[24px] text-white p-6 bg-[#576C61] min-h-[256px] relative " data-title="Start With a Free Consultation"
                 data-description="See More Details"
                 data-link="/services/consultation/">
             <div class="overlay absolute inset-0 rounded-[24px]"></div>
@@ -44,7 +44,7 @@
         </div>
 
         <div
-            class="card flex flex-col justify-between  h-[400px] rounded-[24px] text-white p-6 bg-[#46564E] min-h-[256px] relative "
+            class="card flex flex-col justify-between  h-[25vh] md:h-[400px] rounded-[24px] text-white p-6 bg-[#46564E] min-h-[256px] relative "
             data-title="Keep Systems Performing"
             data-description="Get More Details"
             data-link="/services/support/">
@@ -71,7 +71,7 @@
         </div>
 
         <div
-            class="card flex flex-col  h-[400px] rounded-[24px] text-white p-6 bg-[#34413A] min-h-[256px] " card-title="Installation & Build"
+            class="card flex flex-col  h-[25vh] md:h-[400px] rounded-[24px] text-white p-6 bg-[#34413A] min-h-[256px] md:col-span-2 lg:col-span-1" card-title="Installation & Build"
             card-description="Get More Details"
             card-link="/services/installation/">
             <div class="overlay absolute inset-0 rounded-[24px]"></div>

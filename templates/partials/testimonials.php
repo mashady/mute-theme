@@ -1,8 +1,14 @@
 <section class="p-4 mb-[219px] relative section-container">
-    <h2 class="text-black font-[Inter] text-[40px] font-normal leading-normal text-left md:text-left mb-6">
-        <?php echo esc_html__('What Our Clients Say', 'mute'); ?>
-    </h2>
-
+        <?php
+    get_template_part(
+        'templates/partials/sectionHeader',
+        null,
+        [
+            'title' => 'What Our Clients Say',
+            'paragraph' => 'Hear directly from those who have experienced the transformative power of our sound isolation solutions. Our clients share their stories of enhanced comfort, productivity, and peace of mind.'
+        ]
+    );
+    ?>
     <div class="relative overflow-hidden">
         <!-- Slider wrapper -->
         <div id="testimonialSlider" class="flex transition-transform duration-500 ease-in-out">
@@ -32,11 +38,17 @@
                 <div class="w-full md:w-1/3 flex flex-col items-center md:items-start">
                     <img src="<?php echo $image ? esc_url($image) : esc_url($fallback_img); ?>"
                         alt="<?php echo esc_attr($client_name); ?>"
-                        class="w-40 h-48 sm:w-64 sm:h-72 md:w-full md:h-auto object-cover rounded-xl" />
+                        class="w-full h-auto  md:w-full md:h-auto object-cover rounded-xl" />
+
                 </div>
 
-                <div class="flex-1 text-left px-2 sm:px-4 relative z-10">
-                    <div class="text-zinc-800 text-9xl font-medium font-inter">“</div>
+                <div class=" text-left px-2 sm:px-4 relative z-10">
+                    <div class="text-zinc-800 text-9xl font-medium font-inter">
+                        <svg width="39" height="31" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M0.0511364 30.5V22.3182C0.0511364 19.9034 0.505682 17.3608 1.41477 14.6903C2.32386 12.0199 3.58807 9.46307 5.20739 7.01989C6.8267 4.5767 8.73011 2.48863 10.9176 0.755682L17.2244 5.27272C15.4915 7.80113 14.0142 10.4432 12.7926 13.1989C11.571 15.9545 10.9602 18.9517 10.9602 22.1903V30.5H0.0511364ZM21.7841 30.5V22.3182C21.7841 19.9034 22.2386 17.3608 23.1477 14.6903C24.0568 12.0199 25.321 9.46307 26.9403 7.01989C28.5597 4.5767 30.4631 2.48863 32.6506 0.755682L38.9574 5.27272C37.2244 7.80113 35.7472 10.4432 34.5256 13.1989C33.304 15.9545 32.6932 18.9517 32.6932 22.1903V30.5H21.7841Z" fill="#282828"/>
+</svg>
+
+                    </div>
                     <p class="text-gray-700 mb-4 max-w-xl leading-relaxed">
                         <?php echo $client_quote; ?>
                     </p>
@@ -59,7 +71,7 @@
         </div>
 
         <!-- Arrows -->
-        <div class="flex space-x-3 absolute top-0 right-4 md:right-6 z-20 mt-2">
+        <div class="flex  space-x-3 absolute top-5 md:top-0 right-4 md:right-6 z-20 mt-2">
             <button id="testimonialPrevBtn" aria-label="Previous slide"
                 class="p-0 w-[50px] h-[50px] flex items-center justify-center bg-white hover:bg-white/50 rounded-full shadow-md">
                 <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow-left.svg" alt="Previous"

@@ -116,7 +116,7 @@ function mm_get_current_lang_short() {
                 <?php endif; ?>
             </a>
 
-            <div class="flex flex-col justify-between flex-1">
+            <div class="flex flex-col justify-between ">
                 <div class="flex flex-col gap-3">
                     <h3 class="font-normal mt-[40px] <?php echo esc_attr($text_align_class); ?>">
                         <a href="<?php the_permalink(); ?>"><?php echo esc_html( $post_title ); ?></a>

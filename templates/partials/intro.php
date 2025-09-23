@@ -12,7 +12,11 @@
 document.addEventListener("DOMContentLoaded", function() {
     (function() {
         if (typeof gsap === 'undefined') return;
-        gsap.registerPlugin(ScrollTrigger);
+
+        if (!gsap.__registeredScrollTrigger) {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.__registeredScrollTrigger = true;
+        }
 
         // split the heading into chars
         var heading = document.querySelector('#intro-heading');
@@ -26,31 +30,39 @@ document.addEventListener("DOMContentLoaded", function() {
         split.words.forEach(function(c) {
             c.style.display = 'inline-block';
         });
-        if (!isMobile) {
-            var tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: heading,
-                    start: 'top center',
-                    end: '+=50%',
-                    scrub: 0.3,
-                    markers: false
-                }
-            });
-        }else{
-            var tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: heading,
-                    start: 'top center',
-                    end: 'center+=20%',
-                    scrub: 0.3,
-                    markers: false
-                }
-            });
-        }
-        tl.to(split.words, {
-            color: '#000000',
-            stagger: 0.02,
-            duration: 0.5
+
+        ScrollTrigger.matchMedia({
+            "(min-width: 768px)": function() {
+                // desktop: use a scrubbed subtle color change
+                var tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: heading,
+                        start: 'top center',
+                        end: '+=50%',
+                        scrub: 0.3,
+                        markers: false
+                    }
+                });
+                tl.to(split.words, {
+                    color: '#000000',
+                    stagger: 0.02,
+                    duration: 0.5
+                });
+            },
+
+            "(max-width: 767px)": function() {
+                // mobile: simple play-once color transition for perf and clarity
+                gsap.to(split.words, {
+                    color: '#000000',
+                    stagger: 0.02,
+                    duration: 0.5,
+                    scrollTrigger: {
+                        trigger: heading,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            }
         });
     })()
 });

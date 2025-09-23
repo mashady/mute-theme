@@ -108,7 +108,7 @@ if ( ! function_exists('mm_get_current_lang_short') ) {
                 <?php endif; ?>
             </a>
 
-            <div class="flex flex-col justify-between flex-1 px-4 py-3">
+            <div class="flex flex-col justify-between  px-4 py-3">
                 <div class="flex flex-col gap-3">
                     <h3 class="font-normal mt-[10px] text-xl <?php echo esc_attr($align_class); ?>">
                         <a href="<?php echo esc_url( $card_url ); ?>"

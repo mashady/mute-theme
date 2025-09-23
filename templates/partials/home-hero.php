@@ -201,7 +201,7 @@
                     </svg>
 
                     <div
-                        class="flex-1 justify-start text-Primary-Green-700 text-xl font-normal font-['Poppins'] leading-7">
+                        class=" justify-start text-Primary-Green-700 text-xl font-normal font-['Poppins'] leading-7">
                         Contact US</div>
                     <div
                         class="p-1.5 rounded-[40px] outline outline-1 outline-offset-[-1px] outline-neutral-700 backdrop-blur-[20px] flex justify-start items-center">
@@ -224,7 +224,7 @@
                     </svg>
 
                     <div
-                        class="flex-1 justify-start text-Primary-Green-700 text-xl font-normal font-['Poppins'] leading-7">
+                        class=" justify-start text-Primary-Green-700 text-xl font-normal font-['Poppins'] leading-7">
                         <span class="max-lg:hidden">Love using</span> <span class="">WhatsApp</span> <span
                             class="max-lg:hidden">let’s chat</span>
                     </div>
