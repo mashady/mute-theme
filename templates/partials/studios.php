@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (typeof gsap === 'undefined') return;
 
     // register ScrollTrigger exactly once to avoid duplicate registrations on hot reloads
-    if (!gsap.__registeredScrollTrigger) {
+    if (!gsap.__registeredScrollTrigger && typeof ScrollTrigger !== 'undefined') {
         gsap.registerPlugin(ScrollTrigger);
         gsap.__registeredScrollTrigger = true;
     }

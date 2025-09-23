@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
     (function() {
         if (typeof gsap === 'undefined') return;
 
-        if (!gsap.__registeredScrollTrigger) {
+        if (!gsap.__registeredScrollTrigger && typeof ScrollTrigger !== 'undefined') {
             gsap.registerPlugin(ScrollTrigger);
             gsap.__registeredScrollTrigger = true;
         }
