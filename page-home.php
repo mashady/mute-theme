@@ -4,7 +4,7 @@
  */
 get_header();
 ?>
-
+<link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/output.css" rel="stylesheet">
 <main class="min-h-screen ">
     <div>
 
