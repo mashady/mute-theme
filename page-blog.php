@@ -43,6 +43,7 @@ function mm_get_current_lang_short() {
     return 'en';
 }
 ?>
+<link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/output.css" rel="stylesheet">
 
 <section class="hero py-12 px-4 mx-auto mt-5">
     <!-- Section Header -->

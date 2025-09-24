@@ -12,7 +12,7 @@ PROJECT_NAME="$(basename "$PROJECT_DIR")"
 TIMESTAMP="$(date +%Y%m%d-%H%M%S)"
 # Per request: always produce final zip at parent folder named razzi.zip and replace if exists
 PARENT_DIR="$(dirname "$PROJECT_DIR")"
-OUT="${PARENT_DIR}/razzi.zip"
+OUT="${PARENT_DIR}/razzi-child.zip"
 
 # Default excludes (space-separated). You can override by passing a second arg as 
 # quoted string of patterns, e.g. "node_modules .git .DS_Store"

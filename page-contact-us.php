@@ -28,6 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
     }
 }
 ?>
+<link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/output.css" rel="stylesheet">
 
 <div class="container mx-auto px-4 py-12 space-y-32 mt-12 mb-12">
 

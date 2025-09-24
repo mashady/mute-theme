@@ -7,7 +7,7 @@ get_header();
 
 
 ?>
-
+<link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/output.css" rel="stylesheet">
 <main id="primary" class="site-main">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post(); ?>
 
