@@ -17,7 +17,7 @@
             data-title="Build Your Signature Studio"
             data-description="Turn any space into a pro-grade studio with turnkey isolation and acoustic design that performs beautifully and looks great."
             data-link="/shop/studio-solutions/"
-            style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/fom.png');">
+            style="background-image: url('<?php echo esc_url( get_theme_media_url('images/fom.png') ); ?>');">
             <div class="absolute inset-0 rounded-[24px] bg-gradient-to-b from-transparent via-black/60 to-[#0C0101]">
             </div>
             <div class="relative z-10 lg:max-w-[800px]">
@@ -36,7 +36,7 @@
                 data-title="Pro-Grade Microphones — RØDE"
                 data-description="Discover RØDE microphones selected for clarity and character — the perfect mic for recording, streaming, or live work."
                 data-link="/shop/microphones/"
-                style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/rode-micro.png'); background-size: 500px;">
+                style="background-image: url('<?php echo esc_url( get_theme_media_url('images/rode-micro.png') ); ?>'); background-size: 500px;">
 
                 <div class="overlay absolute inset-0 bg-black/40 rounded-[24px]"></div>
                 <svg class="card-icon" width="60" height="60" viewBox="0 0 60 60" fill="none"
@@ -161,7 +161,7 @@
                 data-title="Capture Every Moment — Nikon"
                 data-description="Shop curated Nikon cameras and lenses for creators at every level — crisp results, reliable gear."
                 data-link="/shop/cameras/"
-                style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/camera.png'); background-size: 400px;">
+                style="background-image: url('<?php echo esc_url( get_theme_media_url('images/camera.png') ); ?>'); background-size: 400px;">
 
                 <div class="overlay absolute inset-0 bg-black/40 rounded-[24px]"></div>
                 <svg class="card-icon" width="60" height="53" viewBox="0 0 60 53" fill="none"

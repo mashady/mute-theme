@@ -1,6 +1,6 @@
 <section class=" relative flex flex-col justify-center items-start min-h-[70vh] lg:min-h-[90vh] bg-cover bg-center overflow-hidden "
     id="home-hero-container">
-    <!-- poster="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Hero.png" -->
+    <!-- poster="<?php echo esc_url( get_theme_media_url('images/Hero.png') ); ?>" -->
     <!-- Background video: autoplay, muted, loop, playsinline -->
     <video class="absolute inset-0 w-full h-full object-cover -z-10" autoplay muted loop playsinline>
         <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/videos/heroVid.mp4" type="video/mp4">
@@ -396,9 +396,9 @@
                     ov.style.width = '100%';
                     ov.style.opacity = 1;
                     if (isMobile){
-                        ov.style.backgroundImage = 'url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mobile-map.jpg)';
+                        ov.style.backgroundImage = 'url(<?php echo esc_url( get_theme_media_url('images/mobile-map.jpg') ); ?>)';
                     }else{
-                        ov.style.backgroundImage = 'url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/map.jpg)';
+                        ov.style.backgroundImage = 'url(<?php echo esc_url( get_theme_media_url('images/map.jpg') ); ?>)';
                     }
                     ov.style.backgroundSize = 'cover';
                     // ov.style.cursor = 'pointer';

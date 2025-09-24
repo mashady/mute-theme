@@ -24,7 +24,7 @@
                     Book a Consultation
                 </p>
                 <p class="expand-icon flex p-1.5 items-center rounded-full bg-[#34413A] backdrop-blur-[20px]">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow-up.svg" alt="Arrow Icon"
+                    <img src="<?php echo esc_url( get_theme_media_url('images/arrow-up.svg') ); ?>" alt="Arrow Icon"
                         width="20" height="20" />
                 </p>
             </div>
@@ -52,7 +52,7 @@
                     Get Support
                 </p>
                 <p class="expand-icon flex p-1.5 items-center rounded-full bg-[#4B5D53] backdrop-blur-[20px]">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow-up.svg" alt="Arrow Icon"
+                    <img src="<?php echo esc_url( get_theme_media_url('images/arrow-up.svg') ); ?>" alt="Arrow Icon"
                         width="20" height="20" />
                 </p>
             </div>
@@ -81,7 +81,7 @@
                     Request Installation
                 </p>
                 <p class="expand-icon flex p-1.5 items-center rounded-full bg-[#4B5D53] backdrop-blur-[20px]">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow-up.svg" alt="Arrow Icon"
+                    <img src="<?php echo esc_url( get_theme_media_url('images/arrow-up.svg') ); ?>" alt="Arrow Icon"
                         width="20" height="20" />
                 </p>
             </div>

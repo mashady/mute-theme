@@ -4,7 +4,7 @@
  * File: single-service.php
  */
 get_header();
-require_once get_stylesheet_directory() . '/inc/enqueue/tailwind.php';
+require_once get_stylesheet_directory() . '/dist/output.css';
 
 /**
  * Helper: detect current language

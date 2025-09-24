@@ -31,7 +31,7 @@
                     $client_role  = get_the_excerpt(); // you can use this as role/company
                     $client_quote = apply_filters('the_content', get_the_content());
                     $image        = get_the_post_thumbnail_url(get_the_ID(), 'medium');
-                    $fallback_img = get_stylesheet_directory_uri() . '/assets/images/user.png';
+                    $fallback_img = get_theme_media_url('images/user.png');
             ?>
             <!-- Single Slide -->
             <div class="testimonial-slide flex flex-col md:flex-row items-start gap-6 min-w-full">
@@ -74,12 +74,12 @@
         <div class="flex  space-x-3 absolute top-5 md:top-0 right-4 md:right-6 z-20 mt-2">
             <button id="testimonialPrevBtn" aria-label="Previous slide"
                 class="p-0 w-[50px] h-[50px] flex items-center justify-center bg-white hover:bg-white/50 rounded-full shadow-md">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow-left.svg" alt="Previous"
+                <img src="<?php echo esc_url( get_theme_media_url('images/arrow-left.svg') ); ?>" alt="Previous"
                     class="w-5 h-5">
             </button>
             <button id="testimonialNextBtn" aria-label="Next slide"
                 class="p-0 w-[50px] h-[50px] flex items-center justify-center bg-black hover:bg-black/50 rounded-full shadow-md">
-                <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/right.svg" alt="Next"
+                <img src="<?php echo esc_url( get_theme_media_url('images/right.svg') ); ?>" alt="Next"
                     class="w-5 h-5">
             </button>
         </div>

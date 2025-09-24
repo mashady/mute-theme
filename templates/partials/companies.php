@@ -5,29 +5,29 @@
         <div class="p-5 w-screen max-w-full flex overflow-hidden">
             <div class="inline-flex items-center gap-12 companies-rail">
                 <img class="company-item w-40 h-10"
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/company1.png" />
+                    src="<?php echo esc_url( get_theme_media_url('images/company1.png') ); ?>" />
                 <img class="company-item w-36 h-10"
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/company2.png" />
+                    src="<?php echo esc_url( get_theme_media_url('images/company2.png') ); ?>" />
                 <img class="company-item w-32 h-11"
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/company3.png" />
+                    src="<?php echo esc_url( get_theme_media_url('images/company3.png') ); ?>" />
                 <img class="company-item w-40 h-10"
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/company4.png" />
+                    src="<?php echo esc_url( get_theme_media_url('images/company4.png') ); ?>" />
                 <img class="company-item w-40 h-10"
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/company1.png" />
+                    src="<?php echo esc_url( get_theme_media_url('images/company1.png') ); ?>" />
                 <img class="company-item w-36 h-10"
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/company2.png" />
+                    src="<?php echo esc_url( get_theme_media_url('images/company2.png') ); ?>" />
                 <img class="company-item w-32 h-11"
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/company3.png" />
+                    src="<?php echo esc_url( get_theme_media_url('images/company3.png') ); ?>" />
                 <img class="company-item w-40 h-10"
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/company4.png" />
+                    src="<?php echo esc_url( get_theme_media_url('images/company4.png') ); ?>" />
                 <img class="company-item w-40 h-10"
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/company1.png" />
+                    src="<?php echo esc_url( get_theme_media_url('images/company1.png') ); ?>" />
                 <img class="company-item w-36 h-10"
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/company2.png" />
+                    src="<?php echo esc_url( get_theme_media_url('images/company2.png') ); ?>" />
                 <img class="company-item w-32 h-11"
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/company3.png" />
+                    src="<?php echo esc_url( get_theme_media_url('images/company3.png') ); ?>" />
                 <img class="company-item w-40 h-10"
-                    src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/company4.png" />
+                    src="<?php echo esc_url( get_theme_media_url('images/company4.png') ); ?>" />
 
             </div>
         </div>

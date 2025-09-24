@@ -17,7 +17,7 @@ Available Here',
             data-title="Transform Your Room’s Sound"
             data-description="Shop premium acoustic panels & treatments to sharpen audio clarity and warmth—fast shipping."
             data-link="/shop/acoustic-products/"
-            style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/shop1.png');">
+            style="background-image: url('<?php echo esc_url( get_theme_media_url('images/shop1.png') ); ?>');">
 
             <svg class="card-icon" width="40" height="33" viewBox="0 0 60 53" fill="none"
                 xmlns="http://www.w3.org/2000/svg">
@@ -51,7 +51,7 @@ Available Here',
             data-title="Silence, Engineered"
             data-description="Create distraction-free spaces with proven isolation systems — quieter rooms, happier teams."
             data-link="/shop/isolation-products/"
-            style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/shop2.png');">
+            style="background-image: url('<?php echo esc_url( get_theme_media_url('images/shop2.png') ); ?>');">
 
             <div class="overlay absolute inset-0 bg-black/40 rounded-[24px]"></div>
             <svg class="card-icon" width="40" height="40" viewBox="0 0 60 60" fill="none"

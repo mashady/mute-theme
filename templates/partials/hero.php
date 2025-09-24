@@ -1,6 +1,6 @@
 <section
     class="mt-[20px] relative p-6 flex flex-col justify-center items-start rounded-[20px] bg-cover bg-center overflow-hidden"
-    style=" background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Hero.png'); height:717px;">
+    style=" background-image: url('<?php echo esc_url( get_theme_media_url('images/Hero.png') ); ?>'); height:717px;">
     <div class="relative z-10 w-full h-full px-16 py-6 flex flex-col justify-end">
         <div class="max-w-3xl p-5 flex flex-col gap-10">
             <div class="flex flex-col gap-1">
