@@ -3,7 +3,10 @@
  * Template Name: Blog Page
  */
 get_header();
+require_once get_stylesheet_directory() . '/inc/enqueue/tailwind.php';
+
 ?>
+
 <?php get_template_part('templates/partials/hero'); ?>
 
 <?php
