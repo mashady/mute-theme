@@ -12,6 +12,9 @@ require_once get_stylesheet_directory() . '/inc/enqueue/fonts.php';
 // Menu functions
 require_once get_stylesheet_directory() . '/inc/menus/register.php';
 
+// Theme media helpers (ensures /wp-content/theme-media exists and provides helpers)
+require_once get_stylesheet_directory() . '/inc/theme-media.php';
+
 // Setup functions (add more as needed)
 // require_once get_stylesheet_directory() . '/inc/setup/theme-support.php';
 // require_once get_stylesheet_directory() . '/inc/setup/customizer.php';

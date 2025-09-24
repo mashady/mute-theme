@@ -33,12 +33,12 @@
             <div class="flex space-x-3">
                 <button id="prevBtn" aria-label="Previous slide"
                     class="p-0 w-[50px] h-[50px] flex items-center justify-center bg-white hover:bg-white/50 rounded-full shadow-md">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow-left.svg" alt="Previous"
+                    <img src="<?php echo esc_url( get_theme_media_url('images/arrow-left.svg') ); ?>" alt="Previous"
                         class="w-5 h-5">
                 </button>
                 <button id="nextBtn" aria-label="Next slide"
                     class="p-0 w-[50px] h-[50px] flex items-center justify-center bg-black hover:bg-black/50 rounded-full shadow-md">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/right.svg" alt="Next"
+                    <img src="<?php echo esc_url( get_theme_media_url('images/right.svg') ); ?>" alt="Next"
                         class="w-5 h-5">
                 </button>
             </div>
@@ -46,7 +46,7 @@
 
         <div id="slider" class="relative w-full h-[600px] flex ">
             <div class="slide min-w-full h-full relative flex items-end p-8"
-                style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/1.png'); background-size: cover; background-position: center;">
+                style="background-image: url('<?php echo esc_url( get_theme_media_url('images/1.png') ); ?>'); background-size: cover; background-position: center;">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 <div class="relative z-10 max-w-2xl">
                     <h2 class="text-2xl font-bold text-white mb-4">2x factory in Giza</h2>
@@ -57,7 +57,7 @@
             </div>
 
             <div class="slide min-w-full h-full relative flex items-end p-8"
-                style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/2.png'); background-size: cover; background-position: center;">
+                style="background-image: url('<?php echo esc_url( get_theme_media_url('images/2.png') ); ?>'); background-size: cover; background-position: center;">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 <div class="relative z-10 max-w-2xl">
                     <h2 class="text-2xl font-bold text-white mb-4">Industrial Excellence</h2>

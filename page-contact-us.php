@@ -38,7 +38,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {
         </div>
 
         <div style="height:100%">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/2.png" alt="Appointment"
+            <img src="<?php echo esc_url( get_theme_media_url('images/2.png') ); ?>" alt="Appointment"
                 class="w-full h-full object-cover rounded-xl shadow-lg">
         </div>
     </section>

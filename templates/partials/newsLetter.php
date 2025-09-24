@@ -1,7 +1,7 @@
 <div class=" p-1 mb-16">
     <div class="min-h-[400px] flex flex-col md:flex-row bg-black rounded-xl overflow-hidden shadow-lg">
         <div class="md:w-1/3 flex items-center justify-center p-6 bg-[#282828] text-white">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/logo.png" alt="Logo"
+            <img src="<?php echo esc_url( get_theme_media_url('images/logo.png') ); ?>" alt="Logo"
                 class="w-32 h-32 md:w-full md:h-auto max-w-[200px]" />
         </div>
 
@@ -23,7 +23,7 @@
                 <!-- Button inside input -->
                 <button
                     class="absolute right-2 top-1/2 -translate-y-1/2 bg-[#5B6F68] w-10 h-10 rounded-full flex items-center justify-center shadow-md">
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/arrow-up.svg" alt="Previous"
+                    <img src="<?php echo esc_url( get_theme_media_url('images/arrow-up.svg') ); ?>" alt="Previous"
                         class="w-5 h-5">
                 </button>
             </div>

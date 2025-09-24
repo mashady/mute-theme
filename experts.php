@@ -14,7 +14,7 @@
 
     <div class="flex flex-col lg:flex-row gap-4 min-h-[536px] ">
         <div class="relative  flex flex-col justify-end items-start text-white rounded-[24px] p-6 min-h-[450px] lg:max-w-[600px] bg-cover bg-center bg-no-repeat main-card opacity-0 scale-95"
-            style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/fom.png');">
+            style="background-image: url('<?php echo esc_url( get_theme_media_url('images/fom.png') ); ?>');">
             <div class="absolute inset-0 rounded-[24px] bg-gradient-to-b from-transparent via-black/60 to-[#0C0101]">
             </div>
             <div class="relative z-10">
@@ -76,7 +76,7 @@
             <div class="w-full mt-2">
                 <div class="max-md:hidden flex flex-row  gap-3 w-full stats-row opacity-0 ">
                     <div class="flex px-6 py-3 items-center gap-3   bg-[#eee] rounded-2xl min-h-[90px]">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/Vector.svg"
+                        <img src="<?php echo esc_url( get_theme_media_url('images/Vector.svg') ); ?>"
                             alt="Assert Icon" width="24" height="24" />
                         <div>
                             <div class="text-[#434343] font-inter text-[20px] font-normal leading-normal">500+</div>
@@ -85,7 +85,7 @@
                         </div>
                     </div>
                     <div class="flex px-6 py-3 items-center gap-3   bg-[#eee] rounded-2xl min-h-[90px]">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/pajamas_work.svg"
+                        <img src="<?php echo esc_url( get_theme_media_url('images/pajamas_work.svg') ); ?>"
                             alt="Assert Icon" width="24" height="24" />
                         <div>
                             <div class="text-[#434343] font-inter text-[20px] font-normal leading-normal">208+</div>
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                     <div class="flex px-6 py-3 items-center gap-3   bg-[#eee] rounded-2xl min-h-[90px]">
-                        <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/pajamas_retry.svg"
+                        <img src="<?php echo esc_url( get_theme_media_url('images/pajamas_retry.svg') ); ?>"
                             alt="Assert Icon" width="24" height="24" />
                         <div>
                             <div class="text-[#434343] font-inter text-[20px] font-normal leading-normal">320+</div>

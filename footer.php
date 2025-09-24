@@ -326,8 +326,7 @@
                     'card-arrow z-20 flex p-1.5 items-center rounded-full backdrop-blur-[20px] top-[10px] right-[10px] absolute w-fit';
                 // set the background color from data-color
                 arrowWrapper.style.background = cardColor;
-                arrowWrapper.innerHTML =
-                    `<?php echo "<img src=\"" . get_stylesheet_directory_uri() . "/assets/images/arrow-up.svg\" alt=\"Arrow Icon\" width=\"40\" height=\"40\" />"; ?>`;
+                arrowWrapper.innerHTML = '<?php echo '<img src="' . esc_url( get_theme_media_url("images/arrow-up.svg") ) . '" alt="Arrow Icon" width="40" height="40" />'; ?>';
                 // Place the arrow wrapper into a sensible spot: append to the first .card-content or to the card itself
                 const firstContent = card.querySelector('.card-content');
                 if (firstContent) {
@@ -381,6 +380,7 @@
         });
     });
 </script>
+<?php wp_footer(); ?>
 
 <!-- Inline custom card cursor (pointer-aware) -->
 <style>

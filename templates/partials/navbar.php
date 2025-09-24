@@ -20,7 +20,7 @@
         </div>
 
         <button id="menu-toggle" class="menu-toggle">
-            <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/menu2.svg" alt="Mobile Menu"
+            <img src="<?php echo esc_url( get_theme_media_url('images/menu2.svg') ); ?>" alt="Mobile Menu"
                 class="hamburger-icon" />
         </button>
 

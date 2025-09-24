@@ -2,7 +2,7 @@
     <div class="card flex flex-col  h-[600px] rounded-[24px] overflow-hidden bg-cover bg-center" data-title="See Our Videos"
         data-description="Watch to learn more about sound isolation"
         data-link="/videos/"
-        style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/knewMore.png');">
+    style="background-image: url('<?php echo esc_url( get_theme_media_url('images/knewMore.png') ); ?>');">
 
         <div class="overlay absolute inset-0  h-full"></div>
 
@@ -22,7 +22,7 @@
                         see our videos
                     </span>
 
-                    <img src="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/videoIco.png" alt="Play Video"
+                    <img src="<?php echo esc_url( get_theme_media_url('images/videoIco.png') ); ?>" alt="Play Video"
                         class="w-[30px] h-[30px]" />
                 </div>
             </div>
