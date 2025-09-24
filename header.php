@@ -70,8 +70,8 @@
         \Razzi\Markup::instance()->open('site_content', [
             'tag' => 'div',
             'attr' => [
-                // 'id'    => 'content',
-                // 'class' => 'site-content'
+                'id'    => 'content',
+                'class' => 'site-content'
             ],
             'actions' => true,
         ]);

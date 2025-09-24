@@ -3533,6 +3533,12 @@ body {
   /* @apply text-white  text-md font-light; */
 }
 
+.site-content {
+  width: 100vw;
+  max-width: 100% !important;
+  overflow-x: hidden;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

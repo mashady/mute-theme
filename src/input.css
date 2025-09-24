@@ -36,3 +36,8 @@ body {
 .card-content .card-description {
   /* @apply text-white  text-md font-light; */
 }
+
+.site-content {
+  @apply !max-w-full w-screen overflow-x-hidden;
+
+}
