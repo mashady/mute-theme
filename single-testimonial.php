@@ -4,7 +4,7 @@
  * File: single-testimonial.php
  */
 get_header();
-require_once get_stylesheet_directory() . '/inc/enqueue/tailwind.php';
+
 
 ?>
 

@@ -2,7 +2,7 @@
 /* Template Name: Contact Us */
 get_header();
 get_template_part('templates/partials/hero');
-require_once get_stylesheet_directory() . '/inc/enqueue/tailwind.php';
+
 
 // Handle form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['contact_form'])) {

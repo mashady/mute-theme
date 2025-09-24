@@ -3,7 +3,7 @@
  * Template Name: Home Page
  */
 get_header();
-require_once get_stylesheet_directory() . '/inc/enqueue/tailwind.php';
+
 
 ?>
 <link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/output.css" rel="stylesheet">

@@ -5,7 +5,7 @@
 
 // Enqueue functions
 require_once get_stylesheet_directory() . '/inc/enqueue/styles.php';
-// require_once get_stylesheet_directory() . '/inc/enqueue/tailwind.php';
+// 
 require_once get_stylesheet_directory() . '/inc/enqueue/scripts.php';
 require_once get_stylesheet_directory() . '/inc/enqueue/fonts.php';
 
