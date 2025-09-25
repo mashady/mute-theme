@@ -9,6 +9,7 @@ get_template_part('templates/partials/hero');
 // Detect language from your cookie
 $current_lang = isset($_COOKIE['site_lang']) ? $_COOKIE['site_lang'] : 'en_US';
 ?>
+<link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/output.css" rel="stylesheet">
 
 <section class="hero py-12 px-4 mx-auto mt-5">
     <!-- Section Header -->

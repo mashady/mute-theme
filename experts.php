@@ -1,3 +1,5 @@
+<link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/output.css" rel="stylesheet">
+
 <section class=" sound-experts-section section-container">
 
 
