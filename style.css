@@ -8,7 +8,7 @@
  Version:      1.0.0
 */
 
-:root{
+:root {
   --rz-background-color-dark: #34413a !important;
 }
 
@@ -205,19 +205,19 @@ p {
   border-radius: 12px !important;
 }
 
-button{
+button {
   border-radius: 12px !important;
 }
 
-.wc-block-components-button{
+.wc-block-components-button {
   border-radius: 12px !important;
 }
 
-.razzi-button{
+.razzi-button {
   border-radius: 12px !important;
 }
 
-#primary{
+#primary {
   min-height: 60vh !important;
   display: flex !important;
   flex-direction: column !important;
@@ -238,6 +238,7 @@ button{
   --rz-border-color: #34413a !important;
   --rz-border-color-dark: #34413a !important;
   --rz-border-color-light: #34413a !important; */
-  --rz-font-family-primary: 'Poppins', Arial, sans-serif !important;
-  --rz-font-family-code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  --rz-font-family-primary: "Poppins", Arial, sans-serif !important;
+  --rz-font-family-code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono",
+    monospace;
 }
