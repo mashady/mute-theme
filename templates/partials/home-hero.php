@@ -306,6 +306,19 @@
             });
 
             // container: animate height/margin/borderRadius (start after 1s to match previous delay)
+            if (isMobile){
+            tl.fromTo(container, {
+                    height: '100vh'
+                }, {
+                    height: '95vh',
+                    margin: '10px',
+                    borderRadius: '24px',
+                    duration: 0.5,
+                    ease: 'power1.out'
+                },
+                1 // absolute position: start at 1s (previous delay)
+            );
+        } else {
             tl.fromTo(container, {
                     height: '100vh'
                 }, {
@@ -317,6 +330,7 @@
                 },
                 1 // absolute position: start at 1s (previous delay)
             );
+        }
 
             // title: come in after container (previously started at 0.55s but container had 1s delay; keep a similar overlap)
             if (title) {

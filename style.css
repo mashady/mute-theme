@@ -224,3 +224,20 @@ button{
   justify-content: center !important;
   align-items: center !important;
 }
+
+:root {
+  /* --rz-primary-color: #34413a !important;
+  --rz-primary-color-dark: #34413a !important;
+  --rz-primary-color-light: #34413a !important;
+  --rz-text-color: #34413a !important;
+  --rz-text-color-dark: #34413a !important;
+  --rz-text-color-light: #34413a !important;
+  --rz-background-color: #34413a !important;
+  --rz-background-color-dark: #34413a !important;
+  --rz-background-color-light: #34413a !important;
+  --rz-border-color: #34413a !important;
+  --rz-border-color-dark: #34413a !important;
+  --rz-border-color-light: #34413a !important; */
+  --rz-font-family-primary: 'Poppins', Arial, sans-serif !important;
+  --rz-font-family-code: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+}
