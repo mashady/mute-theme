@@ -1,7 +1,8 @@
 <section style="" class="h-[60vh] lg:h-[120vh] px-4 lg:py-16 flex items-center flex-col justify-top">
     <div class="max-w-5xl text-center h-fit sticky top-1/2 my-[25vh]">
         <h2 class="text-[#dadada8a] text-2xl md:text-5xl font-medium font-inter " id="intro-heading">
-            At Sound Mute, we deliver expert acoustic solutions that eliminate noise,  enhance privacy, and create growth ready environments.
+            At Sound Mute, we deliver expert acoustic solutions that eliminate noise, enhance privacy, and create growth
+            ready environments.
         </h2>
     </div>
 </section>

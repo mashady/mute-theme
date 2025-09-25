@@ -111,10 +111,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     if (typeof gsap === "undefined") return;
 
-        if (!gsap.__registeredScrollTrigger && typeof ScrollTrigger !== 'undefined') {
-            gsap.registerPlugin(ScrollTrigger);
-            gsap.__registeredScrollTrigger = true;
-        }
+    if (!gsap.__registeredScrollTrigger && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.__registeredScrollTrigger = true;
+    }
 
     ScrollTrigger.matchMedia({
         "(min-width: 768px)": function() {

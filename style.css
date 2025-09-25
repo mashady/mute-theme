@@ -29,7 +29,7 @@ body.woocommerce-account footer {
 }
 
 /* Import parent theme styles */
-@import url("../razzi/style.css");
+/* @import url("../razzi/style.css"); */
 
 html {
   margin: 0 !important;
@@ -58,11 +58,6 @@ p {
 }
 /** header styles */
 /* General Header Styles */
-
-
-
-
-
 
 /** archive pages pagination */
 .custom-pagination {
@@ -99,3 +94,104 @@ p {
 /*** custom header in some pages  */
 /** =============================== */
 /* 
+
+/** woocomerce styles customization */
+.single_add_to_cart_button {
+  background-color: #34413a !important;
+  border-radius: 8px;
+}
+.single_add_to_cart_button:hover {
+  background-color: #34413a !important;
+}
+.product-button-wrapper .quantity {
+  border-radius: 8px !important;
+}
+.rz-wishlist-button {
+  border-radius: 8px !important;
+  border-color: #34413a !important;
+}
+.wcboost-wishlist-button__icon .razzi-svg-icon svg {
+  color: #34413a !important;
+  font-size: 20px;
+}
+
+.wp-post-image {
+  border-radius: 8px !important;
+}
+.single-product
+  div.product
+  .woocommerce-product-gallery
+  .flex-control-thumbs
+  li
+  img {
+  border-radius: 8px !important;
+}
+.socials a {
+  color: #34413a !important;
+}
+.product-gallery-summary {
+  margin-top: 50px !important;
+}
+.site-main {
+  margin-bottom: 50px;
+}
+.rz-compare-button {
+  border-radius: 8px !important;
+  border-color: #34413a !important;
+}
+
+.product_type_simple {
+  background-color: #34413a !important;
+}
+.rz-loop_atc_button {
+  background-color: #34413a !important;
+}
+.select2-selection--single {
+  border-radius: 8px !important;
+}
+.select2-selection__rendered {
+  color: black !important;
+}
+
+.woocommerce-info {
+  background-color: #34413a !important;
+  border-radius: 8px;
+}
+.woocommerce-Button {
+  border-radius: 8px;
+}
+.woocommerce-Input {
+  border-radius: 8px;
+  margin-bottom: 5px;
+}
+.woocommerce-Button {
+  background-color: #34413a !important;
+}
+.woocommerce-Address {
+  border-radius: 8px;
+}
+
+.wp-block-button__link {
+  border-radius: 8px !important;
+  background-color: #34413a !important;
+}
+.wc-block-cart__empty-cart__title.with-empty-cart-icon:before {
+  display: none !important;
+}
+.return-to-shop a {
+  border-radius: 8px;
+  background-color: #34413a !important;
+}
+
+.ra-search-modal .product-cat-label {
+  border-radius: 8px !important;
+}
+.search-wrapper .search-field {
+  border-radius: 8px;
+}
+.woocommerce-mini-cart__empty-message .button-outline {
+  border-radius: 8px !important;
+}
+.woocommerce-mini-cart__empty-message svg {
+  display: none !important;
+}
