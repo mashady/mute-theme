@@ -62,3 +62,7 @@ body {
 .minimized .razzi-svg-icon {
   color: black !important;
 }
+
+#topbar-mobile {
+  display: none !important;
+}

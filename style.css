@@ -213,3 +213,14 @@ button{
   border-radius: 12px !important;
 }
 
+.razzi-button{
+  border-radius: 12px !important;
+}
+
+#primary{
+  min-height: 60vh !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
