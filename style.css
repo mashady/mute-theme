@@ -7,6 +7,11 @@
  Template:     razzi
  Version:      1.0.0
 */
+
+:root{
+  --rz-background-color-dark: #34413a !important;
+}
+
 .leaflet-popup-content-wrapper {
   background: #ffffff;
   color: #222;
@@ -195,3 +200,16 @@ p {
 .woocommerce-mini-cart__empty-message svg {
   display: none !important;
 }
+
+.button {
+  border-radius: 12px !important;
+}
+
+button{
+  border-radius: 12px !important;
+}
+
+.wc-block-components-button{
+  border-radius: 12px !important;
+}
+
