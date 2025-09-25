@@ -32,24 +32,24 @@
     <?php wp_head(); ?>
 </head>
 <script>
-    const checkIsMobile = () => window.matchMedia("only screen and (max-width: 768px)").matches;
+const checkIsMobile = () => window.matchMedia("only screen and (max-width: 768px)").matches;
 
-    let isMobile = checkIsMobile();
-    window.addEventListener('resize', () => {
-        const currentlyMobile = checkIsMobile();
-        if (currentlyMobile !== isMobile) {
-            // Instead of a full reload, trigger a safe refresh hook; if unavailable, fallback to reload
-            if (typeof ScrollTrigger !== 'undefined' && ScrollTrigger.refresh) {
-                ScrollTrigger.refresh();
-            } else {
-                // If ScrollTrigger isn't available yet, do a soft reload to ensure layout is correct
-                location.reload();
-            }
-            isMobile = currentlyMobile;
+let isMobile = checkIsMobile();
+window.addEventListener('resize', () => {
+    const currentlyMobile = checkIsMobile();
+    if (currentlyMobile !== isMobile) {
+        // Instead of a full reload, trigger a safe refresh hook; if unavailable, fallback to reload
+        if (typeof ScrollTrigger !== 'undefined' && ScrollTrigger.refresh) {
+            ScrollTrigger.refresh();
+        } else {
+            // If ScrollTrigger isn't available yet, do a soft reload to ensure layout is correct
+            location.reload();
         }
+        isMobile = currentlyMobile;
+    }
 
 
-    });
+});
 </script>
 
 <body <?php body_class(); ?>>
@@ -59,10 +59,10 @@
     <div id="page" class="site">
         <?php do_action('razzi_before_open_site_header'); ?>
         <?php if (!function_exists('elementor_theme_do_location') || !elementor_theme_do_location('header')) { ?>
-            <header id="site-header" class="<?php \Razzi\Header::classes('site-header'); ?>">
-                <?php do_action('razzi_after_open_site_header'); ?>
-                <?php do_action('razzi_before_close_site_header'); ?>
-            </header>
+        <header id="site-header" class="<?php \Razzi\Header::classes('site-header'); ?>">
+            <?php do_action('razzi_after_open_site_header'); ?>
+            <?php do_action('razzi_before_close_site_header'); ?>
+        </header>
         <?php } ?>
         <?php do_action('razzi_after_close_site_header'); ?>
 
