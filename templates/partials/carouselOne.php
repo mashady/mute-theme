@@ -32,12 +32,12 @@
 
             <div class="flex space-x-3">
                 <button id="prevBtn" aria-label="Previous slide"
-                    class="p-0 w-[50px] h-[50px] flex items-center justify-center bg-white hover:bg-white/50 rounded-full shadow-md">
+                    class="p-0 w-[50px] h-[50px] flex items-center justify-center bg-white hover:bg-white/50 !rounded-full shadow-md">
                     <img src="<?php echo esc_url( get_theme_media_url('images/arrow-left.svg') ); ?>" alt="Previous"
                         class="w-5 h-5">
                 </button>
                 <button id="nextBtn" aria-label="Next slide"
-                    class="p-0 w-[50px] h-[50px] flex items-center justify-center bg-black hover:bg-black/50 rounded-full shadow-md">
+                    class="p-0 w-[50px] h-[50px] flex items-center justify-center bg-black hover:bg-black/50 !rounded-full shadow-md">
                     <img src="<?php echo esc_url( get_theme_media_url('images/right.svg') ); ?>" alt="Next"
                         class="w-5 h-5">
                 </button>

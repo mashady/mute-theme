@@ -1,32 +1,32 @@
 <section class="w-full flex justify-center items-center">
     <div class="h-80 inline-flex flex-col justify-center items-center gap-7">
-        <div class="justify-start text-Accent-Of-white-800 text-3xl font-normal font-['Poppins'] leading-10">Trusted by
+        <div class="justify-start text-Accent-Of-white-800 text-center text-xl lg:text-3xl font-normal font-['Poppins'] leading-10">Trusted by
             top companies</div>
-        <div class="p-5 w-screen max-w-full flex overflow-hidden">
+        <div class="p-2 lg:p-5 w-screen max-w-full flex overflow-hidden">
             <div class="inline-flex items-center gap-12 companies-rail">
-                <img class="company-item w-40 h-10"
+                <img class="company-item w-20 h-5 md:w-40 md:h-10"
                     src="<?php echo esc_url( get_theme_media_url('images/company1.png') ); ?>" />
-                <img class="company-item w-36 h-10"
+                <img class="company-item w-20 h-5 md:w-36 md:h-10"
                     src="<?php echo esc_url( get_theme_media_url('images/company2.png') ); ?>" />
-                <img class="company-item w-32 h-11"
+                <img class="company-item w-16 h-6 md:w-32 md:h-11"
                     src="<?php echo esc_url( get_theme_media_url('images/company3.png') ); ?>" />
-                <img class="company-item w-40 h-10"
+                <img class="company-item w-20 h-5 md:w-40 md:h-10"
                     src="<?php echo esc_url( get_theme_media_url('images/company4.png') ); ?>" />
-                <img class="company-item w-40 h-10"
+                <img class="company-item w-20 h-5 md:w-40 md:h-10"
                     src="<?php echo esc_url( get_theme_media_url('images/company1.png') ); ?>" />
-                <img class="company-item w-36 h-10"
+                <img class="company-item w-20 h-5 md:w-36 md:h-10"
                     src="<?php echo esc_url( get_theme_media_url('images/company2.png') ); ?>" />
-                <img class="company-item w-32 h-11"
+                <img class="company-item w-16 h-6 md:w-32 md:h-11"
                     src="<?php echo esc_url( get_theme_media_url('images/company3.png') ); ?>" />
-                <img class="company-item w-40 h-10"
+                <img class="company-item w-20 h-5 md:w-40 md:h-10"
                     src="<?php echo esc_url( get_theme_media_url('images/company4.png') ); ?>" />
-                <img class="company-item w-40 h-10"
+                <img class="company-item w-20 h-5 md:w-40 md:h-10"
                     src="<?php echo esc_url( get_theme_media_url('images/company1.png') ); ?>" />
-                <img class="company-item w-36 h-10"
+                <img class="company-item w-20 h-5 md:w-36 md:h-10"
                     src="<?php echo esc_url( get_theme_media_url('images/company2.png') ); ?>" />
-                <img class="company-item w-32 h-11"
+                <img class="company-item w-16 h-6 md:w-32 md:h-11"
                     src="<?php echo esc_url( get_theme_media_url('images/company3.png') ); ?>" />
-                <img class="company-item w-40 h-10"
+                <img class="company-item w-20 h-5 md:w-40 md:h-10"
                     src="<?php echo esc_url( get_theme_media_url('images/company4.png') ); ?>" />
 
             </div>

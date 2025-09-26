@@ -2,7 +2,7 @@
     class="max-md:h-fit max-md:min-h-0 max-md:m-0 relative w-full  !p-6 overflow-hidden rounded-3xl section-container  knew-more-section">
     <div class="card flex flex-col  h-[600px] rounded-[24px] overflow-hidden bg-cover bg-center"
         data-title="See Our Videos" data-description="Watch to learn more about sound isolation" data-link="/videos/"
-        style="background-image: url('<?php echo get_stylesheet_directory_uri(); ?>/assets/images/knewMore.png');">
+        style="background-image: url('<?php echo get_theme_media_url('images/knewMore.png'); ?>');">
 
         <div class="overlay absolute inset-0  h-full"></div>
 

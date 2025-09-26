@@ -43,11 +43,11 @@ html {
   padding-left: 20px !important;
 }
 
-@media screen and (max-width: 768px) {
+/* @media screen and (max-width: 768px) {
   html {
     font-size: 14px;
   }
-}
+} */
 
 .hero .cards-container {
   /* margin-top: 50px !important; */

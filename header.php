@@ -35,6 +35,7 @@
 const checkIsMobile = () => window.matchMedia("only screen and (max-width: 768px)").matches;
 
 let isMobile = checkIsMobile();
+window.isMobile = isMobile;
 window.addEventListener('resize', () => {
     const currentlyMobile = checkIsMobile();
     if (currentlyMobile !== isMobile) {

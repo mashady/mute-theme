@@ -30,7 +30,7 @@ Available Here',
 
             <div class="card-content ">
 
-                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#34413A] text-sm">
+                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#34413A] text-xs lg:text-sm">
                     See our projects
                 </p>
                 <div class="w-full relative z-10 mt-auto">
@@ -62,7 +62,7 @@ Available Here',
             </svg>
 
             <div class="card-content ">
-                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#34413A] text-sm">
+                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#34413A] text-xs lg:text-sm">
                     See our projects
                 </p>
                 <div class="w-full relative z-10 mt-auto">

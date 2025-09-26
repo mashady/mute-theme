@@ -12,13 +12,14 @@
     ?>
 
     <div class="grid grid-cols-1 gap-5 w-full min-h-[350px] md:grid-cols-2 lg:grid-cols-3">
-        <div class="card flex flex-col  h-[25vh] md:h-[400px] rounded-[24px] text-white p-6 bg-[#576C61] min-h-[256px] relative "
+        <div class="card flex flex-col  h-[25vh] md:h-[400px] rounded-[24px] text-white p-6 bg-[#5d7367] min-h-[256px] relative "
             data-title="Start With a Free Consultation" data-description="See More Details"
-            data-link="/services/consultation/">
+            data-link="/services/consultation/"
+            >
             <div class="overlay absolute inset-0 rounded-[24px]"></div>
 
             <div class="card-content flex flex-row justify-between items-center gap-2 w-full relative z-10">
-                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#34413A] text-sm">
+                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#34413A] text-xs lg:text-sm">
                     Book a Consultation
                 </p>
 
@@ -48,11 +49,11 @@
             <div class="overlay absolute inset-0 rounded-[24px]"></div>
 
             <div class="card-content flex flex-row justify-between items-center gap-2 w-full relative z-10">
-                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#4B5D53] text-sm">
+                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#4B5D53] text-xs lg:text-sm">
                     Get Support
                 </p>
 
-                <div class=" w-full flex flex-col gap-3 relative z-10 mt-auto">
+                <div class=" w-full flex flex-col gap-2 relative z-10 mt-auto">
                     <h2 class="card-title">
                         Support & Maintenance
                     </h2>
@@ -68,16 +69,16 @@
 
         </div>
 
-        <div class="card flex flex-col  h-[25vh] md:h-[400px] rounded-[24px] text-white p-6 bg-[#34413A] min-h-[256px] md:col-span-2 lg:col-span-1"
+        <div class="card flex flex-col  h-[25vh] md:h-[400px] rounded-[24px] text-white p-6 bg-[#38463e] min-h-[256px] md:col-span-2 lg:col-span-1"
             card-title="Installation & Build" card-description="Get More Details" card-link="/services/installation/">
             <div class="overlay absolute inset-0 rounded-[24px]"></div>
 
             <div class="card-content flex flex-row justify-between items-center gap-2 w-full relative z-10">
-                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#4B5D53] text-sm">
+                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#4B5D53] text-xs lg:text-sm">
                     Request Installation
                 </p>
 
-                <div class=" w-full flex flex-col gap-3 relative z-10 mt-auto">
+                <div class=" w-full flex flex-col gap-2 relative z-10 mt-auto">
                     <h2 class="card-title">
                         Installation & Build
                     </h2>

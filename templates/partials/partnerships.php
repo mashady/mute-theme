@@ -20,7 +20,7 @@
             <div class="overlay absolute inset-0 rounded-[24px]"></div>
 
             <div class="card-content flex flex-row justify-between items-center gap-2 w-full relative z-10">
-                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#34413A] text-sm">
+                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#34413A] text-xs lg:text-sm">
                     Book a Consultation
                 </p>
                 <p class="expand-icon flex p-1.5 items-center rounded-full bg-[#34413A] backdrop-blur-[20px]">
@@ -48,7 +48,7 @@
             <div class="overlay absolute inset-0 rounded-[24px]"></div>
 
             <div class="card-content flex flex-row justify-between items-center gap-2 w-full relative z-10">
-                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#4B5D53] text-sm">
+                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#4B5D53] text-xs lg:text-sm">
                     Get Support
                 </p>
                 <p class="expand-icon flex p-1.5 items-center rounded-full bg-[#4B5D53] backdrop-blur-[20px]">
@@ -57,7 +57,7 @@
                 </p>
             </div>
 
-            <div class="card-content w-full flex flex-col gap-3 relative z-10 mt-auto">
+            <div class="card-content w-full flex flex-col gap-2 relative z-10 mt-auto">
                 <h2 class="text-white font-[Poppins] text-[24px] font-normal leading-[120%]">
                     Support & Maintenance
                 </h2>
@@ -77,7 +77,7 @@
             <div class="overlay absolute inset-0 rounded-[24px]"></div>
 
             <div class="card-content flex flex-row justify-between items-center gap-2 w-full relative z-10">
-                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#4B5D53] text-sm">
+                <p class="m-0 flex px-3 py-1 justify-center items-center gap-2 rounded-[12px] bg-[#4B5D53] text-xs lg:text-sm">
                     Request Installation
                 </p>
                 <p class="expand-icon flex p-1.5 items-center rounded-full bg-[#4B5D53] backdrop-blur-[20px]">
@@ -86,7 +86,7 @@
                 </p>
             </div>
 
-            <div class="card-content w-full flex flex-col gap-3 relative z-10 mt-auto">
+            <div class="card-content w-full flex flex-col gap-2 relative z-10 mt-auto">
                 <h2 class="text-white font-[Poppins] text-[24px] font-normal leading-[120%]">
                     Installation & Build
                 </h2>

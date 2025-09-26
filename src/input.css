@@ -18,7 +18,7 @@ body {
 }
 
 .section-container {
-  @apply mx-auto p-4 mb-16 min-h-screen flex flex-col justify-center;
+  @apply mx-auto p-2 lg:p-4 mb-16 min-h-screen flex flex-col justify-center;
   max-width: 1440px;
 }
 
@@ -30,11 +30,11 @@ body {
 }
 
 .card-content .card-title {
-  @apply text-white font-[Poppins] text-2xl font-normal;
+  @apply text-white font-[Poppins] text-xl lg:text-2xl font-semibold;
 }
 
 .card-content .card-description {
-  /* @apply text-white  text-md font-light; */
+  @apply text-white font-[Inter] max-md:text-sm font-light;
 }
 
 .site-content {

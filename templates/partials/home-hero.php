@@ -3,8 +3,10 @@
     id="home-hero-container">
     <!-- poster="<?php echo esc_url( get_theme_media_url('images/Hero.png') ); ?>" -->
     <!-- Background video: autoplay, muted, loop, playsinline -->
-    <video class="absolute inset-0 w-full h-full object-cover -z-10" autoplay muted loop playsinline>
-        <source src="<?php echo get_stylesheet_directory_uri(); ?>/assets/videos/heroVid.mp4" type="video/mp4">
+    <?php $hero_img = esc_url( get_theme_media_url('images/Hero.png') ); ?>
+    <link rel="preload" as="image" href="<?php echo $hero_img; ?>" />
+    <video class="absolute inset-0 w-full h-full object-cover -z-10" autoplay muted loop playsinline poster="<?php echo $hero_img; ?>">
+        <source src="<?php echo esc_url( get_theme_media_url('videos/heroVid.mp4') ); ?>" type="video/mp4">
         <!-- Fallback image for browsers that don't support video -->
         Your browser does not support the video tag.
     </video>
@@ -16,7 +18,7 @@
            text-3xl sm:text-4xl md:text-5xl lg:text-5xl m-0" id="hero-title">
                     Silence is a Form of Luxury
                 </h1>
-                <p class="text-white font-light text-2xl font-poppins" id="hero-subtitle">
+                <p class="text-white font-light text-lg lg:text-2xl font-poppins" id="hero-subtitle">
                     Experience premium sound isolation solutions designed to transform your spaces into havens of calm,
                     focus, and productivity.
                 </p>
@@ -47,15 +49,9 @@
     </div>
 
 </section>
-<div class="px-4">
-    <div class="w-full h-40 p-4  bg-[#001C16] text-white rounded-3xl outline outline-1 outline-offset-[-1px] outline-white/0 inline-flex justify-between items-start overflow-hidden lg:!hidden"
+<div class="px-2">
+    <div class="w-full h-40 p-4  bg-[#001C16] text-white rounded-3xl outline outline-1 outline-offset-[-1px] outline-white/0 flex-col justify-between items-end overflow-hidden lg:!hidden"
         id="mobile-book-appointment-box">
-        <div class="inline-flex flex-col justify-end items-end h-full">
-            <div class="w-72 justify-start  text-3xl font-medium font-['Poppins'] leading-10">
-                Have a question?</div>
-            <div class="w-72 justify-start  text-xl font-light font-['Poppins'] leading-normal ">
-                Book Appointment Now</div>
-        </div>
         <div class="p-1.5 bg-Primary-Green-700 rounded-[40px] backdrop-blur-[20px] flex justify-start items-center">
             <div class="w-11 h-11  rounded-[100px] flex justify-center items-center gap-3">
                 <svg width="50" height="50" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -65,6 +61,10 @@
                         stroke-linecap="round" stroke-linejoin="round" />
                 </svg>
             </div>
+        </div>
+        <div class="inline-flex flex-col justify-end items-end h-full">
+            <div class="w-full justify-start  text-3xl font-medium font-['Poppins'] leading-10">
+                Have a question?</div>
         </div>
     </div>
     <div>
@@ -186,7 +186,11 @@
                     <a class="w-full px-6 py-3 bg-white rounded-3xl inline-flex justify-between items-center gap-2 overflow-hidden"
                         href="/contact-us/">
                         <!-- <div class=" flex text-Primary-Green-700 text-xl font-normal gap-2"> -->
-                        <svg width="49" height="37" viewBox="0 0 49 37" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        
+
+                        <div
+                            class="flex gap-2 justify-start text-Primary-Green-700 text-xl font-normal font-['Poppins'] leading-7">
+                            <svg width="49" height="37" viewBox="0 0 49 37" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
                                 d="M28.145 2.38318C29.1164 2.32855 30.0917 2.35865 31.0581 2.47498L31.0669 2.47595L31.0757 2.47791C32.8514 2.81919 34.2822 4.10587 34.8169 5.81091L34.9126 6.15759L34.9146 6.16638L34.9155 6.17517C35.0716 7.1607 35.1165 8.16234 35.0474 9.15857V12.597C37.3375 12.5952 39.6398 12.5695 41.9351 12.598H41.9341C43.8192 12.5889 45.4659 13.8466 45.9624 15.6459L46.0073 15.8217L46.0103 15.8334H46.0093C46.1206 16.4568 46.1586 17.0893 46.1245 17.7211V19.4681C46.1245 21.0473 46.1506 22.6454 46.1245 24.2328C46.0883 26.3567 44.8146 28.4624 42.481 28.6703L42.2095 28.6947V28.6801C41.6984 28.7012 41.1874 28.701 40.6763 28.681C40.7301 28.9401 40.8217 29.2556 40.937 29.6097C41.1006 30.112 41.2909 30.6361 41.4731 31.184C41.6506 31.7172 41.812 32.2485 41.8931 32.7025C41.9336 32.9296 41.9564 33.1466 41.9478 33.3402C41.9392 33.531 41.8991 33.7219 41.7954 33.8773V33.8783C41.5782 34.2022 41.2888 34.3657 40.9663 34.4008C40.6579 34.4342 40.3416 34.348 40.0552 34.223C39.4868 33.975 38.9243 33.5233 38.606 33.2924V33.2914L36.52 31.7689V31.7699C35.0858 30.7901 33.6884 29.7101 32.311 28.6693H27.5317C26.3915 28.6719 25.108 28.7497 24.0269 28.4369C23.4774 28.2779 22.9673 28.016 22.5425 27.5863C22.1174 27.1561 21.7908 26.5707 21.5874 25.7875L21.5845 25.7787L21.5825 25.7689C21.4321 24.9299 21.3861 24.0768 21.4448 23.2269V20.8539C21.2304 20.853 21.0525 20.8518 20.9194 20.8519C20.7261 20.8521 20.5988 20.8592 20.4839 20.8832C20.2572 20.9306 20.0443 21.0492 19.4858 21.4213C19.1892 21.6186 18.8966 21.8193 18.604 22.0219L17.7212 22.6322L11.5239 26.9027C11.2501 27.0931 10.8646 27.4055 10.479 27.6302C10.1375 27.8293 9.73786 27.9972 9.32373 27.972L9.14502 27.9496C8.6861 27.8568 8.35908 27.6612 8.15674 27.3754C7.95743 27.0937 7.90369 26.7589 7.9165 26.4349C7.92938 26.1111 8.01021 25.7745 8.10205 25.4681C8.19154 25.1697 8.30431 24.8608 8.37646 24.6381L9.22217 22.0013V22.0004C9.34913 21.6058 9.48529 21.2391 9.59326 20.8656C8.88735 20.8957 8.18017 20.8964 7.47314 20.8617H7.46826C5.11141 20.6979 3.17227 18.6127 2.91846 16.3373L2.9165 16.3236V16.3099C2.87006 15.6759 2.85684 15.0399 2.87744 14.4037H2.87646V8.57556H2.87744C2.84113 7.87735 2.8674 7.17577 2.95752 6.48279L2.9585 6.46912H2.95947C3.3736 4.2231 5.25829 2.54214 7.5415 2.38318H28.145ZM40.3823 14.2992H40.3677L36.6616 14.3011H35.0571C35.0782 14.9734 35.0678 15.6457 35.021 16.3168L35.019 16.3344C34.7285 18.4121 33.2326 20.1192 31.2095 20.6859L31.2056 20.6869C30.6717 20.8272 29.993 20.8669 29.3296 20.8734C28.6785 20.8798 27.971 20.8529 27.4585 20.8529H23.1196V23.3929C23.1196 24.2141 23.0953 25.0065 23.312 25.6576C23.4176 25.9749 23.5787 26.249 23.8228 26.4691C24.063 26.6856 24.3973 26.8618 24.8706 26.9681C25.5698 27.0461 26.2746 27.0597 26.978 27.0121L26.9868 27.0111H31.2964C31.6774 26.9773 32.06 26.9755 32.4399 27.0052L32.8247 27.0463L32.8452 27.0492L32.8647 27.0551C32.907 27.0681 32.9503 27.091 32.9829 27.1088C33.0199 27.129 33.0626 27.1541 33.1089 27.183C33.202 27.2411 33.319 27.319 33.4497 27.4086C33.7114 27.5881 34.0383 27.8221 34.3677 28.0619C35.0262 28.5412 35.703 29.0496 35.8989 29.2035H35.8979C37.2407 30.2045 38.5849 31.2158 39.9761 32.1302C39.7515 31.3341 39.4245 30.3763 39.1851 29.6937L39.02 29.2689C38.9465 29.0787 38.8633 28.8551 38.7954 28.6449C38.7249 28.4267 38.6625 28.1982 38.6333 27.9945C38.6187 27.8925 38.611 27.7892 38.6177 27.6927C38.6242 27.5986 38.6454 27.4932 38.7017 27.3998L38.7026 27.3988C38.8088 27.2239 38.9778 27.1267 39.1538 27.0717C39.3274 27.0174 39.5294 26.9968 39.7378 26.9906C39.9481 26.9844 40.1829 26.9922 40.4243 27.0013C40.6683 27.0106 40.922 27.0216 41.1831 27.0228C42.2385 27.0278 43.3078 26.8733 43.9722 25.9359C44.5112 25.1737 44.4136 24.3965 44.4136 23.3763V17.7435C44.4136 16.9373 44.3871 16.1636 44.1274 15.5492C44.0002 15.2481 43.818 14.99 43.5571 14.7865C43.2965 14.5833 42.9448 14.4253 42.4634 14.3422C41.7725 14.2717 41.0763 14.2569 40.3823 14.2992ZM28.2075 4.13123H28.2065L7.83838 4.12537L7.57666 4.1283C6.2342 4.32083 5.52456 4.89206 5.1333 5.65173C4.7279 6.43901 4.64502 7.46367 4.64502 8.59607V14.4076C4.64242 15.509 4.712 16.5873 5.104 17.4379C5.48485 18.2641 6.17926 18.8951 7.49658 19.0941C7.92812 19.1592 8.59612 19.1321 9.271 19.1097C9.60133 19.0988 9.93015 19.0894 10.2173 19.0951C10.4983 19.1006 10.7657 19.1212 10.9614 19.1801C11.2958 19.2808 11.4857 19.512 11.561 19.7972C11.6309 20.0624 11.6008 20.3651 11.5405 20.6439C11.4791 20.9277 11.38 21.2172 11.2866 21.4681L11.0581 22.0804C10.6462 23.3707 10.197 24.6395 9.82178 25.9242C10.6572 25.3797 11.464 24.7864 12.2954 24.2074L12.2964 24.2064L18.355 20.0482L18.3569 20.0472C18.717 19.8042 18.9784 19.6216 19.1841 19.4916C19.3933 19.3594 19.5659 19.2677 19.7583 19.2113C19.9498 19.1552 20.1452 19.1385 20.3921 19.1332C20.6333 19.128 20.9581 19.1338 21.3911 19.1312H27.3384C27.5692 19.1312 27.8461 19.1366 28.1401 19.142C28.4354 19.1474 28.7504 19.1523 29.062 19.1517C29.6921 19.1506 30.2846 19.1255 30.6694 19.0394L30.9468 18.9681C31.5693 18.7878 32.0225 18.5103 32.356 18.1703C32.7381 17.7806 32.9774 17.2942 33.1255 16.7416C33.4264 15.6186 33.3373 14.2882 33.3364 13.0287V7.4906H33.3374C33.381 6.58923 33.0509 5.70947 32.4272 5.05603L32.2104 4.85876C31.6974 4.43357 31.1247 4.24439 30.5044 4.16443C29.7786 4.07088 29.023 4.12854 28.2075 4.13123Z"
                                 fill="#34413A" stroke="#34413A" stroke-width="0.5" />
@@ -203,10 +207,8 @@
                                 d="M26.4837 12.697C26.0522 12.7873 25.6049 12.6362 25.3178 12.3012C25.0307 11.9678 24.9472 11.5043 25.1021 11.0928C25.2569 10.6796 25.6224 10.3845 26.0591 10.3202C26.4958 10.256 26.9326 10.4331 27.1988 10.7821C27.4494 11.1137 27.5138 11.5477 27.3676 11.9366C27.2232 12.3237 26.8891 12.6119 26.4837 12.697Z"
                                 fill="#34413A" />
                         </svg>
-
-                        <div
-                            class=" justify-start text-Primary-Green-700 text-xl font-normal font-['Poppins'] leading-7">
-                            Contact US</div>
+                            <p>Contact US</p>
+                        </div>
                         <div
                             class="p-1.5 rounded-[40px] outline outline-1 outline-offset-[-1px] outline-neutral-700 backdrop-blur-[20px] flex justify-start items-center">
                             <svg width="34" height="35" viewBox="0 0 34 35" fill="none"
@@ -221,18 +223,20 @@
                         </div>
                     </a>
 
-                    <a class="w-full px-6 py-3 bg-white rounded-3xl inline-flex justify-start items-center gap-2 overflow-hidden"
+                    <a class="w-full px-6 py-3 justify-between bg-white rounded-3xl inline-flex items-center gap-2 overflow-hidden"
                         href="https://wa.me/201126052626">
-                        <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
-                            <path
-                                d="M26.576 5.74939C23.886 3.05939 20.17 1.39539 16.065 1.39539C7.85595 1.39539 1.19995 8.05039 1.19995 16.2604C1.19995 18.9924 1.93695 21.5514 3.22195 23.7514L3.18395 23.6814L1.07495 31.3834L8.95395 29.3164C11.005 30.4554 13.452 31.1254 16.056 31.1254H16.062C24.271 31.1224 30.924 24.4664 30.924 16.2574C30.924 12.1544 29.262 8.44039 26.575 5.75039L26.576 5.74939ZM16.062 28.6144H16.057C13.738 28.6144 11.567 27.9744 9.71395 26.8614L9.76995 26.8924L9.31895 26.6254L4.64395 27.8524L5.89095 23.2934L5.59695 22.8264C4.41195 20.9644 3.70795 18.6954 3.70795 16.2614C3.70795 9.43939 9.23895 3.90839 16.061 3.90839C22.883 3.90839 28.4139 9.43939 28.4139 16.2614C28.4139 23.0834 22.885 28.6144 16.062 28.6144ZM22.8379 19.3634C22.4669 19.1774 20.641 18.2804 20.301 18.1554C19.96 18.0314 19.712 17.9704 19.464 18.3424C19.218 18.7134 18.5059 19.5494 18.2889 19.7974C18.073 20.0464 17.8549 20.0764 17.4839 19.8914C16.334 19.4254 15.346 18.8044 14.487 18.0394L14.497 18.0484C13.698 17.3084 13.013 16.4614 12.46 15.5274L12.432 15.4754C12.216 15.1044 12.409 14.9034 12.594 14.7184C12.761 14.5524 12.966 14.2844 13.151 14.0684C13.297 13.8894 13.422 13.6844 13.517 13.4644L13.523 13.4474C13.566 13.3604 13.591 13.2594 13.591 13.1514C13.591 13.0204 13.554 12.8984 13.49 12.7944L13.492 12.7974C13.398 12.6114 12.656 10.7834 12.347 10.0394C12.045 9.31539 11.738 9.41439 11.511 9.40239C11.295 9.39239 11.047 9.39039 10.799 9.39039C10.404 9.40039 10.053 9.57839 9.81095 9.85339L9.80995 9.85539C9.00795 10.6164 8.50995 11.6894 8.50995 12.8784C8.50995 12.9044 8.50995 12.9314 8.51095 12.9574V12.9534C8.64195 14.4204 9.19195 15.7374 10.038 16.8104L10.026 16.7954C11.63 19.1744 13.768 21.0774 16.277 22.3594L16.371 22.4024C16.919 22.6504 17.621 22.9154 18.339 23.1424L18.488 23.1834C18.93 23.3234 19.4389 23.4044 19.9669 23.4044C20.2699 23.4044 20.568 23.3774 20.856 23.3264L20.825 23.3304C21.894 23.1074 22.781 22.4624 23.322 21.5814L23.3309 21.5644C23.496 21.1984 23.5919 20.7714 23.5919 20.3224C23.5919 20.1374 23.576 19.9564 23.545 19.7804L23.548 19.7994C23.456 19.6444 23.208 19.5524 22.836 19.3654L22.8379 19.3634Z"
-                                fill="#34413A" />
-                        </svg>
-
-                        <div
-                            class=" justify-start text-Primary-Green-700 text-xl font-normal font-['Poppins'] leading-7">
-                            <span class="max-lg:hidden">Love using</span> <span class="">WhatsApp</span> <span
-                                class="max-lg:hidden">let’s chat</span>
+                        <div class="flex gap-2">
+                            <svg width="32" height="33" viewBox="0 0 32 33" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path
+                                    d="M26.576 5.74939C23.886 3.05939 20.17 1.39539 16.065 1.39539C7.85595 1.39539 1.19995 8.05039 1.19995 16.2604C1.19995 18.9924 1.93695 21.5514 3.22195 23.7514L3.18395 23.6814L1.07495 31.3834L8.95395 29.3164C11.005 30.4554 13.452 31.1254 16.056 31.1254H16.062C24.271 31.1224 30.924 24.4664 30.924 16.2574C30.924 12.1544 29.262 8.44039 26.575 5.75039L26.576 5.74939ZM16.062 28.6144H16.057C13.738 28.6144 11.567 27.9744 9.71395 26.8614L9.76995 26.8924L9.31895 26.6254L4.64395 27.8524L5.89095 23.2934L5.59695 22.8264C4.41195 20.9644 3.70795 18.6954 3.70795 16.2614C3.70795 9.43939 9.23895 3.90839 16.061 3.90839C22.883 3.90839 28.4139 9.43939 28.4139 16.2614C28.4139 23.0834 22.885 28.6144 16.062 28.6144ZM22.8379 19.3634C22.4669 19.1774 20.641 18.2804 20.301 18.1554C19.96 18.0314 19.712 17.9704 19.464 18.3424C19.218 18.7134 18.5059 19.5494 18.2889 19.7974C18.073 20.0464 17.8549 20.0764 17.4839 19.8914C16.334 19.4254 15.346 18.8044 14.487 18.0394L14.497 18.0484C13.698 17.3084 13.013 16.4614 12.46 15.5274L12.432 15.4754C12.216 15.1044 12.409 14.9034 12.594 14.7184C12.761 14.5524 12.966 14.2844 13.151 14.0684C13.297 13.8894 13.422 13.6844 13.517 13.4644L13.523 13.4474C13.566 13.3604 13.591 13.2594 13.591 13.1514C13.591 13.0204 13.554 12.8984 13.49 12.7944L13.492 12.7974C13.398 12.6114 12.656 10.7834 12.347 10.0394C12.045 9.31539 11.738 9.41439 11.511 9.40239C11.295 9.39239 11.047 9.39039 10.799 9.39039C10.404 9.40039 10.053 9.57839 9.81095 9.85339L9.80995 9.85539C9.00795 10.6164 8.50995 11.6894 8.50995 12.8784C8.50995 12.9044 8.50995 12.9314 8.51095 12.9574V12.9534C8.64195 14.4204 9.19195 15.7374 10.038 16.8104L10.026 16.7954C11.63 19.1744 13.768 21.0774 16.277 22.3594L16.371 22.4024C16.919 22.6504 17.621 22.9154 18.339 23.1424L18.488 23.1834C18.93 23.3234 19.4389 23.4044 19.9669 23.4044C20.2699 23.4044 20.568 23.3774 20.856 23.3264L20.825 23.3304C21.894 23.1074 22.781 22.4624 23.322 21.5814L23.3309 21.5644C23.496 21.1984 23.5919 20.7714 23.5919 20.3224C23.5919 20.1374 23.576 19.9564 23.545 19.7804L23.548 19.7994C23.456 19.6444 23.208 19.5524 22.836 19.3654L22.8379 19.3634Z"
+                                    fill="#34413A" />
+                            </svg>
+    
+                            <div
+                                class=" justify-start text-Primary-Green-700 text-xl font-normal font-['Poppins'] leading-7">
+                                <span class="max-lg:hidden">Love using</span> <span class="">WhatsApp</span> <span
+                                    class="max-lg:hidden">let’s chat</span>
+                            </div>
                         </div>
                         <div
                             class="p-1.5 rounded-[40px] outline outline-1 outline-offset-[-1px] outline-neutral-700 backdrop-blur-[20px] flex justify-start items-center">
@@ -261,491 +265,526 @@
         /* display: none !important; */
     }
     </style>
-    <!-- GSAP animation: animate container then title and subtitle -->
+    <!-- GSAP animation: animate container then title and subtitle (waits for hero image to preload) -->
 
     <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        // Wait for DOM ready
-        function ready(fn) {
-            if (document.readyState !== 'loading') fn();
-            else document.addEventListener('DOMContentLoaded', fn);
-        }
-        var heroAnimationDone = false;
-        ready(function() {
-            var container = document.getElementById('home-hero-container');
-            var title = document.getElementById('hero-title');
-            var subtitle = document.getElementById('hero-subtitle');
+    (function() {
+        // Injected PHP hero image URL
+        const HERO_IMG = '<?php echo $hero_img; ?>';
 
-            var box = document.getElementById('book-appointment-box');
-
-            var mobileBox = document.getElementById('mobile-book-appointment-box');
-
-
-            if (!container) return;
-            // sequence animations with a GSAP timeline
-            var tl = gsap.timeline({
-                defaults: {
-                    ease: 'power2.out'
-                }
-            });
-            tl.set(container, {
-                height: '100vh',
-                margin: '0px',
-                borderRadius: '0px',
-                overflow: 'hidden'
-            });
-            tl.set(box, {
-                y: 50,
-                display: 'none',
-                opacity: 0
-            });
-            tl.set(mobileBox, {
-                y: 50,
-                display: 'none',
-                opacity: 0
-            });
-
-            // container: animate height/margin/borderRadius (start after 1s to match previous delay)
-            if (isMobile){
-            tl.fromTo(container, {
-                    height: '100vh'
-                }, {
-                    height: '95vh',
-                    margin: '10px',
-                    borderRadius: '24px',
-                    duration: 0.5,
-                    ease: 'power1.out'
-                },
-                1 // absolute position: start at 1s (previous delay)
-            );
-        } else {
-            tl.fromTo(container, {
-                    height: '100vh'
-                }, {
-                    height: '95vh',
-                    margin: '20px',
-                    borderRadius: '24px',
-                    duration: 0.5,
-                    ease: 'power1.out'
-                },
-                1 // absolute position: start at 1s (previous delay)
-            );
-        }
-
-            // title: come in after container (previously started at 0.55s but container had 1s delay; keep a similar overlap)
-            if (title) {
-                tl.fromTo(title, {
-                    y: 20,
-                    opacity: 0
-                }, {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.8
-                }, 1.55);
-            }
-
-            // subtitle: after title
-            if (subtitle) {
-                tl.fromTo(subtitle, {
-                    y: 20,
-                    opacity: 0
-                }, {
-                    y: 0,
-                    opacity: 1,
-                    duration: 0.6
-                }, 2.35);
-            }
-            // book box initial entrance: from y:50 and opacity 0 (start after subtitle finishes)
-            if (!isMobile) {
-                // subtitle starts at 2.35 with duration 0.6 -> ends at ~2.95
-                tl.to(box, {
-                    y: 0,
-                    display: 'flex',
-                    opacity: 1,
-                    duration: 0.6
-                }, 2.95)
-
-            }
-
-            if (isMobile) {
-                // subtitle starts at 2.35 with duration 0.6 -> ends at ~2.95
-                tl.to(mobileBox, {
-                    y: 0,
-                    display: 'flex',
-                    opacity: 1,
-                    duration: 0.6
-                }, 2.95)
-                tl.to(container, {
-                    height: '75vh'
-                });
-            }
-            tl.add(function() {
-                heroAnimationDone = true;
-            })
-
-            tl.play();
-
-            // shared expansion functionality for both desktop and mobile
-            function createExpansionHandler(targetBox, triggerType = 'hover') {
-                var isExpanded = false;
-                var placeholder = null;
-                var originalChildren = null;
-                var overlay = null;
-                var origBg = '';
-
-                // defensive state & tween handles to avoid animation race conditions
-                var state = 'idle'; // 'idle' | 'expanding' | 'expanded' | 'collapsing'
-                var expandTimeline = null;
-                var bgTween = null;
-                var collapseTween = null;
-                var overlayTimeout = null;
-                var originalParent = targetBox
-                    .parentNode; // store original parent to prevent getting lost
-                var originalNextSibling = targetBox.nextSibling; // store position in DOM
-
-                function createOverlay() {
-                    var ov = document.createElement('div');
-                    ov.style.position = 'absolute';
-                    ov.style.inset = '0';
-                    ov.style.display = 'flex';
-                    ov.style.flexDirection = 'column';
-                    ov.style.justifyContent = 'center';
-                    ov.style.alignItems = 'center';
-                    ov.style.textAlign = 'center';
-                    ov.style.padding = '1.5rem';
-                    ov.style.boxSizing = 'border-box';
-                    ov.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
-                    ov.style.height = '100%';
-                    ov.style.width = '100%';
-                    ov.style.opacity = 1;
-                    if (isMobile) {
-                        ov.style.backgroundImage =
-                            'url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/mobile-map.jpg)';
+        function preloadImage(url) {
+            return new Promise((resolve) => {
+                try {
+                    const img = new Image();
+                    img.src = url;
+                    if (img.decode) {
+                        img.decode().then(resolve).catch(() => {
+                            img.onload = resolve;
+                            img.onerror = resolve;
+                        });
                     } else {
-                        ov.style.backgroundImage =
-                            'url(<?php echo get_stylesheet_directory_uri(); ?>/assets/images/map.jpg)';
+                        img.onload = resolve;
+                        img.onerror = resolve;
                     }
-                    ov.style.backgroundSize = 'cover';
-                    // ov.style.cursor = 'pointer';
-                    // insert complex contact block into the overlay
-                    var template = document.getElementById("box-overlay-template");
-                    ov.innerHTML = template.innerHTML;
-                    ov.style.opacity = '0';
-                    return ov;
+                } catch (e) {
+                    // if anything fails, resolve so JS can continue
+                    resolve();
                 }
+            });
+        }
 
-                function expandBox() {
-                    if (!heroAnimationDone) return;
-                    // avoid duplicate starts
-                    if (state === 'expanded' || state === 'expanding') return;
-                    // if collapsing, stop collapse and proceed
-                    if (collapseTween) {
-                        collapseTween.kill();
-                        collapseTween = null;
-                    }
+        async function init() {
+            // Wait for the hero image to be fetched and decoded (if supported)
+            await preloadImage(HERO_IMG);
 
-                    state = 'expanding';
+            // Now run the existing DOMContentLoaded logic
+            document.addEventListener("DOMContentLoaded", function() {
+                // Wait for DOM ready
+                function ready(fn) {
+                    if (document.readyState !== 'loading') fn();
+                    else document.addEventListener('DOMContentLoaded', fn);
+                }
+                var heroAnimationDone = false;
+                ready(function() {
+                    var container = document.getElementById('home-hero-container');
+                    var title = document.getElementById('hero-title');
+                    var subtitle = document.getElementById('hero-subtitle');
 
-                    // capture original children and background once
-                    var rect = targetBox.getBoundingClientRect();
-                    if (!originalChildren) originalChildren = Array.from(targetBox.children);
-                    origBg = getComputedStyle(targetBox).backgroundColor || '';
+                    var box = document.getElementById('book-appointment-box');
 
-                    // kill any running tweens on targetBox to avoid conflicting transforms
-                    gsap.killTweensOf(targetBox);
-                    gsap.to(originalChildren, {
-                        opacity: 0,
-                        duration: 0.12,
-                        stagger: 0.02
-                    });
+                    var mobileBox = document.getElementById('mobile-book-appointment-box');
 
-                    // only create placeholder if we don't already have one
-                    if (!placeholder) {
-                        placeholder = document.createElement('div');
-                        placeholder.style.width = rect.width + 'px';
-                        placeholder.style.height = rect.height + 'px';
-                        placeholder.style.display = getComputedStyle(targetBox).display;
-                        placeholder.classList.add('box-placeholder'); // for debugging
-                        targetBox.parentNode.insertBefore(placeholder, targetBox);
-                    }
 
-                    // move targetBox into container for absolute positioning (only if not already there)
-                    if (targetBox.parentNode !== container) {
-                        container.appendChild(targetBox);
-                    }
-                    var containerRect = container.getBoundingClientRect();
-                    var top = rect.top - containerRect.top;
-                    var left = rect.left - containerRect.left;
-                    targetBox.style.position = 'absolute';
-                    targetBox.style.zIndex = 9999;
-                    targetBox.style.boxSizing = 'border-box';
-                    targetBox.style.top = top + 'px';
-                    targetBox.style.left = left + 'px';
-                    targetBox.style.width = rect.width + 'px';
-                    targetBox.style.height = rect.height + 'px';
-
-                    // create a timeline for coordinated animation and keep a ref
-                    expandTimeline = gsap.timeline({
+                    if (!container) return;
+                    // sequence animations with a GSAP timeline
+                    var tl = gsap.timeline({
                         defaults: {
                             ease: 'power2.out'
-                        },
-                        onComplete: function() {
-                            state = 'expanded';
-                            expandTimeline = null;
                         }
                     });
-                    expandTimeline.to(targetBox, {
-                        duration: 0.45,
-                        top: 0,
-                        left: 0,
-                        width: '100%',
-                        height: '100%'
-                    }, 0);
-                    bgTween = gsap.to(targetBox, {
-                        duration: 0.3,
-                        backgroundColor: '#002019',
-                        ease: 'none'
+                    tl.set(container, {
+                        height: '100vh',
+                        margin: '0px',
+                        borderRadius: '0px',
+                        overflow: 'hidden'
+                    });
+                    tl.set(box, {
+                        y: 50,
+                        display: 'none',
+                        opacity: 0
+                    });
+                    tl.set(mobileBox, {
+                        y: 50,
+                        display: 'none',
+                        opacity: 0
                     });
 
-                    // schedule overlay insertion but keep handle so we can cancel if needed
-                    overlayTimeout = setTimeout(function() {
-                        // if user left before full expansion, skip overlay
-                        if (state === 'collapsing' || state === 'idle') return;
-                        overlay = createOverlay();
-                        targetBox.appendChild(overlay);
-                        gsap.to(overlay, {
+                    // container: animate height/margin/borderRadius (start after 1s to match previous delay)
+                    if (isMobile) {
+                        tl.fromTo(container, {
+                                height: '100vh'
+                            }, {
+                                height: '95vh',
+                                margin: '10px',
+                                borderRadius: '24px',
+                                duration: 0.5,
+                                ease: 'power1.out'
+                            },
+                            1 // absolute position: start at 1s (previous delay)
+                        );
+                    } else {
+                        tl.fromTo(container, {
+                                height: '100vh'
+                            }, {
+                                height: '95vh',
+                                margin: '20px',
+                                borderRadius: '24px',
+                                duration: 0.5,
+                                ease: 'power1.out'
+                            },
+                            1 // absolute position: start at 1s (previous delay)
+                        );
+                    }
+
+                    // title: come in after container (previously started at 0.55s but container had 1s delay; keep a similar overlap)
+                    if (title) {
+                        tl.fromTo(title, {
+                            y: 20,
+                            opacity: 0
+                        }, {
+                            y: 0,
                             opacity: 1,
-                            duration: 0.25,
-                            ease: 'power2.out'
+                            duration: 0.8
+                        }, 1.55);
+                    }
+
+                    // subtitle: after title
+                    if (subtitle) {
+                        tl.fromTo(subtitle, {
+                            y: 20,
+                            opacity: 0
+                        }, {
+                            y: 0,
+                            opacity: 1,
+                            duration: 0.6
+                        }, 2.35);
+                    }
+                    // book box initial entrance: from y:50 and opacity 0 (start after subtitle finishes)
+                    if (!isMobile) {
+                        // subtitle starts at 2.35 with duration 0.6 -> ends at ~2.95
+                        tl.to(box, {
+                            y: 0,
+                            display: 'flex',
+                            opacity: 1,
+                            duration: 0.6
+                        }, 2.95)
+
+                    }
+
+                    if (isMobile) {
+                        // subtitle starts at 2.35 with duration 0.6 -> ends at ~2.95
+                        tl.to(mobileBox, {
+                            y: 0,
+                            display: 'flex',
+                            opacity: 1,
+                            duration: 0.6
+                        }, 2.95)
+                        tl.to(container, {
+                            height: '75vh'
                         });
-                    }, 450);
-                }
-
-                function collapseBox() {
-                    // if already idle or collapsing, ignore
-                    if (state === 'idle' || state === 'collapsing') return;
-                    // cancel pending overlay insertion
-                    if (overlayTimeout) {
-                        clearTimeout(overlayTimeout);
-                        overlayTimeout = null;
                     }
-                    // stop expansion if it is running
-                    if (expandTimeline) {
-                        expandTimeline.kill();
-                        expandTimeline = null;
-                    }
-                    state = 'collapsing';
+                    tl.add(function() {
+                        heroAnimationDone = true;
+                    })
 
-                    // fade out and remove overlay if present
-                    if (overlay) {
-                        gsap.to(overlay, {
-                            opacity: 0,
-                            duration: 0.18,
-                            onComplete: function() {
-                                if (overlay && overlay.parentNode) overlay.parentNode
-                                    .removeChild(overlay);
-                                overlay = null;
-                            }
-                        });
-                    }
+                    tl.play();
 
-                    // if placeholder missing, just restore immediately to original parent
-                    if (!placeholder) {
-                        // ensure targetBox returns to original parent if lost
-                        if (targetBox.parentNode !== originalParent) {
-                            if (originalNextSibling) {
-                                originalParent.insertBefore(targetBox, originalNextSibling);
+                    // shared expansion functionality for both desktop and mobile
+                    function createExpansionHandler(targetBox, triggerType = 'hover') {
+                        var isExpanded = false;
+                        var placeholder = null;
+                        var originalChildren = null;
+                        var overlay = null;
+                        var origBg = '';
+
+                        // defensive state & tween handles to avoid animation race conditions
+                        var state = 'idle'; // 'idle' | 'expanding' | 'expanded' | 'collapsing'
+                        var expandTimeline = null;
+                        var bgTween = null;
+                        var collapseTween = null;
+                        var overlayTimeout = null;
+                        var originalParent = targetBox
+                            .parentNode; // store original parent to prevent getting lost
+                        var originalNextSibling = targetBox.nextSibling; // store position in DOM
+
+                        function createOverlay() {
+                            var ov = document.createElement('div');
+                            ov.style.position = 'absolute';
+                            ov.style.inset = '0';
+                            ov.style.display = 'flex';
+                            ov.style.flexDirection = 'column';
+                            ov.style.justifyContent = 'center';
+                            ov.style.alignItems = 'center';
+                            ov.style.textAlign = 'center';
+                            ov.style.padding = '1.5rem';
+                            ov.style.boxSizing = 'border-box';
+                            ov.style.backgroundColor = 'rgba(0, 0, 0, 0.4)';
+                            ov.style.height = '100%';
+                            ov.style.width = '100%';
+                            ov.style.opacity = 1;
+                            if (isMobile) {
+                                ov.style.backgroundImage =
+                                    'url(<?php echo get_theme_media_url('images/mobile-map.jpg') ?>)';
                             } else {
-                                originalParent.appendChild(targetBox);
+                                ov.style.backgroundImage =
+                                    'url(<?php echo get_theme_media_url('images/map.jpg') ?>)';
                             }
+                            ov.style.backgroundSize = 'cover';
+                            // ov.style.cursor = 'pointer';
+                            // insert complex contact block into the overlay
+                            var template = document.getElementById("box-overlay-template");
+                            ov.innerHTML = template.innerHTML;
+                            ov.style.opacity = '0';
+                            return ov;
                         }
-                        // restore children
-                        if (originalChildren && originalChildren.length) {
+
+                        function expandBox() {
+                            if (!heroAnimationDone) return;
+                            // avoid duplicate starts
+                            if (state === 'expanded' || state === 'expanding') return;
+                            // if collapsing, stop collapse and proceed
+                            if (collapseTween) {
+                                collapseTween.kill();
+                                collapseTween = null;
+                            }
+
+                            state = 'expanding';
+
+                            // capture original children and background once
+                            var rect = targetBox.getBoundingClientRect();
+                            if (!originalChildren) originalChildren = Array.from(targetBox.children);
+                            origBg = getComputedStyle(targetBox).backgroundColor || '';
+
+                            // kill any running tweens on targetBox to avoid conflicting transforms
+                            gsap.killTweensOf(targetBox);
                             gsap.to(originalChildren, {
-                                opacity: 1,
+                                opacity: 0,
                                 duration: 0.12,
                                 stagger: 0.02
                             });
-                        }
-                        targetBox.style.position = '';
-                        targetBox.style.top = '';
-                        targetBox.style.left = '';
-                        targetBox.style.width = '';
-                        targetBox.style.height = '';
-                        targetBox.style.zIndex = '';
-                        targetBox.style.backgroundColor = '';
-                        state = 'idle';
-                        return;
-                    }
 
-                    var rect = placeholder.getBoundingClientRect();
-                    var containerRect = container.getBoundingClientRect();
-                    var top = rect.top - containerRect.top;
-                    var left = rect.left - containerRect.left;
+                            // only create placeholder if we don't already have one
+                            if (!placeholder) {
+                                placeholder = document.createElement('div');
+                                placeholder.style.width = rect.width + 'px';
+                                placeholder.style.height = rect.height + 'px';
+                                placeholder.style.display = getComputedStyle(targetBox).display;
+                                placeholder.classList.add('box-placeholder'); // for debugging
+                                targetBox.parentNode.insertBefore(placeholder, targetBox);
+                            }
 
-                    // kill any existing tweens targeting targetBox
-                    gsap.killTweensOf(targetBox);
-                    collapseTween = gsap.to(targetBox, {
-                        duration: 0.35,
-                        top: top + 'px',
-                        left: left + 'px',
-                        width: rect.width + 'px',
-                        height: rect.height + 'px',
-                        backgroundColor: origBg || '',
-                        ease: 'power2.in',
-                        onComplete: function() {
-                            // restore in-flow position using original parent reference
-                            if (placeholder && placeholder.parentNode) {
-                                // ensure we restore to the original parent, not just where placeholder is
-                                if (originalNextSibling && originalNextSibling
-                                    .parentNode === originalParent) {
-                                    originalParent.insertBefore(targetBox,
-                                        originalNextSibling);
-                                } else {
-                                    originalParent.appendChild(targetBox);
+                            // move targetBox into container for absolute positioning (only if not already there)
+                            if (targetBox.parentNode !== container) {
+                                container.appendChild(targetBox);
+                            }
+                            var containerRect = container.getBoundingClientRect();
+                            var top = rect.top - containerRect.top;
+                            var left = rect.left - containerRect.left;
+                            targetBox.style.position = 'absolute';
+                            targetBox.style.zIndex = 9999;
+                            targetBox.style.boxSizing = 'border-box';
+                            targetBox.style.top = top + 'px';
+                            targetBox.style.left = left + 'px';
+                            targetBox.style.width = rect.width + 'px';
+                            targetBox.style.height = rect.height + 'px';
+
+                            // create a timeline for coordinated animation and keep a ref
+                            expandTimeline = gsap.timeline({
+                                defaults: {
+                                    ease: 'power2.out'
+                                },
+                                onComplete: function() {
+                                    state = 'expanded';
+                                    expandTimeline = null;
                                 }
-                                placeholder.parentNode.removeChild(placeholder);
-                                placeholder = null;
-                            } else {
-                                // fallback: restore to original parent even without placeholder
+                            });
+                            expandTimeline.to(targetBox, {
+                                duration: 0.45,
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                height: '100%'
+                            }, 0);
+                            bgTween = gsap.to(targetBox, {
+                                duration: 0.3,
+                                backgroundColor: '#002019',
+                                ease: 'none'
+                            });
+
+                            // schedule overlay insertion but keep handle so we can cancel if needed
+                            overlayTimeout = setTimeout(function() {
+                                // if user left before full expansion, skip overlay
+                                if (state === 'collapsing' || state === 'idle') return;
+                                overlay = createOverlay();
+                                targetBox.appendChild(overlay);
+                                gsap.to(overlay, {
+                                    opacity: 1,
+                                    duration: 0.25,
+                                    ease: 'power2.out'
+                                });
+                            }, 450);
+                        }
+
+                        function collapseBox() {
+                            // if already idle or collapsing, ignore
+                            if (state === 'idle' || state === 'collapsing') return;
+                            // cancel pending overlay insertion
+                            if (overlayTimeout) {
+                                clearTimeout(overlayTimeout);
+                                overlayTimeout = null;
+                            }
+                            // stop expansion if it is running
+                            if (expandTimeline) {
+                                expandTimeline.kill();
+                                expandTimeline = null;
+                            }
+                            state = 'collapsing';
+
+                            // fade out and remove overlay if present
+                            if (overlay) {
+                                gsap.to(overlay, {
+                                    opacity: 0,
+                                    duration: 0.18,
+                                    onComplete: function() {
+                                        if (overlay && overlay.parentNode) overlay.parentNode
+                                            .removeChild(overlay);
+                                        overlay = null;
+                                    }
+                                });
+                            }
+
+                            // if placeholder missing, just restore immediately to original parent
+                            if (!placeholder) {
+                                // ensure targetBox returns to original parent if lost
                                 if (targetBox.parentNode !== originalParent) {
-                                    if (originalNextSibling && originalNextSibling
-                                        .parentNode === originalParent) {
-                                        originalParent.insertBefore(targetBox,
-                                            originalNextSibling);
+                                    if (originalNextSibling) {
+                                        originalParent.insertBefore(targetBox, originalNextSibling);
                                     } else {
                                         originalParent.appendChild(targetBox);
                                     }
                                 }
+                                // restore children
+                                if (originalChildren && originalChildren.length) {
+                                    gsap.to(originalChildren, {
+                                        opacity: 1,
+                                        duration: 0.12,
+                                        stagger: 0.02
+                                    });
+                                }
+                                targetBox.style.position = '';
+                                targetBox.style.top = '';
+                                targetBox.style.left = '';
+                                targetBox.style.width = '';
+                                targetBox.style.height = '';
+                                targetBox.style.zIndex = '';
+                                targetBox.style.backgroundColor = '';
+                                state = 'idle';
+                                return;
                             }
 
-                            // restore original children opacity
-                            if (originalChildren && originalChildren.length) {
-                                gsap.to(originalChildren, {
-                                    opacity: 1,
-                                    duration: 0.12,
-                                    stagger: 0.02
-                                });
-                            }
+                            var rect = placeholder.getBoundingClientRect();
+                            var containerRect = container.getBoundingClientRect();
+                            var top = rect.top - containerRect.top;
+                            var left = rect.left - containerRect.left;
 
-                            targetBox.style.position = '';
-                            targetBox.style.top = '';
-                            targetBox.style.left = '';
-                            targetBox.style.width = '';
-                            targetBox.style.height = '';
-                            targetBox.style.zIndex = '';
-                            targetBox.style.backgroundColor = '';
-                            state = 'idle';
-                            collapseTween = null;
-                        }
-                    });
-                }
+                            // kill any existing tweens targeting targetBox
+                            gsap.killTweensOf(targetBox);
+                            collapseTween = gsap.to(targetBox, {
+                                duration: 0.35,
+                                top: top + 'px',
+                                left: left + 'px',
+                                width: rect.width + 'px',
+                                height: rect.height + 'px',
+                                backgroundColor: origBg || '',
+                                ease: 'power2.in',
+                                onComplete: function() {
+                                    // restore in-flow position using original parent reference
+                                    if (placeholder && placeholder.parentNode) {
+                                        // ensure we restore to the original parent, not just where placeholder is
+                                        if (originalNextSibling && originalNextSibling
+                                            .parentNode === originalParent) {
+                                            originalParent.insertBefore(targetBox,
+                                                originalNextSibling);
+                                        } else {
+                                            originalParent.appendChild(targetBox);
+                                        }
+                                        placeholder.parentNode.removeChild(placeholder);
+                                        placeholder = null;
+                                    } else {
+                                        // fallback: restore to original parent even without placeholder
+                                        if (targetBox.parentNode !== originalParent) {
+                                            if (originalNextSibling && originalNextSibling
+                                                .parentNode === originalParent) {
+                                                originalParent.insertBefore(targetBox,
+                                                    originalNextSibling);
+                                            } else {
+                                                originalParent.appendChild(targetBox);
+                                            }
+                                        }
+                                    }
 
-                return {
-                    expandBox: expandBox,
-                    collapseBox: collapseBox,
-                    getState: function() {
-                        return state;
-                    }
-                };
-            }
+                                    // restore original children opacity
+                                    if (originalChildren && originalChildren.length) {
+                                        gsap.to(originalChildren, {
+                                            opacity: 1,
+                                            duration: 0.12,
+                                            stagger: 0.02
+                                        });
+                                    }
 
-            // setup desktop box (hover)
-            if (box) {
-                var desktopHandler = createExpansionHandler(box, 'hover');
-
-                // handle hover (mouseenter/leave) defensively
-                box.addEventListener('mouseenter', function(e) {
-                    desktopHandler.expandBox();
-                });
-
-                box.addEventListener('mouseleave', function(e) {
-                    // small delay to allow fast re-entry without collapsing immediately
-                    setTimeout(function() {
-                        // if user re-entered, do nothing
-                        if (desktopHandler.getState() === 'expanding' || desktopHandler
-                            .getState() === 'expanded') {
-                            // if expanded, check if pointer still inside container; if outside, collapse
-                            var rect = container.getBoundingClientRect();
-                            var x = e.clientX,
-                                y = e.clientY;
-                            if (x < rect.left || x > rect.right || y < rect.top || y >
-                                rect.bottom) {
-                                desktopHandler.collapseBox();
-                            }
-                            return;
-                        }
-                        // if not expanded/expanding, ensure collapse runs
-                        if (desktopHandler.getState() !== 'idle') desktopHandler
-                            .collapseBox();
-                    }, 12);
-                });
-            }
-
-            // setup mobile box (click)
-            if (mobileBox) {
-                var mobileHandler = createExpansionHandler(mobileBox, 'click');
-                var mobileIsExpanded = false;
-
-                mobileBox.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-
-                    if (!mobileIsExpanded) {
-                        mobileHandler.expandBox();
-                        mobileIsExpanded = true;
-
-                        // add close button functionality
-                        setTimeout(function() {
-                            // Close button functionality
-                            var closeBtn = mobileBox.querySelector(
-                                '#overlay-close-btn');
-                            if (closeBtn) {
-                                closeBtn.addEventListener('click', function(e) {
-                                    e.preventDefault();
-                                    e.stopPropagation();
-                                    mobileHandler.collapseBox();
-                                    mobileIsExpanded = false;
-                                });
-                            }
-
-                            // Existing contact buttons functionality
-                            var closeButtons = mobileBox.querySelectorAll(
-                                'a[href="/contact-us/"], a[href*="wa.me"]');
-                            closeButtons.forEach(function(btn) {
-                                btn.addEventListener('click', function(e) {
-                                    // let the link work but also close the overlay after a short delay
-                                    setTimeout(function() {
-                                        mobileHandler
-                                            .collapseBox();
-                                        mobileIsExpanded =
-                                            false;
-                                    }, 100);
-                                });
+                                    targetBox.style.position = '';
+                                    targetBox.style.top = '';
+                                    targetBox.style.left = '';
+                                    targetBox.style.width = '';
+                                    targetBox.style.height = '';
+                                    targetBox.style.zIndex = '';
+                                    targetBox.style.backgroundColor = '';
+                                    state = 'idle';
+                                    collapseTween = null;
+                                }
                             });
-                        }, 500);
-                    } else {
-                        mobileHandler.collapseBox();
-                        mobileIsExpanded = false;
-                    }
-                });
+                        }
 
-                // close on outside click
-                document.addEventListener('click', function(e) {
-                    if (mobileIsExpanded && !mobileBox.contains(e.target)) {
-                        mobileHandler.collapseBox();
-                        mobileIsExpanded = false;
+                        return {
+                            expandBox: expandBox,
+                            collapseBox: collapseBox,
+                            getState: function() {
+                                return state;
+                            }
+                        };
                     }
-                });
 
-                // close on escape key
-                document.addEventListener('keydown', function(e) {
-                    if (e.key === 'Escape' && mobileIsExpanded) {
-                        mobileHandler.collapseBox();
-                        mobileIsExpanded = false;
+                    // setup desktop box (hover)
+                    if (box) {
+                        var desktopHandler = createExpansionHandler(box, 'hover');
+
+                        // handle hover (mouseenter/leave) defensively
+                        box.addEventListener('mouseenter', function(e) {
+                            desktopHandler.expandBox();
+                        });
+
+                        box.addEventListener('mouseleave', function(e) {
+                            // small delay to allow fast re-entry without collapsing immediately
+                            setTimeout(function() {
+                                // if user re-entered, do nothing
+                                if (desktopHandler.getState() === 'expanding' || desktopHandler
+                                    .getState() === 'expanded') {
+                                    // if expanded, check if pointer still inside container; if outside, collapse
+                                    var rect = container.getBoundingClientRect();
+                                    var x = e.clientX,
+                                        y = e.clientY;
+                                    if (x < rect.left || x > rect.right || y < rect.top || y >
+                                        rect.bottom) {
+                                        desktopHandler.collapseBox();
+                                    }
+                                    return;
+                                }
+                                // if not expanded/expanding, ensure collapse runs
+                                if (desktopHandler.getState() !== 'idle') desktopHandler
+                                    .collapseBox();
+                            }, 12);
+                        });
+                    }
+
+                    // setup mobile box (click)
+                    if (mobileBox) {
+                        var mobileHandler = createExpansionHandler(mobileBox, 'click');
+                        var mobileIsExpanded = false;
+
+                        mobileBox.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            e.stopPropagation();
+
+                            if (!mobileIsExpanded) {
+                                mobileHandler.expandBox();
+                                mobileIsExpanded = true;
+
+                                // add close button functionality
+                                setTimeout(function() {
+                                    // Close button functionality
+                                    var closeBtn = mobileBox.querySelector(
+                                        '#overlay-close-btn');
+                                    if (closeBtn) {
+                                        closeBtn.addEventListener('click', function(e) {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            mobileHandler.collapseBox();
+                                            mobileIsExpanded = false;
+                                        });
+                                    }
+
+                                    // Existing contact buttons functionality
+                                    var closeButtons = mobileBox.querySelectorAll(
+                                        'a[href="/contact-us/"], a[href*="wa.me"]');
+                                    closeButtons.forEach(function(btn) {
+                                        btn.addEventListener('click', function(e) {
+                                            // let the link work but also close the overlay after a short delay
+                                            setTimeout(function() {
+                                                mobileHandler
+                                                    .collapseBox();
+                                                mobileIsExpanded =
+                                                    false;
+                                            }, 100);
+                                        });
+                                    });
+                                }, 500);
+                            } else {
+                                mobileHandler.collapseBox();
+                                mobileIsExpanded = false;
+                            }
+                        });
+
+                        // close on outside click
+                        document.addEventListener('click', function(e) {
+                            if (mobileIsExpanded && !mobileBox.contains(e.target)) {
+                                mobileHandler.collapseBox();
+                                mobileIsExpanded = false;
+                            }
+                        });
+
+                        // close on escape key
+                        document.addEventListener('keydown', function(e) {
+                            if (e.key === 'Escape' && mobileIsExpanded) {
+                                mobileHandler.collapseBox();
+                                mobileIsExpanded = false;
+                            }
+                        });
                     }
                 });
-            }
-        });
-    });
+            });
+        }
+
+        // start initialization
+        init();
+    })();
     </script>

@@ -213,10 +213,9 @@ function initCardAnimation(card, options = {}) {
     const cardContents = card.querySelectorAll('.card-content'); // ⬅ all content blocks
     let expandedContent = card.querySelector('.expanded-content');
     if (card.dataset.link) {
+        // set pointer cursor but don't bind immediate navigation here;
+        // mobile click behavior is handled after timelines are created
         card.style.cursor = 'pointer';
-        card.addEventListener('click', () => {
-            window.location.href = card.dataset.link;
-        });
     }
 
     if (!expandedContent) {
@@ -307,6 +306,15 @@ function initCardAnimation(card, options = {}) {
         gsap.set(arrowEl, {
             scale: 1
         });
+        // determine the default size to restore to on hover-out (fall back to mobile/desktop defaults)
+        var arrowDefaultSize = 40;
+        try {
+            const ds = arrowEl.getAttribute('data-default-size') || (arrowEl.dataset && arrowEl.dataset.defaultSize);
+            if (ds) arrowDefaultSize = parseInt(ds, 10) || arrowDefaultSize;
+            else arrowDefaultSize = (typeof window !== 'undefined' && window.isMobile) ? 28 : 40;
+        } catch (e) {
+            arrowDefaultSize = (typeof window !== 'undefined' && window.isMobile) ? 28 : 40;
+        }
     }
 
     // Add running flag callbacks to hoverIn timeline
@@ -345,13 +353,14 @@ function initCardAnimation(card, options = {}) {
 
     // Integrate arrow shrink into hoverOut timeline (shrink early so overlay collapse looks natural)
     if (arrowEl) {
+        // restore to the arrow's original default size (uses dataset.defaultSize when available)
         hoverOutTl.to(arrowEl, {
             duration: 0.3,
-            width: 40,
-            height: 40,
+            width: arrowDefaultSize,
+            height: arrowDefaultSize,
             opacity: 1,
             ease: 'power2.in'
-        }, '-=0.6');
+        }, (isMobile ? '-=0.9' : '-=0.6'));
     }
 
     // Mouse handlers now respect the running flag and queue reverses when necessary
@@ -379,21 +388,173 @@ function initCardAnimation(card, options = {}) {
             ease: 'power2.out'
         });
     });
+
+    // Mobile: first tap expands the overlay and shows a close (X); second tap navigates.
+    // Also close when tapping outside or when scrolling away.
+    (function attachMobileClickBehavior() {
+        const mobileFlag = (typeof window !== 'undefined' && window.isMobile);
+        if (!mobileFlag) return; // only apply this on mobile
+
+        let isExpanded = false;
+        let docClickHandler = null;
+        let scrollHandler = null;
+
+        // create close button (hidden by default)
+        const closeBtn = document.createElement('button');
+        closeBtn.type = 'button';
+        closeBtn.setAttribute('aria-label', 'Close');
+        closeBtn.className = 'card-close-btn';
+        closeBtn.style.cssText = 'position:absolute;top:8px;left:8px;z-index:60;background:transparent;border:none;color:#fff;font-size:22px;display:none;padding:6px;line-height:1;';
+        closeBtn.innerHTML = '&times;';
+        card.appendChild(closeBtn);
+
+        function openCardMobile() {
+            // close other expanded card if exists
+            try {
+                if (window.__expandedCard && window.__expandedCard !== card && typeof window.__expandedCard.__closeMobile === 'function') {
+                    window.__expandedCard.__closeMobile();
+                }
+            } catch (e) {}
+
+            isExpanded = true;
+            card.dataset.expanded = 'true';
+            closeBtn.style.display = 'block';
+            // run the same animation as hoverIn
+            hoverOutTl.pause();
+            hoverInTl.restart();
+
+            // add listeners to detect outside clicks and scroll
+            docClickHandler = function(e) {
+                if (!card.contains(e.target)) {
+                    closeCardMobile();
+                }
+            };
+            document.addEventListener('click', docClickHandler, {capture: true});
+            scrollHandler = function() {
+                closeCardMobile();
+            };
+            window.addEventListener('scroll', scrollHandler, {passive: true});
+
+            // register globals so other cards can close it
+            window.__expandedCard = card;
+        }
+
+        function closeCardMobile() {
+            if (!isExpanded) return;
+            isExpanded = false;
+            card.dataset.expanded = 'false';
+            closeBtn.style.display = 'none';
+            hoverInTl.pause();
+            hoverOutTl.restart();
+            // remove listeners
+            if (docClickHandler) {
+                document.removeEventListener('click', docClickHandler, {capture: true});
+                docClickHandler = null;
+            }
+            if (scrollHandler) {
+                window.removeEventListener('scroll', scrollHandler);
+                scrollHandler = null;
+            }
+            if (window.__expandedCard === card) window.__expandedCard = null;
+        }
+
+        // expose close so other instances can call it
+        card.__closeMobile = closeCardMobile;
+
+        closeBtn.addEventListener('click', function(e) {
+            e.stopPropagation();
+            closeCardMobile();
+        });
+
+        card.addEventListener('click', function(e) {
+            // mobile behavior: first tap expand, second tap navigate
+            e.stopPropagation();
+            if (!isExpanded) {
+                openCardMobile();
+                return;
+            }
+            // already expanded: follow link if exists
+            if (card.dataset.link) {
+                window.location.href = card.dataset.link;
+            }
+        });
+    })();
 }
 
 document.addEventListener("DOMContentLoaded", function() {
+    // helper: convert #hex to [r,g,b]
+    function hexToRgb(hex) {
+        if (!hex) return null;
+        hex = hex.replace('#', '');
+        if (hex.length === 3) {
+            hex = hex.split('').map(h => h + h).join('');
+        }
+        if (hex.length !== 6) return null;
+        const bigint = parseInt(hex, 16);
+        return [(bigint >> 16) & 255, (bigint >> 8) & 255, bigint & 255];
+    }
+
+    // helper: parse rgb(...) or rgba(...) -> [r,g,b]
+    function rgbStringToRgb(str) {
+        const m = str.match(/rgba?\s*\(\s*(\d{1,3})\s*,\s*(\d{1,3})\s*,\s*(\d{1,3})/i);
+        if (!m) return null;
+        return [parseInt(m[1], 10), parseInt(m[2], 10), parseInt(m[3], 10)];
+    }
+
+    // darken color by amount (0.1 = 10%). Accepts #hex or rgb(...). Returns rgb(...) string or original on failure.
+    function darkenColor(color, amount) {
+        if (!color) return color;
+        color = String(color).trim();
+        let rgb = null;
+        if (color.charAt(0) === '#') rgb = hexToRgb(color);
+        else if (color.toLowerCase().indexOf('rgb') === 0) rgb = rgbStringToRgb(color);
+        if (!rgb) return color; // unknown format — return original
+        const r = Math.max(0, Math.min(255, Math.round(rgb[0] * (1 - amount))));
+        const g = Math.max(0, Math.min(255, Math.round(rgb[1] * (1 - amount))));
+        const b = Math.max(0, Math.min(255, Math.round(rgb[2] * (1 - amount))));
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
     document.querySelectorAll(".card").forEach((card, i) => {
-        // Determine color from data-color attribute or fall back to defaults
-        const cardColor = card.getAttribute('data-color') || (i === 0 ? '#4B5D53' : '#34413A');
+        // Determine color from data-color attribute -> computed backgroundColor -> defaults
+        let cardColor = card.getAttribute('data-color');
+        if (!cardColor) {
+            const computedBg = window.getComputedStyle(card).backgroundColor || '';
+            // Use computed background if it's set and not transparent
+            if (computedBg && computedBg !== 'transparent' && computedBg !== 'rgba(0, 0, 0, 0)') {
+                cardColor = computedBg;
+            } else {
+                cardColor = (i === 0 ? '#4B5D53' : '#34413A');
+            }
+        }
+        // Make overlay/arrow a bit darker for contrast (10%)
+        const overlayColor = darkenColor(cardColor, 0.15);
         // Add arrow button if not already present
         if (!card.querySelector('.card-arrow')) {
             const arrowWrapper = document.createElement('p');
             arrowWrapper.className =
                 'card-arrow z-20 flex p-1.5 items-center rounded-full backdrop-blur-[20px] top-[10px] right-[10px] absolute w-fit';
-            // set the background color from data-color
-            arrowWrapper.style.background = cardColor;
+                    // set the background color to a slightly darker version for better contrast
+                    arrowWrapper.style.background = overlayColor;
             arrowWrapper.innerHTML =
-                `<?php echo "<img src=\"" . get_stylesheet_directory_uri() . "/assets/images/arrow-up.svg\" alt=\"Arrow Icon\" width=\"40\" height=\"40\" />"; ?>`;
+                `<?php echo "<img src=\"" . esc_url( get_theme_media_url('images/arrow-up.svg') ) . "\" alt=\"Arrow Icon\" width=\"40\" height=\"40\" />"; ?>`;
+            // Respect global window.isMobile to reduce arrow size on phones
+            try {
+                const mobileFlag = (typeof window !== 'undefined' && window.isMobile) ? true : false;
+                const arrowImg = arrowWrapper.querySelector('img');
+                if (arrowImg) {
+                    // set a smaller default size on mobile to avoid oversized cursors
+                    const defaultSize = mobileFlag ? 28 : 40;
+                    arrowImg.setAttribute('width', String(defaultSize));
+                    arrowImg.setAttribute('height', String(defaultSize));
+                    arrowImg.style.width = defaultSize + 'px';
+                    arrowImg.style.height = defaultSize + 'px';
+                    // remember the initial/native size so animations can restore to it
+                    try { arrowImg.dataset.defaultSize = String(defaultSize); } catch(e) {}
+                }
+            } catch (e) {
+                // fail silently if DOM manipulation isn't allowed
+            }
             // Place the arrow wrapper into a sensible spot: append to the first .card-content or to the card itself
             const firstContent = card.querySelector('.card-content');
             if (firstContent) {
@@ -404,34 +565,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
-        // Pass the resolved color to the animation init
+        // Pass the darker overlay color to the animation init
         initCardAnimation(card, {
-            overlayColor: card.getAttribute('data-color') || (i === 0 ? "#4B5D53" :
-                "#34413A"),
+            overlayColor: overlayColor,
             clipOrigin: "95.2% 25px"
         });
 
         // Inject decorative SVG if missing
-        if (!card.querySelector('.card-deco-svg')) {
+                        if (!card.querySelector('.card-deco-svg')) {
             // ensure card is positioned for absolute children
             const currentPos = window.getComputedStyle(card).position;
             if (currentPos === 'static' || !currentPos) card.style.position = 'relative';
-
-            const svgWrapper = document.createElement('div');
-            svgWrapper.className = 'card-deco-svg absolute z-0 pointer-events-none';
-            svgWrapper.style.position = 'absolute';
-            svgWrapper.style.top = '-2px';
-            svgWrapper.style.right = '-1px';
-            svgWrapper.style.width = '100px';
-            svgWrapper.style.height = '100px';
-            svgWrapper.style.zIndex = '0';
-            svgWrapper.innerHTML = `
-    <svg width="101" height="99" viewBox="0 0 101 99" fill="none" xmlns="http://www.w3.org/2000/svg">
-    <path d="M0.5 -0.000488281L101 0V98.9995H99.5L99.2484 97.4901C98.7527 94.5158 97.7808 91.6409 96.3699 88.9761L95.626 87.5708C94.5507 85.5397 93.1203 83.7176 91.4026 82.1908C90.1397 81.0681 88.7344 80.1167 87.2231 79.3611L84.6796 78.0893C83.232 77.3655 81.7011 76.822 80.1212 76.4709C78.7113 76.1576 77.2714 75.9995 75.8271 75.9995H57L54.6165 75.7191C50.5548 75.2413 46.5689 74.2568 42.7518 72.7887L42 72.4995L37.5 69.9995L35.3909 68.4177C34.1319 67.4734 32.9415 66.441 31.8287 65.3282C30.28 63.7795 28.8881 62.0817 27.6732 60.2594L26.5 58.4995C25.5021 56.8363 24.6574 55.0858 23.9763 53.2697L23.5 51.9995L22.5 48.4995L22.0698 45.7031C21.6905 43.2376 21.5 40.7468 21.5 38.2523V27.9763C21.5 15.4492 12.749 4.6243 0.5 1.99951V-0.000488281Z" fill="white"/>
-    </svg>
+                        const svgWrapper = document.createElement('div');
+                        svgWrapper.className = 'card-deco-svg absolute z-0 pointer-events-none';
+                        svgWrapper.style.position = 'absolute';
+                        svgWrapper.style.top = '-2px';
+                        svgWrapper.style.right = '-1px';
+                        // reduce decorative svg size on mobile using global window.isMobile
+                        const mobileSvg = (typeof window !== 'undefined' && window.isMobile) ? true : false;
+                        svgWrapper.style.width = mobileSvg ? '80px' : '100px';
+                        svgWrapper.style.height = mobileSvg ? '80px' : '100px';
+                        svgWrapper.style.zIndex = '0';
+                        svgWrapper.innerHTML = `
+        <svg class="w-full h-fit" width="101" height="99" viewBox="0 0 101 99" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0.5 -0.000488281L101 0V98.9995H99.5L99.2484 97.4901C98.7527 94.5158 97.7808 91.6409 96.3699 88.9761L95.626 87.5708C94.5507 85.5397 93.1203 83.7176 91.4026 82.1908C90.1397 81.0681 88.7344 80.1167 87.2231 79.3611L84.6796 78.0893C83.232 77.3655 81.7011 76.822 80.1212 76.4709C78.7113 76.1576 77.2714 75.9995 75.8271 75.9995H57L54.6165 75.7191C50.5548 75.2413 46.5689 74.2568 42.7518 72.7887L42 72.4995L37.5 69.9995L35.3909 68.4177C34.1319 67.4734 32.9415 66.441 31.8287 65.3282C30.28 63.7795 28.8881 62.0817 27.6732 60.2594L26.5 58.4995C25.5021 56.8363 24.6574 55.0858 23.9763 53.2697L23.5 51.9995L22.5 48.4995L22.0698 45.7031C21.6905 43.2376 21.5 40.7468 21.5 38.2523V27.9763C21.5 15.4492 12.749 4.6243 0.5 1.99951V-0.000488281Z" fill="white"/>
+        </svg>
     
-          `;
-            card.appendChild(svgWrapper);
+                    `;
+                        card.appendChild(svgWrapper);
         }
 
         // NOTE: arrow grow/shrink animations moved into the main hover timelines above.

@@ -42,7 +42,7 @@
 
                 </div>
 
-                <div class=" text-left px-2 sm:px-4 relative z-10">
+                <div class=" text-left px-2 sm:px-4 relative z-10 lg:max-w-[55%] w-full lg:mt-16">
                     <div class="text-zinc-800 text-9xl font-medium font-inter">
                         <svg width="39" height="31" viewBox="0 0 39 31" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path
@@ -75,12 +75,12 @@
         <!-- Arrows -->
         <div class="flex  space-x-3 absolute top-5 md:top-0 right-4 md:right-6 z-20 mt-2">
             <button id="testimonialPrevBtn" aria-label="Previous slide"
-                class="p-0 w-[50px] h-[50px] flex items-center justify-center bg-white hover:bg-white/50 rounded-full shadow-md">
+                class="p-0 w-[50px] h-[50px] flex items-center justify-center bg-white hover:bg-white/50 !rounded-full shadow-md">
                 <img src="<?php echo esc_url( get_theme_media_url('images/arrow-left.svg') ); ?>" alt="Previous"
                     class="w-5 h-5">
             </button>
             <button id="testimonialNextBtn" aria-label="Next slide"
-                class="p-0 w-[50px] h-[50px] flex items-center justify-center bg-black hover:bg-black/50 rounded-full shadow-md">
+                class="p-0 w-[50px] h-[50px] flex items-center justify-center bg-black hover:bg-black/50 !rounded-full shadow-md">
                 <img src="<?php echo esc_url( get_theme_media_url('images/right.svg') ); ?>" alt="Next"
                     class="w-5 h-5">
             </button>
