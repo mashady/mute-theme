@@ -26,5 +26,6 @@ get_header();
     <?php get_template_part('templates/partials/knew_more_section'); ?>
 
     <?php get_template_part('templates/partials/testimonials'); ?>
+    <?php get_template_part('templates/partials/overlay-menu'); ?>
 </main>
 <?php get_footer(); ?>
