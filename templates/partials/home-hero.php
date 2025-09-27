@@ -12,29 +12,18 @@
     </video>
 
     <div class="relative z-10 w-full h-full p-6 flex flex-row items-end  justify-between">
-        <div class="max-w-3xl  flex flex-col gap-2">
+        <div class="lg:max-w-[80%]  flex flex-col gap-2">
             <div class="flex flex-col gap-2">
-                <h1 class="text-white font-medium uppercase font-inter
-           text-3xl sm:text-4xl md:text-5xl lg:text-5xl m-0" id="hero-title">
-                    Silence is a Form of Luxury
-                </h1>
-                <p class="text-white font-light text-lg lg:text-2xl font-poppins" id="hero-subtitle">
-                    Experience premium sound isolation solutions designed to transform your spaces into havens of calm,
-                    focus, and productivity.
+                <p class="text-white font-medium uppercase font-['Poppins']
+           text-3xl sm:text-4xl md:text-5xl lg:text-[6.5vw] m-0" id="hero-title">
+                    Silence is <br>a Form of Luxury
                 </p>
+                <!-- subtitle removed -->
 
             </div>
         </div>
-        <div class="w-96 h-40 p-4 bg-white rounded-3xl outline outline-1 outline-offset-[-1px] outline-white/0 inline-flex justify-between items-start overflow-hidden max-lg:!hidden"
+        <div class="w-96 h-40 p-4 bg-white rounded-3xl flex flex-col justify-between items-end overflow-hidden max-lg:!hidden"
             id="book-appointment-box">
-            <div class="inline-flex flex-col justify-end items-end h-full">
-                <div
-                    class="w-72 justify-start text-Colors-Green-Green-700 text-3xl font-medium font-['Poppins'] leading-10">
-                    Have a question?</div>
-                <div
-                    class="w-72 justify-start text-Colors-Green-Green-700 text-xl font-light font-['Poppins'] leading-normal ">
-                    Book Appointment Now</div>
-            </div>
             <div class="p-1.5 bg-Primary-Green-700 rounded-[40px] backdrop-blur-[20px] flex justify-start items-center">
                 <div class="w-11 h-11  rounded-[100px] flex justify-center items-center gap-3">
                     <svg width="50" height="50" viewBox="0 0 34 34" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -45,12 +34,21 @@
                     </svg>
                 </div>
             </div>
+            <div class="inline-flex flex-col  w-full h-full">
+                <div
+                    class="w-72 justify-start text-Colors-Green-Green-700 text-3xl font-medium font-['Poppins'] leading-10">
+                    Have a question?</div>
+                <div
+                    class="w-72 justify-start text-Colors-Green-Green-700 text-xl font-light font-['Poppins'] leading-normal ">
+                    Book Appointment Now</div>
+            </div>
+
         </div>
     </div>
 
 </section>
 <div class="px-2">
-    <div class="w-full h-40 p-4  bg-[#001C16] text-white rounded-3xl outline outline-1 outline-offset-[-1px] outline-white/0 flex-col justify-between items-end overflow-hidden lg:!hidden"
+    <div class="w-full h-fit p-4  bg-[#001C16] text-white rounded-3xl outline outline-1 outline-offset-[-1px] outline-white/0 flex-row-reverse self-center justify-between items-end overflow-hidden lg:!hidden"
         id="mobile-book-appointment-box">
         <div class="p-1.5 bg-Primary-Green-700 rounded-[40px] backdrop-blur-[20px] flex justify-start items-center">
             <div class="w-11 h-11  rounded-[100px] flex justify-center items-center gap-3">
@@ -62,10 +60,8 @@
                 </svg>
             </div>
         </div>
-        <div class="inline-flex flex-col justify-end items-end h-full">
-            <div class="w-full justify-start  text-3xl font-medium font-['Poppins'] leading-10">
-                Have a question?</div>
-        </div>
+            <p class="w-full justify-start self-center text-3xl font-medium font-['Poppins'] leading-10">
+                Have a question?</p>
     </div>
     <div>
     </div>
@@ -77,7 +73,7 @@
             x
         </button>
         <div
-            class="w-full lg:w-[80%] mx-auto max-lg:h-[80vh] p-8 max-w-[1200px] flex flex-col-reverse  lg:flex-row justify-between items-center max-lg:gap-10 max-lg:justify-start">
+            class="w-full lg:w-[80%] mx-auto max-lg:h-[80vh] p-2 lg:p-8 max-w-[1200px] flex flex-col-reverse  lg:flex-row justify-between items-center max-lg:gap-10 max-lg:justify-start">
             <div class="h-fit lg:h-full flex flex-col justify-end  gap-48">
 
                 <div class="w-48 inline-flex justify-between items-center">
@@ -308,7 +304,6 @@
                 ready(function() {
                     var container = document.getElementById('home-hero-container');
                     var title = document.getElementById('hero-title');
-                    var subtitle = document.getElementById('hero-subtitle');
 
                     var box = document.getElementById('book-appointment-box');
 
@@ -378,17 +373,7 @@
                         }, 1.55);
                     }
 
-                    // subtitle: after title
-                    if (subtitle) {
-                        tl.fromTo(subtitle, {
-                            y: 20,
-                            opacity: 0
-                        }, {
-                            y: 0,
-                            opacity: 1,
-                            duration: 0.6
-                        }, 2.35);
-                    }
+                    // subtitle removed: no animation
                     // book box initial entrance: from y:50 and opacity 0 (start after subtitle finishes)
                     if (!isMobile) {
                         // subtitle starts at 2.35 with duration 0.6 -> ends at ~2.95

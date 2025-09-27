@@ -1,5 +1,5 @@
 <section id="intro" class="h-[60vh] lg:h-[80vh] px-4 lg:py-16 flex items-center flex-col justify-top">
-    <div class="max-w-5xl text-center h-fit sticky top-1/2 my-[25vh]">
+    <div class="max-w-5xl text-center h-fit sticky top-1/2 -translate-y-1/2 my-[25vh]">
         <h2 class="text-[#dadada8a] text-2xl md:text-5xl font-medium font-inter " id="intro-heading">
             At Sound Mute, we deliver expert acoustic solutions that eliminate noise, enhance privacy, and create growth
             ready environments.
@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     scrollTrigger: {
                         trigger: heading,
                         start: 'top center',
-                        end: '+=40%',
+                        end: window.isMobile ? '+=80%' : '+=40%',
                         scrub: 0.3,
                         markers: false
                     }

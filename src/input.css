@@ -23,7 +23,7 @@ body {
 }
 
 .card {
-  @apply flex flex-col justify-start w-full max-md:h-[25vh];
+  @apply flex flex-col justify-start w-full max-md:h-[360px];
 }
 .card-content {
   @apply flex flex-col  justify-between items-start gap-2 w-full relative z-10 h-full;

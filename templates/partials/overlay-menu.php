@@ -16,7 +16,7 @@ if (is_wp_error($terms) || empty($terms)) {
 
 <!-- Tailwind utilities used inline instead of a separate CSS block -->
 <!-- Unified shell: trigger + dialog body in one container -->
-<div id="overlayShell" class="fixed flex flex-col left-1/2 right-1/2 lg:right-4 -translate-x-1/2 bottom-0 lg:bottom-4 z-[9999] w-full lg:w-fit h-fit bg-Primary-Green-700 rounded-t-xl lg:rounded-xl shadow-lg justify-end m-auto">
+<div id="overlayShell" class="fixed flex flex-col left-1/2 right-1/2 lg:right-4 -translate-x-1/2 bottom-0 lg:bottom-4 z-[9999] w-full lg:w-fit h-fit bg-[#001C16] rounded-t-xl lg:rounded-xl shadow-lg justify-end m-auto">
     <div id="overlayBody" class="overflow-scroll" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="overlayTitle"
         aria-hidden="true" tabindex="-1">
         <div class="overlay-inner px-6 py-6">
@@ -33,7 +33,7 @@ if (is_wp_error($terms) || empty($terms)) {
             
         </div>
     </div>
-    <button id="overlayTrigger" class="self-bottom bottom-0 overlay-trigger px-6 py-3 text-lg text-white bg-transparent focus:outline-none !rounded-none min-w-[150px]"
+    <button id="overlayTrigger" class="self-bottom bottom-0 overlay-trigger px-6 py-2 text-lg text-white bg-transparent focus:outline-none !rounded-none min-w-[150px]"
         aria-controls="overlayBody" aria-expanded="false"><span class="overlay-btn-label ">Products</span></button>
 </div>
 

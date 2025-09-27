@@ -13,7 +13,7 @@
     ?>
 
     <div class="grid grid-cols-1 md:grid-cols-[40%_1fr] gap-4 min-h-[536px] items-stretch">
-        <div class="relative  flex flex-col justify-end items-start text-white rounded-[24px] p-6 min-h-[450px] bg-cover bg-center bg-no-repeat main-card opacity-0 scale-95"
+        <div class="relative  flex flex-col justify-end items-start text-white rounded-[24px] p-6 min-h-[450px] bg-cover bg-center bg-no-repeat main-card"
             style="background-image: url('<?php echo esc_url( get_theme_media_url('images/fom.png') ); ?>');">
             <div class="absolute inset-0 rounded-[24px] bg-gradient-to-b from-transparent via-black/60 to-[#0C0101]">
             </div>
