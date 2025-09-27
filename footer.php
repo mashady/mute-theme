@@ -250,24 +250,26 @@ function initCardAnimation(card, options = {}) {
         .to(cardContents, {
             duration: 0.01,
             opacity: 0,
-            display: "none",
+            // removed display here so content can fade out correctly
             y: -10,
             ease: "power2.out",
             stagger: 0.1
-        }, )
+        })
         .to(overlay, {
             duration: 0.8,
             clipPath: `circle(150% at ${clipOrigin})`,
             ease: "ease.out"
         })
-
+        // ensure expandedContent is visible before animating opacity
+        .set(expandedContent, {display: 'flex'}, "-=0.2")
         .to(expandedContent, {
             duration: 0.4,
             opacity: 1,
-            display: 'flex',
             y: 0,
             ease: "power2.out"
-        }, "-=0.4"); // Start expanded content earlier to sync with arrow        // Hover Out
+        }, "-=0.4"); // Start expanded content earlier to sync with arrow
+
+    // Hover Out
     const hoverOutTl = gsap.timeline({
         paused: true
     });
@@ -275,21 +277,24 @@ function initCardAnimation(card, options = {}) {
         .to(expandedContent, {
             duration: 0.3,
             opacity: 0,
-            display: "none",
             y: 20,
-            ease: "power2.in"
+            ease: "power2.in",
+            onComplete: () => {
+                // hide after fade completes
+                gsap.set(expandedContent, {display: 'none'});
+            }
         })
         .to(overlay, {
-                duration: 0.9,
-                clipPath: `circle(0% at ${clipOrigin})`,
-                ease: "power2.in"
-            },
-            "-=0.1")
+            duration: 0.9,
+            clipPath: `circle(0% at ${clipOrigin})`,
+            ease: "power2.in"
+        }, "-=0.1")
         .to(cardContents, {
             duration: 0.3,
             opacity: 1,
             y: 0,
-            display: "flex",
+            // ensure contents are visible before animating in
+            onStart: () => gsap.set(cardContents, {display: 'flex'}),
             ease: "power2.out",
             stagger: 0.1
         }, "-=0.3")
@@ -406,6 +411,7 @@ function initCardAnimation(card, options = {}) {
         closeBtn.className = 'card-close-btn';
         closeBtn.style.cssText = 'position:absolute;top:8px;left:8px;z-index:60;background:transparent;border:none;color:#fff;font-size:22px;display:none;padding:6px;line-height:1;';
         closeBtn.innerHTML = '&times;';
+
         card.appendChild(closeBtn);
 
         function openCardMobile() {
@@ -468,10 +474,13 @@ function initCardAnimation(card, options = {}) {
 
         card.addEventListener('click', function(e) {
             // mobile behavior: first tap expand, second tap navigate
-            e.stopPropagation();
-            if (!isExpanded) {
-                openCardMobile();
-                return;
+            if (window.isMobile){
+                
+                e.stopPropagation();
+                if (!isExpanded) {
+                    openCardMobile();
+                    return;
+                }
             }
             // already expanded: follow link if exists
             if (card.dataset.link) {
@@ -479,6 +488,19 @@ function initCardAnimation(card, options = {}) {
             }
         });
     })();
+
+        // Desktop: single-click navigation (only when not mobile)
+        (function attachDesktopClickBehavior() {
+            const mobileFlag = (typeof window !== 'undefined' && window.isMobile);
+            if (mobileFlag) return; // mobile uses the special two-tap behavior above
+            if (!card.dataset.link) return;
+            card.addEventListener('click', function (e) {
+                // If an animation is running or mobile-expanded state present, ignore
+                if (card.dataset.animationRunning === 'true') return;
+                // Normal single-click navigation on desktop
+                window.location.href = card.dataset.link;
+            });
+        })();
 }
 
 document.addEventListener("DOMContentLoaded", function() {

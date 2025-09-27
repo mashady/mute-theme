@@ -44,12 +44,12 @@
             </div>
         </div>
 
-        <div id="slider" class="relative w-full h-[600px] flex ">
+        <div id="slider" class="relative w-full h-[450px] lg:h-[600px] flex ">
             <div class="slide min-w-full h-full relative flex items-end p-8"
                 style="background-image: url('<?php echo esc_url( get_theme_media_url('images/1.png') ); ?>'); background-size: cover; background-position: center;">
                 <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
                 <div class="relative z-10 max-w-2xl">
-                    <h2 class="text-2xl font-bold text-white mb-4">2x factory in Giza</h2>
+                    <h2 class="text-2xl font-bold text-white">2x factory in Giza</h2>
                     <p class="text-lg text-gray-200 mb-6">
                         Reducing industrial noise while boosting worker comfort and productivity.
                     </p>

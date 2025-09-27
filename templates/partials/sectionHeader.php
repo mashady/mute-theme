@@ -7,7 +7,7 @@ $paragraph   = $args['paragraph'] ?? 'Default paragraph content goes here.';
     <h2 class="text-black text-xl lg:text-3xl md:text-5xl font-normal font-inter section-title">
         <?php echo esc_html($title); ?>
     </h2>
-    <p class="mt-4  text-zinc-600 text-sm lg:text-lg text-light font-inter section-subtitle">
+    <p class="max-lg:hidden mt-4  text-zinc-600 text-sm lg:text-lg text-light font-inter section-subtitle">
         <?php echo esc_html($paragraph); ?>
     </p>
 </div>
