@@ -248,7 +248,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".sound-studios-section",
-                    start: "top 80%",
+                    start: window.isMobile ? 'top 60%' : 'top 50%',
                 },
             });
 
@@ -286,9 +286,9 @@ document.addEventListener("DOMContentLoaded", () => {
                 y: 0,
                 duration: 0.6,
                 ease: "power3.out",
-                scrollTrigger: {
+                    scrollTrigger: {
                     trigger: ".sound-studios-section",
-                    start: "top 90%",
+                    start: window.isMobile ? 'top 60%' : 'top 50%',
                     toggleActions: "play none none none"
                 }
             });
@@ -304,7 +304,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 stagger: 0.12,
                 scrollTrigger: {
                     trigger: '.sound-studios-section',
-                    start: 'top 90%',
+                    start: window.isMobile ? 'top 60%' : 'top 50%',
                     toggleActions: 'play none none none'
                 }
             });

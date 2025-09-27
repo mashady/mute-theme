@@ -733,6 +733,10 @@ video {
   top: 10px;
 }
 
+.bottom-6 {
+  bottom: 1.5rem;
+}
+
 .isolate {
   isolation: isolate;
 }
@@ -763,6 +767,10 @@ video {
 
 .z-\[9999\] {
   z-index: 9999;
+}
+
+.z-\[99999\] {
+  z-index: 99999;
 }
 
 .float-start {
@@ -1350,6 +1358,16 @@ video {
 
 .transform-none {
   transform: none;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin {
+  animation: spin 1s linear infinite;
 }
 
 .touch-auto {
@@ -2544,6 +2562,21 @@ video {
 
 .bg-white\/70 {
   background-color: rgb(255 255 255 / 0.7);
+}
+
+.bg-\[\#1E4D2B\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(30 77 43 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#12301a\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(18 48 26 / var(--tw-bg-opacity));
+}
+
+.bg-\[\#091a0e\] {
+  --tw-bg-opacity: 1;
+  background-color: rgb(9 26 14 / var(--tw-bg-opacity));
 }
 
 .bg-gradient-to-b {

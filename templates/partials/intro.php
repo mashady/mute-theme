@@ -38,7 +38,8 @@ document.addEventListener("DOMContentLoaded", function() {
                 var tl = gsap.timeline({
                     scrollTrigger: {
                         trigger: heading,
-                        start: 'top center',
+                        // start when heading's middle reaches viewport center (50%)
+                        start: window.isMobile ? 'top 60%' : 'top 50%',
                         end: window.isMobile ? '+=80%' : '+=40%',
                         scrub: 0.3,
                         markers: false
@@ -59,7 +60,7 @@ document.addEventListener("DOMContentLoaded", function() {
                     duration: 0.5,
                     scrollTrigger: {
                         trigger: heading,
-                        start: 'top 90%',
+                        start: 'top 50%',
                         toggleActions: 'play none none none'
                     }
                 });

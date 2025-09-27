@@ -45,7 +45,11 @@ if (is_wp_error($terms) || empty($terms)) {
         const overlayShell = document.getElementById('overlayShell');
         const label = document.querySelector('.overlay-btn-label');
         let isOpen = false;
-        gsap.set(overlayBody, {autoAlpha: 0, pointerEvents: 'none', display:'none'});
+        if (window.isMobile){
+            gsap.set(overlayBody, { pointerEvents: 'none', display:'none'});
+        }else{
+            gsap.set(overlayBody, {autoAlpha: 0, pointerEvents: 'none', display:'none'});
+        }
         overlayTrigger.addEventListener('click', () => {
             if (isOpen) {
                 isOpen = false;
@@ -76,6 +80,8 @@ if (is_wp_error($terms) || empty($terms)) {
             .to(overlayBody, {
                 // height: '100%',
                 autoAlpha: 1,
+                display:'flex',
+                //  autoAlpha: 1,
                 pointerEvents: 'auto',
                 duration: 0.3,
                 ease: 'power1.inOut',

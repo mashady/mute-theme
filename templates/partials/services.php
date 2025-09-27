@@ -92,3 +92,8 @@
 
     </div>
 </section>
+
+<script>
+// If GSAP/ScrollTrigger are used elsewhere, services section may be animated by a parent script.
+// No explicit ScrollTrigger blocks in this partial. Keeping this comment for clarity.
+</script>

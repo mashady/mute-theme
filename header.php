@@ -55,6 +55,7 @@ window.addEventListener('resize', () => {
 
 <body <?php body_class(); ?>>
     <?php wp_body_open(); ?>
+    <?php get_template_part('templates/partials/preloader'); ?>
     <?php do_action('razzi_before_site') ?>
 
     <div id="page" class="site">

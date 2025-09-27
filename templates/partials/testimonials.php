@@ -1,4 +1,4 @@
-<section class="p-4 mb-[219px] relative section-container">
+<section class="testimonials-section p-4 mb-[219px] relative section-container">
     <?php
     get_template_part(
         'templates/partials/sectionHeader',
@@ -87,3 +87,34 @@
         </div>
     </div>
 </section>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    if (typeof gsap === 'undefined') return;
+
+    if (!gsap.__registeredScrollTrigger && typeof ScrollTrigger !== 'undefined') {
+        gsap.registerPlugin(ScrollTrigger);
+        gsap.__registeredScrollTrigger = true;
+    }
+
+    ScrollTrigger.matchMedia({
+        '(min-width: 768px)': function() {
+            const tl = gsap.timeline({
+                scrollTrigger: {
+                    trigger: '.testimonials-section',
+                    start: window.isMobile ? 'top 60%' : 'top 50%'
+                }
+            });
+
+            tl.fromTo('.testimonials-section .section-header', {opacity:0,y:12}, {opacity:1,y:0,duration:0.6,ease:'power3.out'})
+              .fromTo('.testimonials-section .testimonial-slide', {opacity:0,y:12}, {opacity:1,y:0,duration:0.6,stagger:0.12,ease:'power3.out'}, '-=0.3');
+        },
+
+        '(max-width: 767px)': function() {
+            gsap.fromTo('.testimonials-section .section-header', {opacity:0,y:12}, {opacity:1,y:0,duration:0.6,ease:'power3.out', scrollTrigger:{trigger:'.testimonials-section', start: window.isMobile ? 'top 60%' : 'top 50%', toggleActions:'play none none none'}});
+
+            gsap.fromTo('.testimonials-section .testimonial-slide', {opacity:0,y:12}, {opacity:1,y:0,duration:0.6,stagger:0.12,ease:'power3.out', scrollTrigger:{trigger:'.testimonials-section', start: window.isMobile ? 'top 60%' : 'top 50%', toggleActions:'play none none none'}});
+        }
+    });
+});
+</script>

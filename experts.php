@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", () => {
             const tl = gsap.timeline({
                 scrollTrigger: {
                     trigger: ".sound-experts-section",
-                    start: "top 80%",
+                    start: window.isMobile ? 'top 60%' : 'top 50%',
                 },
             });
 
@@ -177,7 +177,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 ease: "power3.out",
                 scrollTrigger: {
                     trigger: ".sound-experts-section",
-                    start: "top 90%",
+                    start: window.isMobile ? 'top 60%' : 'top 50%',
                     toggleActions: "play none none none"
                 }
             });
@@ -193,7 +193,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 stagger: 0.12,
                 scrollTrigger: {
                     trigger: '.sound-experts-section',
-                    start: 'top 90%',
+                    start: window.isMobile ? 'top 60%' : 'top 50%',
                     toggleActions: 'play none none none'
                 }
             });
