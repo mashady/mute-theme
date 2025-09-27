@@ -3,11 +3,13 @@
  * Template Name: Home Page
  */
 get_header();
-?>
 
+
+?>
+<link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/output.css" rel="stylesheet">
 <main class="min-h-screen ">
     <div>
-        <?php get_template_part('templates/partials/navbar'); ?>
+
         <?php get_template_part('templates/partials/home-hero'); ?>
     </div>
     <?php get_template_part('templates/partials/companies'); ?>
@@ -24,5 +26,6 @@ get_header();
     <?php get_template_part('templates/partials/knew_more_section'); ?>
 
     <?php get_template_part('templates/partials/testimonials'); ?>
+    <?php get_template_part('templates/partials/overlay-menu'); ?>
 </main>
 <?php get_footer(); ?>

@@ -4,7 +4,7 @@
  * File: single-service.php
  */
 get_header();
-get_template_part('templates/partials/navbar');
+require_once get_stylesheet_directory() . '/dist/output.css';
 
 /**
  * Helper: detect current language
@@ -31,7 +31,7 @@ function mm_get_current_lang_short() {
     return 'en';
 }
 ?>
-
+<link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/output.css" rel="stylesheet">
 <main id="primary" class="site-main">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 

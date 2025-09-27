@@ -13,27 +13,57 @@
   }
 }
 
-body{
+body {
   @apply max-w-full w-screen overflow-x-hidden;
 }
 
 .section-container {
-  @apply mx-auto p-4 mb-16 min-h-screen flex flex-col justify-center ;
+  @apply mx-auto p-2 lg:p-4 mb-16 min-h-screen flex flex-col justify-center;
   max-width: 1440px;
 }
 
 .card {
-
-  @apply  flex flex-col justify-start;
+  @apply flex flex-col justify-start w-full max-md:h-[360px];
 }
-.card-content{
-  @apply flex flex-col justify-between items-start gap-2 w-full relative z-10 h-full;
+.card-content {
+  @apply flex flex-col  justify-between items-start gap-2 w-full relative z-10 h-full;
 }
 
 .card-content .card-title {
-  @apply text-white font-[Poppins] text-2xl font-normal;
+  @apply text-white font-[Poppins] text-xl lg:text-2xl font-semibold;
 }
 
 .card-content .card-description {
-  /* @apply text-white  text-md font-light; */
+  @apply text-white font-[Inter] max-md:text-sm font-light;
+}
+
+.site-content {
+  @apply !max-w-full w-screen overflow-x-hidden !mt-0 !mx-0 !px-0 !pt-3;
+
+}
+
+
+.site-content{
+  padding-top: 0px !important;
+}
+
+
+.has-transparent .menu-item a{
+  color: white !important;
+}
+
+.minimized .menu-item a{
+  color: black !important;
+}
+
+.has-transparent .razzi-svg-icon {
+  color: white !important;
+}
+
+.minimized .razzi-svg-icon {
+  color: black !important;
+}
+
+#topbar-mobile {
+  display: none !important;
 }

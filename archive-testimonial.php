@@ -4,9 +4,9 @@
  * File: archive-testimonial.php
  */
 get_header();
-get_template_part('templates/partials/navbar');
 get_template_part('templates/partials/hero');
 ?>
+<link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/output.css" rel="stylesheet">
 
 <section class="hero py-12 px-4 mx-auto mt-5">
     <!-- Section Header -->
@@ -57,7 +57,7 @@ get_template_part('templates/partials/hero');
                 <?php endif; ?>
             </a>
 
-            <div class="flex flex-col justify-between flex-1 px-4 py-3">
+            <div class="flex flex-col justify-between  px-4 py-3">
                 <div class="flex flex-col gap-3">
                     <h3 class="font-normal mt-[10px] text-xl">
                         <a href="<?php echo esc_url($permalink); ?>"><?php echo esc_html($title); ?></a>

@@ -4,7 +4,6 @@
  * File: archive-video.php
  */
 get_header();
-get_template_part('templates/partials/navbar');
 get_template_part('templates/partials/hero');
 
 /**
@@ -31,6 +30,7 @@ if ( ! function_exists('mm_get_current_lang_short') ) {
     }
 }
 ?>
+<link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/output.css" rel="stylesheet">
 
 <section class="hero py-12 px-4 mx-auto mt-5">
     <div class="mb-8">
@@ -109,7 +109,7 @@ if ( ! function_exists('mm_get_current_lang_short') ) {
                 <?php endif; ?>
             </a>
 
-            <div class="flex flex-col justify-between flex-1 px-4 py-3">
+            <div class="flex flex-col justify-between  px-4 py-3">
                 <div class="flex flex-col gap-3">
                     <h3 class="font-normal mt-[10px] text-xl <?php echo esc_attr($align_class); ?>">
                         <a href="<?php echo esc_url( $card_url ); ?>"

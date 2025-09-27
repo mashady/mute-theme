@@ -4,7 +4,7 @@
  * File: single-project.php
  */
 get_header();
-get_template_part('templates/partials/navbar');
+
 
 /**
  * Helper: detect current language
@@ -27,7 +27,7 @@ function mm_get_current_lang_short() {
     return 'en';
 }
 ?>
-
+<link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/output.css" rel="stylesheet">
 <main id="primary" class="site-main">
     <?php if ( have_posts() ) : while ( have_posts() ) : the_post();
 

@@ -13,17 +13,39 @@
 // });
 
 // functions.php
+// add_action('init', function() {
+//     // Check if user clicked the toggle
+//     if ( isset($_GET['set_lang']) ) {
+//         $lang = $_GET['set_lang'] === 'ar' ? 'ar' : 'en_US';
+//         setcookie('site_lang', $lang, time() + (86400 * 30), '/'); // store for 30 days
+//         $_COOKIE['site_lang'] = $lang; // make it available immediately
+//         wp_redirect(remove_query_arg('set_lang')); // clean URL
+//         exit;
+//     }
+
+//     // Apply saved language
+//     if ( isset($_COOKIE['site_lang']) ) {
+//         switch_to_locale($_COOKIE['site_lang']);
+//     }
+// });
+
+
 add_action('init', function() {
-    // Check if user clicked the toggle
+    // Only run on frontend (not admin dashboard or AJAX calls)
+    if ( is_admin() ) {
+        return;
+    }
+
+    // Handle toggle clicks
     if ( isset($_GET['set_lang']) ) {
         $lang = $_GET['set_lang'] === 'ar' ? 'ar' : 'en_US';
-        setcookie('site_lang', $lang, time() + (86400 * 30), '/'); // store for 30 days
-        $_COOKIE['site_lang'] = $lang; // make it available immediately
+        setcookie('site_lang', $lang, time() + (86400 * 30), '/'); // 30 days
+        $_COOKIE['site_lang'] = $lang; // apply immediately
         wp_redirect(remove_query_arg('set_lang')); // clean URL
         exit;
     }
 
-    // Apply saved language
+    // Apply saved language (frontend only)
     if ( isset($_COOKIE['site_lang']) ) {
         switch_to_locale($_COOKIE['site_lang']);
     }

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Razzi Child\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-09-14 14:11+0000\n"
-"PO-Revision-Date: 2025-09-20 20:12+0000\n"
+"PO-Revision-Date: 2025-09-20 20:11+0000\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar\n"
@@ -224,7 +224,7 @@ msgstr ""
 #: functions.php:183 inc/cpt/x-projects.php:7 inc/cpt/x-projects.php:9
 #: inc/cpt/x-projects.php:23
 msgid "Projects"
-msgstr "المشاريع"
+msgstr ""
 
 #. Name of the template
 #: archive-project.php:2
@@ -266,7 +266,7 @@ msgstr "خدمات"
 
 #: functions.php:182
 msgid "Shop"
-msgstr "المتجر"
+msgstr ""
 
 #: templates/partials/hero.php:9
 msgid "Silence is a Form of Luxury"

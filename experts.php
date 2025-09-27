@@ -1,3 +1,5 @@
+<link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/output.css" rel="stylesheet">
+
 <section class=" sound-experts-section section-container">
 
 
@@ -12,8 +14,8 @@
     );
     ?>
 
-    <div class="grid grid-cols-1 md:grid-cols-[40%_1fr] gap-4 min-h-[536px] items-stretch">
-        <div class="relative  flex flex-col justify-end items-start text-white rounded-[24px] p-6 min-h-[450px] bg-cover bg-center bg-no-repeat main-card"
+    <div class="flex flex-col lg:flex-row gap-4 min-h-[536px] ">
+        <div class="relative  flex flex-col justify-end items-start text-white rounded-[24px] p-6 min-h-[450px] lg:max-w-[600px] bg-cover bg-center bg-no-repeat main-card opacity-0 scale-95"
             style="background-image: url('<?php echo esc_url( get_theme_media_url('images/fom.png') ); ?>');">
             <div class="absolute inset-0 rounded-[24px] bg-gradient-to-b from-transparent via-black/60 to-[#0C0101]">
             </div>
@@ -28,9 +30,9 @@
             </div>
         </div>
 
-    <div class="w-full h-full flex flex-col gap-4">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 w-full  h-full">
-                <div class="card flex flex-col  justify-between items-start rounded-[24px] text-white p-6 bg-[#4B5D53] min-h-[256px] small-card opacity-0 "
+        <div class=" flex flex-col gap-4">
+            <div class="flex flex-col md:flex-row gap-4 w-full  h-full">
+                <div class="card lg:w-1/2 flex flex-col  justify-between items-start rounded-[24px] text-white p-6 bg-[#4B5D53] min-h-[256px] small-card opacity-0 "
                     data-title="Projects That Make Spaces Quieter"
                     data-description="From studios to offices — case-proven acoustic projects that improve audio and focus."
                     data-link="/shop/projects/">
@@ -51,7 +53,7 @@
                     </div>
                 </div>
 
-                <div class="card flex flex-col justify-between items-start rounded-[24px] text-white p-6 bg-[#34413A] min-h-[256px] small-card opacity-0 "
+                <div class="card lg:w-1/2 flex flex-col justify-between items-start rounded-[24px] text-white p-6 bg-[#34413A] min-h-[256px] small-card opacity-0 "
                     data-title="Products Engineered for Sound"
                     data-description="In-house designed materials crafted for superior acoustic performance and durability"
                     data-link="/shop/materials/">
@@ -74,8 +76,8 @@
             </div>
 
             <div class="w-full mt-2">
-                <div class="max-md:hidden flex flex-row gap-3 w-full stats-row opacity-0 items-stretch">
-                    <div class="flex-1 flex min-w-0 px-6 py-3 items-center gap-3 bg-[#eee] rounded-2xl min-h-[90px]">
+                <div class="max-md:hidden flex flex-row  gap-3 w-full stats-row opacity-0 ">
+                    <div class="flex px-6 py-3 items-center gap-3   bg-[#eee] rounded-2xl min-h-[90px]">
                         <img src="<?php echo esc_url( get_theme_media_url('images/Vector.svg') ); ?>"
                             alt="Assert Icon" width="24" height="24" />
                         <div>
@@ -84,7 +86,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="flex-1 flex min-w-0 px-6 py-3 items-center gap-3 bg-[#eee] rounded-2xl min-h-[90px]">
+                    <div class="flex px-6 py-3 items-center gap-3   bg-[#eee] rounded-2xl min-h-[90px]">
                         <img src="<?php echo esc_url( get_theme_media_url('images/pajamas_work.svg') ); ?>"
                             alt="Assert Icon" width="24" height="24" />
                         <div>
@@ -92,7 +94,7 @@
                             <div class="text-[#434343] font-inter text-[20px] font-normal leading-normal">Projects</div>
                         </div>
                     </div>
-                    <div class="flex-1 flex min-w-0 px-6 py-3 items-center gap-3 bg-[#eee] rounded-2xl min-h-[90px]">
+                    <div class="flex px-6 py-3 items-center gap-3   bg-[#eee] rounded-2xl min-h-[90px]">
                         <img src="<?php echo esc_url( get_theme_media_url('images/pajamas_retry.svg') ); ?>"
                             alt="Assert Icon" width="24" height="24" />
                         <div>
@@ -111,10 +113,10 @@
 document.addEventListener("DOMContentLoaded", () => {
     if (typeof gsap === "undefined") return;
 
-    if (!gsap.__registeredScrollTrigger && typeof ScrollTrigger !== 'undefined') {
-        gsap.registerPlugin(ScrollTrigger);
-        gsap.__registeredScrollTrigger = true;
-    }
+        if (!gsap.__registeredScrollTrigger && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.__registeredScrollTrigger = true;
+        }
 
     ScrollTrigger.matchMedia({
         "(min-width: 768px)": function() {

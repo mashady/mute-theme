@@ -3,8 +3,10 @@
  * Template Name: Blog Page
  */
 get_header();
+
+
 ?>
-<?php get_template_part('templates/partials/navbar'); ?>
+
 <?php get_template_part('templates/partials/hero'); ?>
 
 <?php
@@ -41,6 +43,7 @@ function mm_get_current_lang_short() {
     return 'en';
 }
 ?>
+<link href="<?php echo get_stylesheet_directory_uri(); ?>/dist/output.css" rel="stylesheet">
 
 <section class="hero py-12 px-4 mx-auto mt-5">
     <!-- Section Header -->
@@ -117,7 +120,7 @@ function mm_get_current_lang_short() {
                 <?php endif; ?>
             </a>
 
-            <div class="flex flex-col justify-between flex-1">
+            <div class="flex flex-col justify-between ">
                 <div class="flex flex-col gap-3">
                     <h3 class="font-normal mt-[40px] <?php echo esc_attr($text_align_class); ?>">
                         <a href="<?php the_permalink(); ?>"><?php echo esc_html( $post_title ); ?></a>

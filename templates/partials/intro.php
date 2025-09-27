@@ -1,7 +1,8 @@
-<section style="" class="h-[60vh] lg:h-[120vh] px-4 lg:py-16 flex items-center flex-col justify-top">
-    <div class="max-w-5xl text-center h-fit sticky top-1/2 my-[25vh]">
+<section id="intro" class="h-[60vh] lg:h-[80vh] px-4 lg:py-16 flex items-center flex-col justify-top">
+    <div class="max-w-5xl text-center h-fit sticky top-1/2 -translate-y-1/2 my-[25vh]">
         <h2 class="text-[#dadada8a] text-2xl md:text-5xl font-medium font-inter " id="intro-heading">
-            At Sound Mute, we deliver expert acoustic solutions that eliminate noise,  enhance privacy, and create growth ready environments.
+            At Sound Mute, we deliver expert acoustic solutions that eliminate noise, enhance privacy, and create growth
+            ready environments.
         </h2>
     </div>
 </section>
@@ -12,7 +13,11 @@
 document.addEventListener("DOMContentLoaded", function() {
     (function() {
         if (typeof gsap === 'undefined') return;
-        gsap.registerPlugin(ScrollTrigger);
+
+        if (!gsap.__registeredScrollTrigger && typeof ScrollTrigger !== 'undefined') {
+            gsap.registerPlugin(ScrollTrigger);
+            gsap.__registeredScrollTrigger = true;
+        }
 
         // split the heading into chars
         var heading = document.querySelector('#intro-heading');
@@ -26,31 +31,39 @@ document.addEventListener("DOMContentLoaded", function() {
         split.words.forEach(function(c) {
             c.style.display = 'inline-block';
         });
-        if (!isMobile) {
-            var tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: heading,
-                    start: 'top center',
-                    end: '+=50%',
-                    scrub: 0.3,
-                    markers: false
-                }
-            });
-        }else{
-            var tl = gsap.timeline({
-                scrollTrigger: {
-                    trigger: heading,
-                    start: 'top center',
-                    end: 'center+=20%',
-                    scrub: 0.3,
-                    markers: false
-                }
-            });
-        }
-        tl.to(split.words, {
-            color: '#000000',
-            stagger: 0.02,
-            duration: 0.5
+
+        ScrollTrigger.matchMedia({
+            "(min-width: 768px)": function() {
+                // desktop: use a scrubbed subtle color change
+                var tl = gsap.timeline({
+                    scrollTrigger: {
+                        trigger: heading,
+                        start: 'top center',
+                        end: window.isMobile ? '+=80%' : '+=40%',
+                        scrub: 0.3,
+                        markers: false
+                    }
+                });
+                tl.to(split.words, {
+                    color: '#000000',
+                    stagger: 0.02,
+                    duration: 0.5
+                });
+            },
+
+            "(max-width: 767px)": function() {
+                // mobile: simple play-once color transition for perf and clarity
+                gsap.to(split.words, {
+                    color: '#000000',
+                    stagger: 0.02,
+                    duration: 0.5,
+                    scrollTrigger: {
+                        trigger: heading,
+                        start: 'top 90%',
+                        toggleActions: 'play none none none'
+                    }
+                });
+            }
         });
     })()
 });
